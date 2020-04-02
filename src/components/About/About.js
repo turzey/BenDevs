@@ -36,16 +36,15 @@ const About = props => {
       <Grid>
         <TitleArea>
           <Title>
-            A super-fast theme that is easy to get started, using the power of
-            GatsbyJS
+            Working with GatsbyJS, React, and WordPress to deliver clean, modern
+            web applications
           </Title>
           <Button text="View Products" link="/products" />
         </TitleArea>
         <ContentArea>
           <p>
-            Using modern CSS properties such as grid, this theme is optmised for
-            speed and mobile devices. Giving users an excellent experience on
-            any device. Future-proofing your product.
+            Focusing on front-end development using modern Javascript libraries
+            to create engaging applications that work great across all devices.
           </p>
         </ContentArea>
       </Grid>
