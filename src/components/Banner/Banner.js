@@ -1,13 +1,13 @@
 import React from "react"
 import styled from "styled-components"
-import Img from "gatsby-image"
+import BgImg from "gatsby-background-image"
 import { graphql, useStaticQuery } from "gatsby"
 
 const getImages = graphql`
   query HeroImage {
-    fluid: file(relativePath: { eq: "yellow-metal-design-decoration.jpg" }) {
+    fluid: file(relativePath: { eq: "mac-opening.jpeg" }) {
       childImageSharp {
-        fluid(maxWidth: 1000) {
+        fluid(maxWidth: 2000) {
           ...GatsbyImageSharpFluid_tracedSVG
         }
       }
@@ -15,9 +15,19 @@ const getImages = graphql`
   }
 `
 
-const HeroContainer = styled.div``
+const HeroContainer = styled.div`
+  height: 90vh;
+
+  .hero-img {
+    height: 100%;
+  }
+`
 
 const GridContainer = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
   display: grid;
   grid-gap: 30px;
   grid-template-columns: 100%;
@@ -27,47 +37,29 @@ const GridContainer = styled.div`
   }
 
   @media (min-width: 1200px) {
-    grid-template-rows: 1fr 1fr;
-    grid-gap: 40px;
+    grid-template-rows: auto auto;
+    grid-gap: 20px;
   }
 `
 
-const HeroImage = styled.div`
-  width: 100%;
-  background-color: var(--primary);
-  border: none;
-  outline: none;
-
-  @media (min-width: 768px) {
-    grid-column: 1 / 4;
-  }
-
-  @media (min-width: 1200px) {
-    grid-column: 1 / 3;
-    grid-row: 1 / 3;
-    margin-bottom: 0;
-  }
+const Container = styled.div`
+  background-color: rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 `
 
 const TitleArea = styled.div`
   @media (min-width: 768px) {
-    grid-column: 1 / 2;
-  }
-
-  @media (min-width: 1200px) {
-    grid-column: 3 / 4;
+    grid-column: 1 / 3;
   }
 `
 const ContentArea = styled.div`
-  @media (min-width: 768px) {
-    grid-column: 3 / 4;
-  }
+  grid-column: 1 / 3;
 
   @media (min-width: 1200px) {
     grid-row: 2 / 3;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
   }
 `
 
@@ -86,22 +78,27 @@ const HeroSubTitle = styled.h2`
 const Banner = ({ title, info, children }) => {
   const data = useStaticQuery(getImages)
   return (
-    <section className="section-padding">
-      <HeroContainer className="container">
-        <GridContainer>
-          <HeroImage>
-            <Img fluid={data.fluid.childImageSharp.fluid} />
-          </HeroImage>
-          <TitleArea>
-            <HeroTitle>{title}</HeroTitle>
-          </TitleArea>
-          <ContentArea>
-            <HeroSubTitle>{info}</HeroSubTitle>
-            {children}
-          </ContentArea>
-        </GridContainer>
-      </HeroContainer>
-    </section>
+    <HeroContainer>
+      <BgImg className="hero-img" fluid={data.fluid.childImageSharp.fluid}>
+        <Container className="section-padding">
+          <GridContainer>
+            <TitleArea>
+              <HeroTitle>
+                I'm a front-end developer & open-source contributor based in
+                Inverness
+              </HeroTitle>
+            </TitleArea>
+
+            <ContentArea>
+              <HeroSubTitle>
+                Creating applications using modern Javascript frameworks
+              </HeroSubTitle>
+              {children}
+            </ContentArea>
+          </GridContainer>
+        </Container>
+      </BgImg>
+    </HeroContainer>
   )
 }
 

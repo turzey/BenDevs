@@ -22,7 +22,7 @@ const NavButton = styled.button`
   border: none;
   background-color: transparent;
   font-size: var(--menuItem);
-  font-weight: 900;
+  font-weight: 300;
   letter-spacing: -1px;
   z-index: 10;
 
@@ -44,7 +44,7 @@ const NavButton = styled.button`
 
 const NavLogo = styled.div`
   font-size: 0.875rem;
-  font-weight: 900;
+  font-weight: 300;
   width: 60%;
   flex-shrink: 0;
   letter-spacing: -0.5px;
@@ -171,7 +171,7 @@ const NavLinks = styled.div`
   li {
     text-transform: capitalize;
     font-size: var(--menuItem);
-    font-weight: 900;
+    font-weight: 300;
     letter-spacing: -0.5px;
     position: relative;
     padding-bottom: 10px;
