@@ -16,7 +16,7 @@ const getImages = graphql`
 `
 
 const HeroContainer = styled.div`
-  height: 90vh;
+  height: 100vh;
 
   .hero-img {
     height: 100%;
