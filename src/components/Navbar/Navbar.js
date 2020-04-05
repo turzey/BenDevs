@@ -1,16 +1,14 @@
 import React, { useState } from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { useStaticQuery, graphql } from "gatsby"
-import Hamburger from "./Hamburger"
 import styled from "styled-components"
 
 const NavBar = styled.nav`
-  padding: 0 1.875rem;
+  padding: 25px 1.875rem;
   position: fixed;
   width: 100%;
   z-index: 5;
   background-color: transparent;
-  padding: 25px 0;
 `
 
 const NavLogo = styled.div`
@@ -47,11 +45,11 @@ const NavCenter = styled.div`
   margin: 0 auto;
 `
 
-const Navbar = () => {
-  const [isOpen, setNav] = useState(false)
-  const toggleNav = () => {
-    setNav(isOpen => !isOpen)
-  }
+const Navbar = ({ children }) => {
+  // const [isOpen, setNav] = useState(false)
+  // const toggleNav = () => {
+  //   setNav(isOpen => !isOpen)
+  // }
 
   const {
     site: { siteMetadata },
@@ -74,7 +72,7 @@ const Navbar = () => {
               {siteMetadata.title}
             </AniLink>
           </NavLogo>
-          <Hamburger />
+          {children}
         </NavCenter>
       </NavBar>
     </>

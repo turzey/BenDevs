@@ -71,7 +71,7 @@ const Container = styled.div`
 const Hamburger = props => {
   return (
     <>
-      <Container className={props.status ? "menu-init" : "menu-open"}>
+      <Container className={props.status ? "menu-open" : "menu-init"}>
         <span></span>
         <span></span>
         <span></span>

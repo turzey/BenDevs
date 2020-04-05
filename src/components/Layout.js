@@ -1,5 +1,7 @@
-import React from "react"
+import React, { useState } from "react"
 import Navbar from "./Navbar/Navbar"
+import SideMenu from "./Navbar/SideMenu"
+import Hamburger from "./Navbar/Hamburger"
 import Footer from "./Footer"
 import { createGlobalStyle } from "styled-components"
 import "typeface-jura"
@@ -45,6 +47,24 @@ body {
     background-color: var(--background);
     color: #fff;
   }
+
+#main {
+  transition: margin-left 0.5s;
+  width: 100%;
+
+  &.menu-open {
+    margin-left: 250px;
+  }
+}
+
+.burger {
+  background-color: transparent;
+  border: none;
+  position: fixed;
+  top: 25px;
+  right: 20px;
+  z-index: 5;
+}
 
 h1,
 h2 {
@@ -135,12 +155,23 @@ button.btn {
 `
 
 const Layout = ({ children }) => {
+  const [isOpen, setNav] = useState(false)
+  const toggleNav = () => {
+    setNav(isOpen => !isOpen)
+  }
+
   return (
     <>
       <GlobalStyle />
-      <Navbar />
-      {children}
-      <Footer />
+      <div id="main" className={isOpen ? "menu-open" : "menu-closed"}>
+        <SideMenu status={isOpen} />
+        <Navbar></Navbar>
+        <button className="burger" onClick={toggleNav}>
+          <Hamburger status={isOpen} />
+        </button>
+        {children}
+        <Footer />
+      </div>
     </>
   )
 }
