@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import BgImg from "gatsby-background-image"
 import { graphql, useStaticQuery } from "gatsby"
+import { motion } from "framer-motion"
 
 const getImages = graphql`
   query HeroImage {
@@ -77,22 +78,35 @@ const HeroSubTitle = styled.h2`
 
 const Banner = ({ title, info, children }) => {
   const data = useStaticQuery(getImages)
+
   return (
     <HeroContainer>
       <BgImg className="hero-img" fluid={data.fluid.childImageSharp.fluid}>
         <Container className="section-padding">
           <GridContainer>
             <TitleArea>
-              <HeroTitle>
-                I'm a front-end developer & open-source contributor based in
-                Inverness
-              </HeroTitle>
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.5, duration: 1 }}
+              >
+                <HeroTitle>
+                  I'm a front-end developer & open-source contributor based in
+                  Inverness
+                </HeroTitle>
+              </motion.div>
             </TitleArea>
 
             <ContentArea>
-              <HeroSubTitle>
-                Creating applications using modern Javascript frameworks
-              </HeroSubTitle>
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.75, duration: 1 }}
+              >
+                <HeroSubTitle>
+                  Creating applications using modern Javascript frameworks
+                </HeroSubTitle>
+              </motion.div>
               {children}
             </ContentArea>
           </GridContainer>
