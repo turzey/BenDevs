@@ -5,7 +5,6 @@ import Hamburger from "./Navbar/Hamburger"
 import Footer from "./Footer"
 import { createGlobalStyle } from "styled-components"
 import "typeface-jura"
-import { motion } from "framer-motion"
 
 const GlobalStyle = createGlobalStyle`
 :root {

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"

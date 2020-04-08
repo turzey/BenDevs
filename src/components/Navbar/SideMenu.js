@@ -39,16 +39,39 @@ const FlexCont = styled.div`
 `
 
 const SideMenu = props => {
+  const variants = {
+    inactive: {
+      opacity: 0,
+      y: 10,
+      transition: {
+        duration: 0.2,
+      },
+    },
+    active: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.3,
+        duration: 0.5,
+      },
+    },
+  }
+
   return (
     <Cont className={props.status ? "menu-open" : "menu-closed"}>
       <FlexCont>
-        {menuLinks.map((item, index) => {
-          return (
-            <li key={index}>
-              <Link to={item.url}>{item.text}</Link>
-            </li>
-          )
-        })}
+        <motion.ul
+          variants={variants}
+          animate={!props.status ? "inactive" : "active"}
+        >
+          {menuLinks.map((item, index) => {
+            return (
+              <li key={index}>
+                <Link to={item.url}>{item.text}</Link>
+              </li>
+            )
+          })}
+        </motion.ul>
       </FlexCont>
     </Cont>
   )
