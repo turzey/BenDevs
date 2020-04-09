@@ -54,12 +54,12 @@ const Index = () => {
           </motion.div>
         </Banner>
       </Hero>
-      <StyledAbout
+      {/* <StyledAbout
         gradient="true"
         img={data.aboutSectionImg.childImageSharp.fluid}
-      >
-        <About largePadding={true} />
-      </StyledAbout>
+      > */}
+      <About largePadding={true} />
+      {/* </StyledAbout> */}
       <Service largePadding={true} />
       <StyledAbout
         gradient="true"
