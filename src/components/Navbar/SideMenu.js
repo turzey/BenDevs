@@ -13,11 +13,13 @@ const Cont = styled.div`
   left: 0;
   overflow-x: hidden;
   transition: 0.5s;
+  background-color: #1a1a1a;
 
   li {
     list-style: none;
     text-transform: uppercase;
     line-height: 2.5rem;
+    font-family: "Jura", sans-serif;
 
     a {
       text-decoration: none;

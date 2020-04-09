@@ -4,12 +4,14 @@ import Grid from "../Grid/Grid"
 import services from "../../constants/services"
 
 const ServiceItem = styled.article`
-  background-color: #272727;
-  border-top: 3px solid var(--primary);
-  padding: 2.5rem 1.25rem;
-
   &:last-child {
     margin-bottom: 0;
+  }
+
+  svg {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
   }
 
   @media (min-width: 768px) {
@@ -38,6 +40,7 @@ const Service = props => {
         {services.map((item, index) => {
           return (
             <ServiceItem key={index}>
+              {item.logo}
               <h2>{item.title}</h2>
               <p>{item.text}</p>
             </ServiceItem>

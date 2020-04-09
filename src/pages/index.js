@@ -54,13 +54,8 @@ const Index = () => {
           </motion.div>
         </Banner>
       </Hero>
-      {/* <StyledAbout
-        gradient="true"
-        img={data.aboutSectionImg.childImageSharp.fluid}
-      > */}
-      <About largePadding={true} />
-      {/* </StyledAbout> */}
-      <Service largePadding={true} />
+      <About largePadding={false} />
+      <Service largePadding={false} />
       <StyledAbout
         gradient="true"
         img={data.featuredProductsImg.childImageSharp.fluid}

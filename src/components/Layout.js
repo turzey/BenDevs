@@ -5,10 +5,11 @@ import Hamburger from "./Navbar/Hamburger"
 import Footer from "./Footer"
 import { createGlobalStyle } from "styled-components"
 import "typeface-jura"
+import "typeface-roboto"
 
 const GlobalStyle = createGlobalStyle`
 :root {
-  --background: #1d1d1d;
+  --background: #000;
   --border: #313131;
   --primary: #FFB800;
   --inActive: #505050;
@@ -40,12 +41,14 @@ const GlobalStyle = createGlobalStyle`
 
 }  
 body {
-    font-family: 'Jura', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: var(--background);
     color: #fff;
+    font-size: 0.9rem;
   }
 
 #main {
@@ -78,6 +81,15 @@ h2 {
   @media(min-width: 1200px) {
     margin-bottom: 1.5rem;
   }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Jura', sans-serif;
 }
 
 h1 {

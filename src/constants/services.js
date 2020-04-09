@@ -1,17 +1,24 @@
+import React from "react"
+import { FaWordpress } from "react-icons/fa"
+import { DiJsBadge, DiGithubFull } from "react-icons/di"
+
 export default [
   {
-    title: "Super-fast loading times",
+    logo: <DiJsBadge />,
+    title: "JS Frameworks",
     text:
-      "Built using the React-based framework, Gatsby, you'll benefit from ultra-fast loading times and near instant page transitions.",
+      "Working with the React framework and utilising the static-site generator Gatsby to develop modern web applications.",
   },
   {
-    title: "Full Content Management",
+    logo: <DiGithubFull />,
+    title: "Open Source Contributor",
     text:
-      "Using Contentful, you'll be able to update your site as your application grows. The days of using a bloated WordPress CMS are over.",
+      "Contributing to, and maintaining a number of open--source themes available on the GatsbyJS starter library.",
   },
   {
-    title: "Modern & Clean Design",
+    logo: <FaWordpress />,
+    title: "WordPress Bespoke Development",
     text:
-      "Helping your application stay up-to-date and attractive to users, Barcadia is made using minimalist-inspired design principles.",
+      "Building bespoke websites using the WordPress content management system.",
   },
 ]
