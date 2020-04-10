@@ -6,6 +6,7 @@ import About from "../components/About/About"
 import Service from "../components/Service/Service"
 import Button from "../components/Button/Button"
 import StyledAbout from "../components/StyledAbout/StyledAbout"
+import FeaturedProjects from "../components/FeaturedProjects/FeaturedProjects"
 import FeaturedProducts from "../components/FeaturedProducts/FeaturedProducts"
 import { useStaticQuery, graphql } from "gatsby"
 import { motion } from "framer-motion"
@@ -56,12 +57,8 @@ const Index = () => {
       </Hero>
       <About largePadding={false} />
       <Service largePadding={false} />
-      <StyledAbout
-        gradient="true"
-        img={data.featuredProductsImg.childImageSharp.fluid}
-      >
-        <FeaturedProducts largePadding={true} />
-      </StyledAbout>
+      {/* <FeaturedProducts largePadding={false} /> */}
+      <FeaturedProjects />
     </Layout>
   )
 }

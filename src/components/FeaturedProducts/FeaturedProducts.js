@@ -29,34 +29,16 @@ const getProducts = graphql`
     }
   }
 `
-const TitleArea = styled.div`
-  @media (min-width: 768px) {
-    grid-column: 1 / 2;
-  }
-`
-
-const Title = styled.h2`
-  margin-top: 0;
-  margin-bottom: 2.125rem;
-`
 
 const FlexContainer = styled.div`
-  grid-column: 1/4;
-  margin-left: -20px;
-  margin-right: -20px;
-  @media (min-width: 768px) {
-    grid-column: 2 / 4;
-    display: flex;
-    justify-content: space-between;
-
-    p {
-      margin-top: 0;
-    }
-  }
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-y: scroll;
+  height: 100vh;
 `
 
 const FlexItem = styled.div`
-  flex: 0 0 50%;
+  flex: 0 0 90%;
   margin-bottom: 40px;
 
   &:last-child {
@@ -69,30 +51,16 @@ const FeaturedProducts = props => {
   const products = response.featuredProducts.edges
 
   return (
-    <section
-      className={
-        props.largePadding ? "section-padding--large" : "section-padding"
-      }
-    >
-      <Grid>
-        <TitleArea>
-          <Title>Displaying your featured products is easy</Title>
-          <p>
-            Aenean pulvinar ligula id elit pulvinar, sit amet semper sem semper.
-            In porttitor ornare libero, eu faucibus tellus elementum sit amet.
-          </p>
-          <Button text="All Products" link="/products" />
-        </TitleArea>
-        <FlexContainer>
-          {products.map(({ node }) => {
-            return (
-              <FlexItem>
-                <Product key={node.contentful_id} product={node} />
-              </FlexItem>
-            )
-          })}
-        </FlexContainer>
-      </Grid>
+    <section>
+      <FlexContainer>
+        {products.map(({ node }) => {
+          return (
+            <FlexItem>
+              <Product key={node.contentful_id} product={node} />
+            </FlexItem>
+          )
+        })}
+      </FlexContainer>
     </section>
   )
 }

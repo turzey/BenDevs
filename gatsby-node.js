@@ -12,6 +12,13 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      projects: allContentfulProjects {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
       posts: allContentfulPosts {
         edges {
           node {
@@ -26,6 +33,15 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `products/${node.slug}`,
       component: path.resolve("src/templates/product-template.js"),
+      context: {
+        slug: node.slug,
+      },
+    })
+  })
+  data.projects.edges.forEach(({ node }) => {
+    createPage({
+      path: `projects/${node.slug}`,
+      component: path.resolve("src/templates/project-template.js"),
       context: {
         slug: node.slug,
       },

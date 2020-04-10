@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Image from "gatsby-image"
+import BackgroundImage from "gatsby-background-image"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import propTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
@@ -19,12 +20,9 @@ const getImage = graphql`
 
 const ProductItem = styled.article`
   width: 100%;
-  padding: 0 20px;
 `
 
 const ProductContent = styled.div`
-  background-color: #272727;
-  border-top: 3px solid var(--primary);
   padding: 2.5rem 1.25rem;
 
   &:last-child {
@@ -45,7 +43,7 @@ const ProductContent = styled.div`
 `
 
 const ProductImg = styled.div`
-  height: 185px;
+  /* height: 100vh; */
 `
 
 const Product = ({ product }) => {
@@ -57,16 +55,16 @@ const Product = ({ product }) => {
 
   return (
     <ProductItem>
-      <Image fluid={mainImage} alt="single Product">
+      <BackgroundImage fluid={mainImage} alt="single Product">
         <ProductImg />
-      </Image>
-      <ProductContent>
-        <h2>{name || "Name not listed"}</h2>
-        <h3>£ {price || "Call"}</h3>
-        <AniLink className="btn" cover bg="#1d1d1d" to={`/products/${slug}`}>
-          View Product
-        </AniLink>
-      </ProductContent>
+        <ProductContent>
+          <h2>{name || "Name not listed"}</h2>
+          <p>£ {price || "Call"}</p>
+          <AniLink className="btn" cover bg="#1d1d1d" to={`/products/${slug}`}>
+            View Product
+          </AniLink>
+        </ProductContent>
+      </BackgroundImage>
     </ProductItem>
   )
 }
