@@ -19,6 +19,7 @@ const Index = () => {
         siteMetadata {
           title
           description
+          subline
         }
       }
       aboutSectionImg: file(relativePath: { eq: "mac-white-bg.jpeg" }) {
@@ -43,8 +44,8 @@ const Index = () => {
       <SEO title="Home" />
       <Hero>
         <Banner
-          title={data.site.siteMetadata.title}
-          info={data.site.siteMetadata.description}
+          description={data.site.siteMetadata.description}
+          subline={data.site.siteMetadata.subline}
         >
           <motion.div
             initial={{ opacity: 0 }}

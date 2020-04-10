@@ -9,7 +9,10 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: "Morgan Baker Dev",
-    description: "I'm a front-end developer based in Inverness",
+    description:
+      "I'm a web developer based in Inverness, building fast, elegant, & fully bespoke web applications",
+    subline:
+      "Coupling a love of design with web development I've created and continue to maintain a number of open-source themes",
     author: "Morgan Baker",
     twitterUsername: "@dave",
     image: "/yellow-metal-design-decoration.jpg",

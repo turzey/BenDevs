@@ -15,8 +15,8 @@ const GlobalStyle = createGlobalStyle`
   --inActive: #505050;
   --menuItem: 0.875rem;
   --transition: 0.3s;
-  --h1: 1rem;
-  --h2: 0.875rem;
+  --h1: 1.1rem;
+  --h2: 0.95rem;
   --paddingBorder: 1.875rem;
   --paddingStd: 3.125rem;
   --paddingLarge: 4.688rem;
@@ -72,7 +72,7 @@ body {
 h1,
 h2 {
   margin-bottom: 1rem;
-  line-height: 1.25em;
+  line-height: 1.35em;
   text-transform: uppercase;
   color: var(--primary);
   font-weight: 500;
