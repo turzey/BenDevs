@@ -31,6 +31,9 @@ const Container = styled.section`
   width: 100%;
   height: 100vh;
   max-height: 600px;
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
 `
 
 const ScrollCont = styled.div`
@@ -43,6 +46,10 @@ const ScrollCont = styled.div`
 
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  @media (min-width: 1024px) {
+    overflow-x: auto;
   }
 `
 

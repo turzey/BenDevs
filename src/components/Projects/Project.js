@@ -78,6 +78,11 @@ const Content = styled.div`
 
   h2 {
     font-size: var(--h1);
+    margin-bottom: 10px;
+
+    @media (min-width: 1200px) {
+      margin-bottom: 15px;
+    }
   }
 
   p {
