@@ -13,12 +13,10 @@ const NavBar = styled.nav`
 
 const NavLogo = styled.div`
   font-size: 0.875rem;
-  font-weight: 300;
+  font-weight: 400;
   width: 60%;
   flex-shrink: 0;
-  letter-spacing: 2px;
   z-index: 2;
-  text-transform: uppercase;
 
   @media (min-width: 1200px) {
     font-size: 1rem;

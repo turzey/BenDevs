@@ -42,7 +42,7 @@ const GlobalStyle = createGlobalStyle`
 }  
 body {
     font-family: 'Heebo', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

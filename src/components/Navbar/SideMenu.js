@@ -17,13 +17,13 @@ const Cont = styled.div`
 
   li {
     list-style: none;
-    text-transform: uppercase;
     line-height: 2.5rem;
-    font-family: "Jura", sans-serif;
 
     a {
       text-decoration: none;
-      color: var(--primary);
+      text-transform: capitalize;
+      color: #fff;
+      font-size: var(--h2);
     }
   }
 
