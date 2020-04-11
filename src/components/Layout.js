@@ -15,23 +15,23 @@ const GlobalStyle = createGlobalStyle`
   --inActive: #505050;
   --menuItem: 0.875rem;
   --transition: 0.3s;
-  --h1: 1.1rem;
-  --h2: 0.95rem;
+  --h1: 1.75rem;
+  --h2: 1.2rem;
   --paddingBorder: 1.875rem;
   --paddingStd: 3.125rem;
   --paddingLarge: 4.688rem;
 
   @media(min-width:768px) {
-    --h1: 1.25rem;
-    --h2: 1.1rem;
+    --h1: 2rem;
+    --h2: 1.25rem;
     --paddingStd: 4.688rem;
     --paddingLarge: 7.813rem;
   }
 
   @media(min-width: 1200px) {
     /* --menuItem: 1.25rem; */
-    --h1: 1.5rem;
-    --h2: 1.25rem;
+    --h1: 2.15rem;
+    --h2: 1.35rem;
     --paddingStd: 5.625rem;
     --paddingLarge: 9.375rem;
   }
@@ -41,7 +41,7 @@ const GlobalStyle = createGlobalStyle`
 
 }  
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Heebo', sans-serif;
     font-weight: 300;
     margin: 0;
     -webkit-font-smoothing: antialiased;
@@ -74,10 +74,8 @@ h1,
 h2 {
   margin-bottom: 1rem;
   line-height: 1.35em;
-  text-transform: uppercase;
-  color: var(--primary);
+  /* color: var(--primary); */
   font-weight: 500;
-  letter-spacing: 1px;
 
   @media(min-width: 1200px) {
     margin-bottom: 1.5rem;
@@ -90,12 +88,17 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Jura', sans-serif;
+  font-family: 'Heebo', sans-serif;
 }
 
 h1 {
   margin-bottom: 1rem;
   font-size: var(--h1);
+  letter-spacing: -0.25px;
+
+  @media(min-width: 768px) {
+    line-height: 1.2;
+  }
 }
 
 h2 {
@@ -106,15 +109,12 @@ a.btn,
 button.btn {
     color: #fff;
     background-color: transparent;
-    font-family: 'Jura', sans-serif;
     border: 0;
     text-decoration: none;
     padding: 0;
     transition: var(--transition) color;
-    text-transform: uppercase;
-    font-size: var(--menuItem);
-    font-weight: 300;
-    letter-spacing: 1.5px;
+    font-size: 1rem;
+    font-weight: 500;
     position: relative;
     padding-bottom: 10px;
     align-self: flex-start;
@@ -134,6 +134,10 @@ button.btn {
 
     &:focus {
       color: var(--primary);
+    }
+
+    @media(min-width: 768px) {
+      font-size: 1.1rem;
     }
 
     @media(hover: hover) {

@@ -30,7 +30,7 @@ const GridContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 10px;
   grid-template-columns: 100%;
 
   @media (min-width: 768px) {
@@ -39,6 +39,7 @@ const GridContainer = styled.div`
 
   @media (min-width: 1200px) {
     grid-template-rows: auto auto;
+    grid-gap: 15px;
   }
 `
 
@@ -68,13 +69,12 @@ const HeroTitle = styled.h1`
   font-size: var(--h1);
   margin-top: 0;
   margin-bottom: 0;
+  line-height: 1.25;
 `
 
 const HeroSubTitle = styled.h2`
   font-size: var(--h2);
-  font-family: "Roboto", sans-serif;
-  letter-spacing: 0;
-  text-transform: none;
+  line-height: 1.3;
   font-weight: 300;
   margin-top: 0;
   margin-bottom: 2.125rem;
