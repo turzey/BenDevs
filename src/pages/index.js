@@ -56,7 +56,7 @@ const Index = () => {
           </motion.div>
         </Banner>
       </Hero>
-      <About largePadding={false} />
+      <About largePadding={true} />
       <Service largePadding={false} />
       {/* <FeaturedProducts largePadding={false} /> */}
       <FeaturedProjects />
