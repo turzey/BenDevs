@@ -57,7 +57,7 @@ const Index = () => {
         </Banner>
       </Hero>
       <About largePadding={true} />
-      <Service largePadding={false} />
+      <Service largePadding={true} />
       {/* <FeaturedProducts largePadding={false} /> */}
       <FeaturedProjects />
     </Layout>
