@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
 :root {
   --background: #000;
   --border: #313131;
-  --primary: #FFB800;
+  --primary: #fff;
   --inActive: #505050;
   --menuItem: 0.875rem;
   --transition: 0.3s;
@@ -123,7 +123,7 @@ button.btn {
       content: "";
       display: block;
       position: absolute;
-      height: 1px;
+      height: 2px;
       left: 0;
       right: 0;
       bottom: 4px;

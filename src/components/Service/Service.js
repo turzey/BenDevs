@@ -4,9 +4,9 @@ import Grid from "../Grid/Grid"
 import services from "../../constants/services"
 
 const Rule = styled.hr`
-  height: 3px;
+  height: 2px;
   border: none;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.1);
   width: calc(100% - 60px);
   max-width: 1200px;
 

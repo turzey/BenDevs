@@ -25,6 +25,12 @@ const Copyright = styled.div`
   a {
     text-decoration: none;
     color: var(--primary);
+    opacity: 0.35;
+    transition: opacity 0.5s;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 
   @media (min-width: 768px) {

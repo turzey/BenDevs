@@ -5,9 +5,8 @@ import Banner from "../components/Banner/Banner"
 import About from "../components/About/About"
 import Service from "../components/Service/Service"
 import Button from "../components/Button/Button"
-import StyledAbout from "../components/StyledAbout/StyledAbout"
 import FeaturedProjects from "../components/FeaturedProjects/FeaturedProjects"
-import FeaturedProducts from "../components/FeaturedProducts/FeaturedProducts"
+import Contact from "../components/Contact/Contact"
 import { useStaticQuery, graphql } from "gatsby"
 import { motion } from "framer-motion"
 import SEO from "../components/SEO"
@@ -60,6 +59,7 @@ const Index = () => {
       <Service largePadding={true} />
       {/* <FeaturedProducts largePadding={false} /> */}
       <FeaturedProjects />
+      <Contact />
     </Layout>
   )
 }

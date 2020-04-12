@@ -4,18 +4,39 @@ import styled from "styled-components"
 
 const Section = styled.section``
 
-const Title = styled.h1`
-  margin-top: 0;
-  font-size: var(--h1);
-
-  @media (min-width: 768px) {
-    grid-column: 1 / 2;
-  }
-`
-
 const SubContent = styled.div`
+  a {
+    font-size: var(--h1);
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+    color: #fff;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      height: 2px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--primary);
+      opacity: 0.35;
+      transition: opacity 0.5s;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        cursor: pointer;
+
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
   @media (min-width: 768px) {
-    grid-column: 2 / 4;
+    grid-column: 1 / 3;
   }
 
   p {
@@ -24,83 +45,19 @@ const SubContent = styled.div`
 `
 
 const SubTitle = styled.h2`
+  font-size: var(--h1);
   @media (min-width: 768px) {
     margin-top: 0;
   }
 `
 
-const Form = styled.form`
-  input {
-    height: 50px;
-    margin-bottom: 1.25rem;
-
-    @media (min-width: 1200px) {
-      margin-bottom: 1.875rem;
-    }
-  }
-  input,
-  textarea {
-    background-color: #000;
-    color: #fff;
-    border: none;
-    border-bottom: 3px solid var(--inActive);
-    width: 100%;
-    font-size: 1rem;
-    font-weight: 900;
-    font-family: "Heebo", sans-serif;
-    padding: 15px;
-    transition: border-bottom-color 0.3s;
-
-    &:focus {
-      border-bottom-color: var(--primary);
-    }
-
-    &::-webkit-input-placeholder {
-      color: var(--inActive);
-    }
-
-    &::-moz-placeholder {
-      color: var(--inActive);
-    }
-
-    &:-ms-input-placeholder {
-      color: var(--inActive);
-    }
-
-    &:-moz-placeholder {
-      color: var(--inActive);
-    }
-  }
-  textarea {
-    margin-bottom: 2.125rem;
-  }
-`
-
 const Contact = () => {
   return (
-    <Section className="section-padding">
+    <Section className="section-padding--large">
       <Grid>
-        <Title>Contact.</Title>
         <SubContent>
-          <SubTitle>Looking for more information?</SubTitle>
-          <p>
-            Aenean pulvinar ligula id elit pulvinar, sit amet semper sem semper.
-            In porttitor ornare libero, eu faucibus tellus elementum sit amet.
-            Sed ut arcu efficitur, auctor purus sed, venenatis velit. Etiam
-            mauris metus, tempor vel convallis vitae, auctor id risus.
-          </p>
-          <Form name="contact" netlify>
-            <input placeholder="Your name" type="text" name="name" />
-            <input placeholder="Your email" type="email" name="email" />
-            <textarea
-              placeholder="Your message"
-              name="message"
-              rows="5"
-            ></textarea>
-            <button className="btn" type="submit">
-              Send Message
-            </button>
-          </Form>
+          <SubTitle>All enquiries</SubTitle>
+          <a href="mailto:hello@morganbaker.dev">hello@morganbaker.dev</a>
         </SubContent>
       </Grid>
     </Section>
