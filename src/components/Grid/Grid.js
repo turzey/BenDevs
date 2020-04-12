@@ -4,6 +4,7 @@ import styled from "styled-components"
 const Container = styled.div`
   display: grid;
   grid-gap: 40px;
+  width: 100%;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
