@@ -2,7 +2,6 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Image from "gatsby-background-image"
-import Banner from "../components/Banner/Banner"
 import Contact from "../components/Contact/Contact"
 import Grid from "../components/Grid/Grid"
 import styled from "styled-components"
@@ -87,6 +86,7 @@ const Scroll = styled.div`
 
   @media (min-width: 1024px) {
     overflow-x: auto;
+    flex-wrap: wrap;
   }
 `
 
@@ -104,9 +104,6 @@ const projectTemplate = ({ data }) => {
 
   return (
     <Layout>
-      {/* <Hero>
-        <Banner description={name} subline={excerpt}></Banner>
-      </Hero> */}
       <Header>
         <Image className="hero" fluid={mainImage.fluid}>
           <Grid>
