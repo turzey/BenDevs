@@ -65,7 +65,7 @@ const ScrollItem = styled.article`
   }
 `
 
-const FeaturedProjects = () => {
+const FeaturedProjects = props => {
   // Pass the getProjects graphql query into the hook and get the data back
   const queryResponse = useStaticQuery(getProjects)
 
@@ -73,7 +73,7 @@ const FeaturedProjects = () => {
   // Place into variable
   const projects = queryResponse.featuredProjects.edges
   return (
-    <Container>
+    <Container id={props.id}>
       <ScrollCont>
         {projects.map(({ node }) => {
           return (

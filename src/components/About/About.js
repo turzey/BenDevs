@@ -1,8 +1,8 @@
 import React from "react"
 import styled from "styled-components"
-import Button from "../../components/Button/Button"
 import Img from "gatsby-image"
 import { graphql, useStaticQuery } from "gatsby"
+import { Link } from "react-scroll"
 
 const getImages = graphql`
   query AboutImage {
@@ -63,14 +63,13 @@ const ImgArea = styled.div`
   }
 `
 
-const About = props => {
+const About = ({ largePadding, id }) => {
   const queryResponse = useStaticQuery(getImages)
 
   return (
     <section
-      className={
-        props.largePadding ? "section-padding--large" : "section-padding"
-      }
+      id={id}
+      className={largePadding ? "section-padding--large" : "section-padding"}
     >
       <Grid>
         <TitleArea>
@@ -82,7 +81,9 @@ const About = props => {
             Focusing on front-end development using modern Javascript libraries
             to create engaging applications that work great across all devices.
           </p>
-          <Button text="View Projects" link="/projects" />
+          <Link className="btn" to="projects" smooth={true} duration={500}>
+            View Projects
+          </Link>
         </TitleArea>
         <ImgArea>
           <Img

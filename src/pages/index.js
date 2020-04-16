@@ -4,12 +4,12 @@ import Hero from "../components/Hero/Hero"
 import Banner from "../components/Banner/Banner"
 import About from "../components/About/About"
 import Service from "../components/Service/Service"
-import Button from "../components/Button/Button"
 import FeaturedProjects from "../components/FeaturedProjects/FeaturedProjects"
 import Contact from "../components/Contact/Contact"
 import { useStaticQuery, graphql } from "gatsby"
 import { motion } from "framer-motion"
 import SEO from "../components/SEO"
+import { Link } from "react-scroll"
 
 const Index = () => {
   const data = useStaticQuery(graphql`
@@ -51,14 +51,16 @@ const Index = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 2.5, duration: 1 }}
           >
-            <Button text="Learn More" link="/products" />
+            <Link className="btn" to="about" smooth={true} duration={500}>
+              Learn More
+            </Link>
           </motion.div>
         </Banner>
       </Hero>
-      <About largePadding={true} />
+      <About id="about" largePadding={true} />
       <Service largePadding={true} />
       {/* <FeaturedProducts largePadding={false} /> */}
-      <FeaturedProjects />
+      <FeaturedProjects id="projects" />
       <Contact />
     </Layout>
   )
