@@ -1,8 +1,23 @@
 import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import menuLinks from "../../constants/links"
 import { Link } from "gatsby"
 import { motion } from "framer-motion"
+
+const getItems = graphql`
+  {
+    allContentfulProjects {
+      edges {
+        node {
+          contentful_id
+          name
+          slug
+        }
+      }
+    }
+  }
+`
 
 const Cont = styled.div`
   height: 100%;
@@ -41,6 +56,10 @@ const FlexCont = styled.div`
 `
 
 const SideMenu = props => {
+  const queryResponse = useStaticQuery(getItems)
+
+  const projectItems = queryResponse.allContentfulProjects.edges
+
   const variants = {
     inactive: {
       opacity: 0,
@@ -66,10 +85,10 @@ const SideMenu = props => {
           variants={variants}
           animate={!props.status ? "inactive" : "active"}
         >
-          {menuLinks.map((item, index) => {
+          {projectItems.map(({ node }) => {
             return (
-              <li key={index}>
-                <Link to={item.url}>{item.text}</Link>
+              <li key={node.contentful_id}>
+                <Link to={`/projects/${node.slug}`}>{node.name}</Link>
               </li>
             )
           })}
