@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
+import SEO from "../components/SEO"
 import Image from "gatsby-background-image"
 import Contact from "../components/Contact/Contact"
 import Grid from "../components/Grid/Grid"
@@ -104,6 +105,7 @@ const projectTemplate = ({ data }) => {
 
   return (
     <Layout>
+      <SEO title={name} description={excerpt} />
       <Header>
         <Image className="hero" fluid={mainImage.fluid}>
           <Grid>

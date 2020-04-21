@@ -16,7 +16,7 @@ module.exports = {
     author: "Morgan Baker",
     twitterUsername: "@dave",
     image: "/yellow-metal-design-decoration.jpg",
-    siteUrl: "https://barcadia.netlify.com",
+    siteUrl: "https://www.morganbaker.dev",
   },
   /* Your site config here */
   plugins: [
