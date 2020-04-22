@@ -15,8 +15,8 @@ const GlobalStyle = createGlobalStyle`
   --inActive: #505050;
   --menuItem: 0.875rem;
   --transition: 0.3s;
-  --h1: 1.75rem;
-  --h2: 1.2rem;
+  --h1: 1.5rem;
+  --h2: 1.1rem;
   --paddingBorder: 1.875rem;
   --paddingStd: 3.125rem;
   --paddingLarge: 4.688rem;

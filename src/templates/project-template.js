@@ -15,6 +15,8 @@ const Header = styled.header`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-left: var(--paddingBorder);
+    padding-right: var(--paddingBorder);
 
     h1 {
       font-size: var(--h1);
