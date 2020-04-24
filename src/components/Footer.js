@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
 const FooterArea = styled.footer`
@@ -17,8 +17,8 @@ const GridContainer = styled.div`
 `
 
 const Copyright = styled.div`
-  padding-top: 20px;
-  padding-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 5px;
   font-size: 0.875rem;
   width: 100%;
 
@@ -34,8 +34,33 @@ const Copyright = styled.div`
   }
 
   @media (min-width: 768px) {
-    grid-column: 1 / 4;
+    grid-column: 1 / 2;
     grid-row: 2 / 3;
+    margin-bottom: 20px;
+  }
+`
+
+const Privacy = styled.div`
+  margin-top: 5px;
+  margin-bottom: 20px;
+  font-size: 0.875rem;
+
+  a {
+    text-decoration: none;
+    color: var(--primary);
+    opacity: 0.35;
+    transition: opacity 0.5s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  @media (min-width: 768px) {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    margin-top: 20px;
+    text-align: right;
   }
 `
 
@@ -66,6 +91,9 @@ const Footer = () => {
               {siteMetadata.author}
             </a>
           </Copyright>
+          <Privacy>
+            <Link to="/privacy">Privacy & Your Data</Link>
+          </Privacy>
         </GridContainer>
       </FooterArea>
     </>

@@ -1,6 +1,7 @@
 import React from "react"
 import SEO from "../components/SEO"
 import Layout from "../components/Layout"
+import Contact from "../components/Contact/Contact"
 import { Link, graphql } from "gatsby"
 import styled from "styled-components"
 import Img from "gatsby-image"
@@ -87,6 +88,7 @@ const projects = ({ data }) => {
           )
         })}
       </section>
+      <Contact />
     </Layout>
   )
 }
