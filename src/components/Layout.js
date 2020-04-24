@@ -4,6 +4,7 @@ import SideMenu from "./Navbar/SideMenu"
 import Hamburger from "./Navbar/Hamburger"
 import Footer from "./Footer"
 import { createGlobalStyle } from "styled-components"
+import CookieConsent, { Cookies } from "react-cookie-consent"
 import "typeface-jura"
 import "typeface-roboto"
 
@@ -180,6 +181,14 @@ const Layout = ({ children }) => {
   return (
     <>
       <GlobalStyle />
+      <CookieConsent
+        location="bottom"
+        buttonText="Accept"
+        declineButtonText="Decline"
+        cookieName="morgan-baker-google-analytics"
+      >
+        This site uses cookies
+      </CookieConsent>
       <div id="main" className={isOpen ? "menu-open" : "menu-closed"}>
         <SideMenu status={isOpen} />
         <Navbar></Navbar>

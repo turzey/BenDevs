@@ -23,6 +23,17 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
     {
+      resolve: `gatsby-plugin-gdpr-cookies`,
+      options: {
+        googleAnalytics: {
+          trackingId: process.env.GOOGLE_ANALYTICS,
+          cookieName: "morgan-baker-google-analytics",
+          anonymize: true,
+        },
+        environments: ["production"],
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
@@ -40,8 +51,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
-        host: "https://barcadia.netlify.com",
-        sitemap: "https://barcadia.netlify.com/sitemap.xml",
+        host: "https://www.morganbaker.dev",
+        sitemap: "https://www.morganbaker.dev/sitemap.xml",
         policy: [{ userAgent: "*", allow: "/" }],
       },
     },
