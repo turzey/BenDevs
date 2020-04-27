@@ -40,7 +40,7 @@ const TitleArea = styled.div`
 const Privacy = () => {
   return (
     <Layout>
-      <SEO />
+      <SEO title="Privacy & Your Data" />
       <section className="section-padding--large">
         <Intro>
           <h1>Privacy & Your Data</h1>

@@ -4,6 +4,7 @@ import Grid from "../components/Grid/Grid"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import SEO from "../components/SEO"
+import Contact from "../components/Contact/Contact"
 
 const Error404 = styled.section`
   background-color: var(--background);
@@ -20,16 +21,11 @@ const Title = styled.h1`
 
 const SubContent = styled.div`
   p {
+    font-size: var(--h2);
     margin-bottom: 2.125rem;
   }
   @media (min-width: 768px) {
-    grid-column: 2 / 3;
-  }
-`
-
-const SubTitle = styled.h2`
-  @media (min-width: 768px) {
-    margin-top: 0;
+    grid-column: 1 / 3;
   }
 `
 
@@ -37,11 +33,12 @@ const error = () => {
   return (
     <Layout>
       <SEO title="Error" />
-      <Error404 className="section-padding">
+      <Error404 className="section-padding--large">
         <Grid>
-          <Title>Sorry.</Title>
           <SubContent>
-            <SubTitle>This page has moved or no longer exists.</SubTitle>
+            <Title>Sorry.</Title>
+
+            <p>This page has moved or no longer exists.</p>
             <p>
               Please choose another option from the menu above, or to return
               home, press the button below.
@@ -52,6 +49,7 @@ const error = () => {
           </SubContent>
         </Grid>
       </Error404>
+      <Contact />
     </Layout>
   )
 }
