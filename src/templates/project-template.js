@@ -6,6 +6,7 @@ import Image from "gatsby-background-image"
 import Contact from "../components/Contact/Contact"
 import Grid from "../components/Grid/Grid"
 import styled from "styled-components"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 const Header = styled.header`
   height: 50vh;
@@ -34,6 +35,20 @@ const HeroContent = styled.div`
 
 const Content = styled.div`
   grid-column: 1 / 4;
+
+  p {
+    &:first-child {
+      margin-top: 0;
+    }
+    a {
+      color: var(--primary);
+      text-decoration-style: dashed;
+
+      &:hover {
+        text-decoration-style: solid;
+      }
+    }
+  }
 
   @media (min-width: 1200px) {
     grid-column: 1 / 3;
@@ -97,7 +112,7 @@ const projectTemplate = ({ data }) => {
   const {
     name,
     excerpt,
-    description: { description },
+    richDescription: { json },
     images,
     technology,
     website,
@@ -120,7 +135,7 @@ const projectTemplate = ({ data }) => {
       </Header>
       <section className="section-padding--large">
         <Grid>
-          <Content>{description}</Content>
+          <Content>{documentToReactComponents(json)}</Content>
           <Details>
             <h2>Built using {technology}</h2>
             <a
@@ -155,13 +170,13 @@ export const query = graphql`
       excerpt
       technology
       website
-      description {
-        description
-      }
       images {
         fluid {
           ...GatsbyContentfulFluid_tracedSVG
         }
+      }
+      richDescription {
+        json
       }
     }
   }

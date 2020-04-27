@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
-import menuLinks from "../../constants/links"
 import { Link } from "gatsby"
 import { motion } from "framer-motion"
 

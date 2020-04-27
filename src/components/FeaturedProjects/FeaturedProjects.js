@@ -13,9 +13,6 @@ const getProjects = graphql`
           contentful_id
           name
           excerpt
-          description {
-            description
-          }
           images {
             fluid(quality: 90, maxWidth: 1000) {
               ...GatsbyContentfulFluid_tracedSVG

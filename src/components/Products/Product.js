@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import Image from "gatsby-image"
 import BackgroundImage from "gatsby-background-image"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import propTypes from "prop-types"
