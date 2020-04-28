@@ -42,7 +42,14 @@ const ContentArea = styled.div`
   }
 
   p {
-    margin-bottom: 40px;
+    /* margin-bottom: 40px; */
+    code {
+      display: inline-block;
+      margin: 10px 1px;
+      padding: 3px 8px;
+      border-radius: 2px;
+      background-color: #333;
+    }
   }
 `
 

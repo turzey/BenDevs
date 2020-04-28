@@ -1,26 +1,110 @@
 import React from "react"
-import BlogList from "../components/Blog/BlogList"
-import Layout from "../components/Layout"
-import Grid from "../components/Grid/Grid"
-import PageIntro from "../components/PageIntro/PageIntro"
 import SEO from "../components/SEO"
+import Layout from "../components/Layout"
+import Contact from "../components/Contact/Contact"
+import { Link, graphql } from "gatsby"
+import styled from "styled-components"
 
-const blog = () => {
+const Intro = styled.div`
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+`
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 40px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: var(--paddingStd);
+  padding-bottom: var(--paddingStd);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+`
+
+const TitleArea = styled.div`
+  grid-column: 1 / 4;
+
+  @media (min-width: 768px) {
+    grid-column: 1 / 3;
+  }
+
+  p {
+    margin-top: 0;
+    font-size: var(--h2);
+    line-height: 1.3;
+    font-weight: 300;
+    margin-bottom: 2.125rem;
+  }
+`
+
+const Title = styled.h2`
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: var(--h1);
+  line-height: 1.25;
+
+  @media (min-width: 1200px) {
+    margin-bottom: 15px;
+  }
+`
+
+const ImgArea = styled.div`
+  grid-column: 1 / 4;
+
+  @media (min-width: 768px) {
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+`
+
+const blog = ({ data }) => {
+  const blogs = data.blogs.edges
+
   return (
     <Layout>
-      <SEO title="Blog" />
-      <section className="section-padding">
-        <Grid>
-          <PageIntro
-            title="Blog"
-            subTitle="A simple blog system that will allow you to update your followers with recent news"
-            paragraph="Aliquam tempus libero nec quam aliquam fringilla. Suspendisse potenti. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In quis ipsum magna."
-          />
-          <BlogList />
-        </Grid>
+      <SEO />
+      <section className="section-padding--large">
+        <Intro>
+          <h1>Journal</h1>
+        </Intro>
+        {blogs.map(({ node }) => {
+          return (
+            <Grid>
+              <TitleArea>
+                <Title key={node.contentful_id}>{node.title}</Title>
+                <p>{node.introduction}</p>
+                <Link className="btn" to={`/blog/${node.slug}`}>
+                  Read Article
+                </Link>
+              </TitleArea>
+            </Grid>
+          )
+        })}
       </section>
+      <Contact />
     </Layout>
   )
 }
+
+export const getBlogs = graphql`
+  query {
+    blogs: allContentfulPosts {
+      edges {
+        node {
+          contentful_id
+          title
+          published
+          slug
+          introduction
+        }
+      }
+    }
+  }
+`
 
 export default blog
