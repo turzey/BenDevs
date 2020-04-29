@@ -7,7 +7,6 @@ import Contact from "../components/Contact/Contact"
 import Grid from "../components/Grid/Grid"
 import styled from "styled-components"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { BLOCKS, MARKS } from "@contentful/rich-text-types"
 
 const Header = styled.header`
   height: 50vh;
@@ -119,11 +118,20 @@ const projectTemplate = ({ data }) => {
     website,
   } = data.project
 
-  const Bold = ({ children }) => <strong className="bold">{children}</strong>
-
   const options = {
-    renderMark: {
-      [MARKS.BOLD]: text => <Bold>{text}</Bold>,
+    // Pass in the node and dril down to the required data
+    renderNode: {
+      // Render the contentful rich content image
+      "embedded-asset-block": node => {
+        return (
+          <div className="content-image">
+            <img
+              src={node.data.target.fields.file["en-US"].url}
+              alt={node.data.target.fields.title["en-US"]}
+            />
+          </div>
+        )
+      },
     },
   }
 
@@ -144,7 +152,10 @@ const projectTemplate = ({ data }) => {
       </Header>
       <section className="section-padding--large">
         <Grid>
-          <Content>{documentToReactComponents(json, options)}</Content>
+          <Content>
+            {/* Render Contentful rich content here */}
+            {documentToReactComponents(json, options)}
+          </Content>
           <Details>
             <h2>Built using {technology}</h2>
             <a
