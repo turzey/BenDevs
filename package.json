@@ -1,7 +1,7 @@
 {
-  "name": "barcadia",
+  "name": "MBDev",
   "private": true,
-  "description": "A super-fast site using GatsbyJS",
+  "description": "A front-end developer based in Inverness | Building fast, reponsive websites",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
@@ -52,9 +52,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bagseye/barcadia"
+    "url": "https://github.com/bagseye/mbdev"
   },
   "bugs": {
-    "url": "https://github.com/bagseye/barcadia/issues"
+    "url": "https://github.com/bagseye/mbdev/issues"
   }
 }

@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
-import Image from "gatsby-background-image"
+import Image from "gatsby-image"
 import Contact from "../components/Contact/Contact"
 import Grid from "../components/Grid/Grid"
 import styled from "styled-components"
@@ -37,8 +37,16 @@ const Content = styled.div`
   grid-column: 1 / 4;
 
   p {
-    &:first-child {
+    &:first-child,
+    &:last-child {
       margin-top: 0;
+      margin-bottom: 0;
+    }
+    &:nth-child(2) {
+      margin-top: 0;
+    }
+    &:nth-last-child(2) {
+      margin-bottom: 0;
     }
     a {
       color: var(--primary);
@@ -72,13 +80,15 @@ const ImageArea = styled.section`
   margin-left: auto;
   margin-right: auto;
   max-width: 1800px;
-  height: 100vh;
-  max-height: 600px;
 
   .gallery-item {
-    height: 100%;
-    max-height: 600px;
     flex: 0 0 85%;
+
+    &::before {
+      content: "";
+      display: block;
+      padding-top: 25%;
+    }
 
     @media (min-width: 768px) {
       flex-basis: 80%;
