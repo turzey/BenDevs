@@ -8,10 +8,20 @@ const Title = styled.h2`
 `
 
 const FlexCont = styled.div`
+  display: flex;
+  flex-wrap: wrap;
   .stack-img {
-    margin-bottom: 50px;
-    max-width: 180px;
+    flex: 0 1 calc(50% - 20px);
+    margin-bottom: 20px;
+    max-width: 150px;
     display: block;
+    margin-right: 20px;
+
+    @media (min-width: 768px) {
+      flex: 0 1 calc(33.333% - 40px);
+      margin-right: 40px;
+      max-width: 200px;
+    }
   }
 `
 
@@ -28,7 +38,7 @@ const StackList = () => {
           node {
             base
             childImageSharp {
-              fluid {
+              fluid(maxWidth: 500) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -39,7 +49,10 @@ const StackList = () => {
   `)
 
   return (
-    <section className="section-padding">
+    <section
+      style={{ paddingTop: 0, paddingBottom: 0 }}
+      className="section-padding"
+    >
       <div className="container">
         <Title>Current Tech Stack</Title>
         <FlexCont>
@@ -48,6 +61,7 @@ const StackList = () => {
               className="stack-img"
               fluid={image.node.childImageSharp.fluid}
               alt={image.node.base.split(".")[0]}
+              title={image.node.base.split(".")[0]}
             />
           ))}
         </FlexCont>
