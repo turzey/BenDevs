@@ -3,6 +3,7 @@ import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import Contact from "../components/Contact/Contact"
 import styled from "styled-components"
+import Stack from "../components/StackList"
 
 const Intro = styled.div`
   max-width: 1200px;
@@ -77,6 +78,7 @@ const About = () => {
           </TitleArea>
         </Grid>
       </section>
+      <Stack />
       <Contact />
     </Layout>
   )
