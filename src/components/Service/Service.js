@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import Grid from "../Grid/Grid"
 import services from "../../constants/services"
+import Anim from "../Anim"
 
 const Rule = styled.hr`
   height: 2px;
@@ -60,11 +61,13 @@ const Service = props => {
         <Grid>
           {services.map((item, index) => {
             return (
-              <ServiceItem key={index}>
-                {item.logo}
-                <h2>{item.title}</h2>
-                <p>{item.text}</p>
-              </ServiceItem>
+              <Anim>
+                <ServiceItem key={index}>
+                  {item.logo}
+                  <h2>{item.title}</h2>
+                  <p>{item.text}</p>
+                </ServiceItem>
+              </Anim>
             )
           })}
         </Grid>

@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Grid from "../Grid/Grid"
 import styled from "styled-components"
+import Anim from "../Anim"
 
 const Section = styled.section``
 
@@ -54,12 +55,14 @@ const SubTitle = styled.h2`
 const Contact = () => {
   return (
     <Section className="section-padding--large">
-      <Grid>
-        <SubContent>
-          <SubTitle>All enquiries</SubTitle>
-          <a href="mailto:hello@morganbaker.dev">hello@morganbaker.dev</a>
-        </SubContent>
-      </Grid>
+      <Anim>
+        <Grid>
+          <SubContent>
+            <SubTitle>All enquiries</SubTitle>
+            <a href="mailto:hello@morganbaker.dev">hello@morganbaker.dev</a>
+          </SubContent>
+        </Grid>
+      </Anim>
     </Section>
   )
 }
