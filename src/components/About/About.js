@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import { graphql, useStaticQuery } from "gatsby"
+import Anim from "../Anim"
 import { Link } from "react-scroll"
 
 const getImages = graphql`
@@ -71,27 +72,30 @@ const About = ({ largePadding, id }) => {
       id={id}
       className={largePadding ? "section-padding--large" : "section-padding"}
     >
-      <Grid>
-        <TitleArea>
-          <Title>
-            Working with GatsbyJS, React, and WordPress to deliver clean, modern
-            web applications
-          </Title>
-          <p>
-            Focusing on front-end development using modern Javascript libraries
-            to create engaging applications that work great across all devices.
-          </p>
-          <Link className="btn" to="projects" smooth={true} duration={500}>
-            View Projects
-          </Link>
-        </TitleArea>
-        <ImgArea>
-          <Img
-            fluid={queryResponse.fluid.childImageSharp.fluid}
-            alt="Macbook and iPhone"
-          />
-        </ImgArea>
-      </Grid>
+      <Anim>
+        <Grid>
+          <TitleArea>
+            <Title>
+              Working with GatsbyJS, React, and WordPress to deliver clean,
+              modern web applications
+            </Title>
+            <p>
+              Focusing on front-end development using modern Javascript
+              libraries to create engaging applications that work great across
+              all devices.
+            </p>
+            <Link className="btn" to="projects" smooth={true} duration={500}>
+              View Projects
+            </Link>
+          </TitleArea>
+          <ImgArea>
+            <Img
+              fluid={queryResponse.fluid.childImageSharp.fluid}
+              alt="Macbook and iPhone"
+            />
+          </ImgArea>
+        </Grid>
+      </Anim>
     </section>
   )
 }

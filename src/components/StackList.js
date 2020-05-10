@@ -2,6 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Image from "gatsby-image"
+import Anim from "./Anim"
 
 const Title = styled.h2`
   font-size: var(--h1);
@@ -55,16 +56,18 @@ const StackList = () => {
     >
       <div className="container">
         <Title>Current Tech Stack</Title>
-        <FlexCont>
-          {imgQuery.allFile.edges.map(image => (
-            <Image
-              className="stack-img"
-              fluid={image.node.childImageSharp.fluid}
-              alt={image.node.base.split(".")[0]}
-              title={image.node.base.split(".")[0]}
-            />
-          ))}
-        </FlexCont>
+        <Anim>
+          <FlexCont>
+            {imgQuery.allFile.edges.map(image => (
+              <Image
+                className="stack-img"
+                fluid={image.node.childImageSharp.fluid}
+                alt={image.node.base.split(".")[0]}
+                title={image.node.base.split(".")[0]}
+              />
+            ))}
+          </FlexCont>
+        </Anim>
       </div>
     </section>
   )
