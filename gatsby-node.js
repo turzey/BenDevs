@@ -1,6 +1,6 @@
 const path = require("path")
 
-exports.createPages = async ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
   const { data } = await graphql(`
@@ -23,6 +23,15 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             slug
+          }
+        }
+      }
+      allMdx {
+        edges {
+          node {
+            frontmatter {
+              slug
+            }
           }
         }
       }
@@ -51,6 +60,15 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `blogs/${node.slug}`,
       component: path.resolve("src/templates/blog-template.js"),
+      context: {
+        slug: node.slug,
+      },
+    })
+  })
+  data.allMdx.edges.forEach(({ node }) => {
+    createPage({
+      path: `journal/${node.slug}`,
+      component: path.resolve("src/templates/post-template.js"),
       context: {
         slug: node.slug,
       },
