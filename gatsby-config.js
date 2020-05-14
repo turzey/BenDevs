@@ -48,10 +48,11 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `posts`,
-        path: `${__dirname}/src/posts/`,
+        path: `${__dirname}/src/posts`,
       },
     },
     `gatsby-plugin-mdx`,
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
@@ -67,7 +68,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images/`,
+        path: `${__dirname}/src/images`,
       },
     },
     {
