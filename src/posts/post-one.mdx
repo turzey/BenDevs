@@ -1,9 +1,87 @@
 ---
-title: The unforgettable lines of the Porsche 911
-slug: post-one
+title: Create a random quote generator using Javascript
+slug: javascript-random-quote-generator
 image: ./images/porsche-911.jpg
 date: 2020-03-12
 author: Morgan
 ---
 
-The Porsche 911 is a two-door, 2+2 high performance rear-engined sports car. Introduced in September 1964 by Porsche AG of Stuttgart, Germany. It has a rear-mounted flat-six engine and all round independent suspension. It has undergone continuous development, though the basic concept has remained unchanged. The engines were air-cooled until the introduction of the Type 996 in 1998, with the 993, produced from 1994–1998 model years, being the last of the air-cooled Porsche sports cars.
+I've put together a quick guide for creating a random quote generator using Javascript that you can integrate on your next project. I find writing about these things makes it easier for me to fully understand the processes required.
+
+## First Up
+
+I find it is best to write down the steps required, this will make it easier later on down the line as you try to build up your functions.
+
+## A Place to Store the Quotes
+
+You’ll need a place to store the quotes, and as with many languages there are a number of ways this could be done. For this example I am going to use a basic array.
+
+```javascript
+var quotes = [
+  "The way to get started is to quit talking and begin doing",
+  "If life were predictable it would cease to be life, and be without flavor",
+  "Life is what happens when you're busy making other plans",
+  "When you reach the end of your rope, tie a knot in it and hang on",
+  "Never let the fear of striking out keep you from playing the game",
+  "Life is either a daring adventure or nothing at all",
+  "Love the life you live. Live the life you love",
+  "If you really look closely, most overnight successes took a long time",
+  "I failed my way to success",
+  "Success is walking from failure to failure with no loss of enthusiasm",
+]
+```
+
+## Setup the Markup
+
+This will be really simple as all you’re going to need is a container to store the updated content in. Styling, and class names are completely up to you but to get you going add this to your HTML file
+
+```html
+<div class="quotes">
+  <article class="container">
+    <h1 id="quoteArea"></h1>
+  </article>
+</div>
+```
+
+## Start building up the function
+
+Now that has been setup you need to create a querySelector that will reference the container that will hold each random quote. Add the following line to your JS file:
+
+```javascript
+var quoteArea = document.querySelector("#quoteArea")
+```
+
+As you might already guess, this will find the tag with the ID quoteArea and store it in a variable of a similar name. Now you could get bogged down in modern Javascript here and use the new variable keywords, but for the moment that’s not a concern.
+
+For the moment I’ll set things up in a function called changeQuotes which will do the bulk of the switching. In here it will do a few things - count the length of the quotes array, request a random number, and display a random quote. First up, you’ll need to find out the length of the array so within the changeQuotes function write the following:
+
+```javascript
+function changeQuotes() {
+  var quotesLength = quotes.length
+}
+```
+
+Next, you'll want to generate a random number. To do this we'll create another, separate function that will pick a random number between 0 and the length of the array. Add the following lines to your JS file:
+
+```javascript
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max))
+}
+
+function changeQuotes() {
+  var quotesLength = quotes.length
+  var randomNum = getRandomInt(quotesLength)
+}
+```
+
+Now, with the length of the array and the newly acquired random number, use that to create a variable called randomQuote and display the quote on the frontend
+
+```javascript
+function changeQuotes() {
+  var quotesLength = quotes.length
+  var randomNum = getRandomInt(quotesLength)
+  var randomQuote = quotesLength[randomNum]
+
+  quoteArea.innerHTML = randomQuote
+}
+```

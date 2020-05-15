@@ -25,34 +25,40 @@ const ContentArea = styled.div`
     margin-bottom: 40px;
   }
 
-  p {
+  pre {
+    margin-top: 30px;
+    margin-bottom: 30px;
     code {
       display: inline-block;
-      margin: 10px 1px;
-      padding: 3px 8px;
-      border-radius: 2px;
-      background-color: #333;
+      padding: 25px 15px;
+      border-radius: 4px;
+      background-color: #0f0f0f;
+      box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+      width: 100%;
+      overflow-x: scroll;
+      border: 2px solid #1e1e1e;
     }
   }
 `
 
 export default function PageTemplate({ data }) {
-  const { title, date, author } = data.mdx.frontmatter
+  const { title, date, author, image } = data.mdx.frontmatter
   const { body } = data.mdx
+  const img = image.childImageSharp.fluid
   return (
     <Layout>
       <SEO title={title} />
       <section className="section-padding">
         <ContentArea>
-          <AniLink className="btn" cover bg="var(--background)" to="/blogs">
-            Back to Blogs
-          </AniLink>
           <h1>{title}</h1>
           <h2>Written by {author}</h2>
           <p>Published on - {date}</p>
           <article>
             <MDXRenderer>{body}</MDXRenderer>
           </article>
+          <AniLink className="btn" cover bg="var(--background)" to="/blogs">
+            Back to Journal Home
+          </AniLink>
         </ContentArea>
       </section>
     </Layout>
@@ -68,6 +74,13 @@ export const pageQuery = graphql`
         slug
         author
         date(formatString: "MMMM, Do, YYYY")
+        image {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
       }
     }
   }
