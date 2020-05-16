@@ -76,9 +76,9 @@ const blog = ({ data }) => {
           return (
             <Grid>
               <TitleArea>
-                <Title key={node.contentful_id}>{node.title}</Title>
-                <p>{node.introduction}</p>
-                <Link className="btn" to={`/blog/${node.slug}`}>
+                <Title key="123">{node.frontmatter.title}</Title>
+                <p>Updated</p>
+                <Link className="btn" to={`/journal/${node.frontmatter.slug}`}>
                   Read Article
                 </Link>
               </TitleArea>
@@ -93,14 +93,14 @@ const blog = ({ data }) => {
 
 export const getBlogs = graphql`
   query {
-    blogs: allContentfulPosts {
+    blogs: allMdx {
       edges {
         node {
-          contentful_id
-          title
-          published
-          slug
-          introduction
+          frontmatter {
+            title
+
+            slug
+          }
         }
       }
     }

@@ -1,0 +1,176 @@
+---
+title: Create a random quote generator using Javascript
+slug: javascript-random-quote-generator
+date: 2020-03-12
+author: Morgan
+---
+
+I've put together a quick guide for creating a random quote generator using Javascript that you can integrate on your next project. I find writing about these things makes it easier for me to fully understand the processes required.
+
+## First Up
+
+I find it is best to write down the steps required, this will make it easier later on down the line as you try to build up your functions.
+
+## A Place to Store the Quotes
+
+You’ll need a place to store the quotes, and as with many languages there are a number of ways this could be done. For this example I am going to use a basic array.
+
+```javascript
+var quotes = [
+  "The way to get started is to quit talking and begin doing",
+  "If life were predictable it would cease to be life, and be without flavor",
+  "Life is what happens when you're busy making other plans",
+  "When you reach the end of your rope, tie a knot in it and hang on",
+  "Never let the fear of striking out keep you from playing the game",
+  "Life is either a daring adventure or nothing at all",
+  "Love the life you live. Live the life you love",
+  "If you really look closely, most overnight successes took a long time",
+  "I failed my way to success",
+  "Success is walking from failure to failure with no loss of enthusiasm",
+]
+```
+
+## Setup the Markup
+
+This will be really simple as all you’re going to need is a container to store the updated content in. Styling, and class names are completely up to you but to get you going add this to your HTML file
+
+```html
+<div class="quotes">
+  <article class="container">
+    <h1 id="quoteArea"></h1>
+  </article>
+</div>
+```
+
+## Start building up the function
+
+Now that has been setup you need to create a querySelector that will reference the container that will hold each random quote. Add the following line to your JS file:
+
+```javascript
+var quoteArea = document.querySelector("#quoteArea")
+```
+
+As you might already guess, this will find the tag with the ID quoteArea and store it in a variable of a similar name. Now you could get bogged down in modern Javascript here and use the new variable keywords, but for the moment that’s not a concern.
+
+For the moment I’ll set things up in a function called changeQuotes which will do the bulk of the switching. In here it will do a few things - count the length of the quotes array, request a random number, and display a random quote. First up, you’ll need to find out the length of the array so within the changeQuotes function write the following:
+
+```javascript
+function changeQuotes() {
+  var quotesLength = quotes.length
+}
+```
+
+Next, you'll want to generate a random number. To do this we'll create another, separate function that will pick a random number between 0 and the length of the array. Add the following lines to your JS file:
+
+```javascript
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max))
+}
+
+function changeQuotes() {
+  var quotesLength = quotes.length
+  var randomNum = getRandomInt(quotesLength)
+}
+```
+
+Now, with the length of the array and the newly acquired random number, use that to create a variable called randomQuote and display the quote on the frontend using innerHTML
+
+```javascript
+function changeQuotes() {
+  var quotesLength = quotes.length
+  var randomNum = getRandomInt(quotesLength)
+  var randomQuote = quotesLength[randomNum]
+
+  quoteArea.innerHTML = randomQuote
+}
+```
+
+And to get the function running on the page load you can add the following to the javascript file:
+
+```javascript
+changeQuotes()
+```
+
+## Setting up a timer
+
+But having one quote appear on page load probably is not what you are looking for, so a better solution will be to add a timer in that will update the quote after a number of seconds. First of all, add a variable to the top of the JS file that will hold the duration
+
+```javascript
+var quoteArea = document.querySelector("#quoteArea")
+var slideDuration = 10000 // 10 seconds
+```
+
+And within the changeQuotes function add the following line. This will create a timer that will repeat the changeQuotes function at the interval set in the slideDuration variable.
+
+```javascript
+function changeQuotes() {
+  var quotesLength = quotes.length
+  var randomNum = getRandomInt(quotesLength)
+  var randomQuote = quotesLength[randomNum]
+
+  quoteArea.innerHTML = randomQuote
+
+  setTimeout(changeQuotes, slideDuration)
+}
+```
+
+And as you can see, the quote now changes every 10 seconds. Wonderful. But its a bit boring, so next up we'll add a few touches that will make the presentation a bit better. First up, place another setTimeout in the changeQuotes function. This one will control the removal of a fadeout class that will be used to style the quote transition and the changeover of the random quote. Add the following lines to your JS file:
+
+```javascript
+function changeQuotes() {
+  var quotesLength = quotes.length
+  var randomNum = getRandomInt(quotesLength)
+  var randomQuote = quotesLength[randomNum]
+
+  quoteArea.classList.add("fadeout")
+
+  setTimeout(function() {
+    quoteArea.innerHTML = randomQuote
+    quoteArea.classList.remove("fadeout")
+  }, 1250)
+
+  setTimeout(changeQuotes, slideDuration)
+}
+```
+
+And add the following CSS to tart it up.
+
+```scss
+#quoteArea {
+  opacity: 1;
+  transition: opacity 0.75s, transform 0.75s;
+
+  &.fadeout {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+}
+
+.quotes {
+  padding: 4rem 1rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  max-width: 600px;
+  height: 100%;
+  text-align: center;
+  font-family: sans-serif;
+
+  h1 {
+    font: {
+      family: "Pinyon Script", cursive;
+      size: 3rem;
+      weight: 300;
+    }
+    color: #2e2e2e;
+    text-shadow: 0px 0px 8px rgba(50, 50, 50, 0.25);
+  }
+}
+```
+
+And thats it, you should now have a random quote generator that you can implement on your next project. Or, you can take what we have here and expand on it.

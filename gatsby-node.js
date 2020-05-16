@@ -1,6 +1,6 @@
 const path = require("path")
 
-exports.createPages = async ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
   const { data } = await graphql(`
@@ -26,18 +26,27 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allMdx {
+        edges {
+          node {
+            frontmatter {
+              slug
+            }
+          }
+        }
+      }
     }
   `)
 
-  data.products.edges.forEach(({ node }) => {
-    createPage({
-      path: `products/${node.slug}`,
-      component: path.resolve("src/templates/product-template.js"),
-      context: {
-        slug: node.slug,
-      },
-    })
-  })
+  // data.products.edges.forEach(({ node }) => {
+  //   createPage({
+  //     path: `products/${node.slug}`,
+  //     component: path.resolve("src/templates/product-template.js"),
+  //     context: {
+  //       slug: node.slug,
+  //     },
+  //   })
+  // })
   data.projects.edges.forEach(({ node }) => {
     createPage({
       path: `projects/${node.slug}`,
@@ -47,32 +56,41 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-  data.posts.edges.forEach(({ node }) => {
+  // data.posts.edges.forEach(({ node }) => {
+  //   createPage({
+  //     path: `blogs/${node.slug}`,
+  //     component: path.resolve("src/templates/blog-template.js"),
+  //     context: {
+  //       slug: node.slug,
+  //     },
+  //   })
+  // })
+  data.allMdx.edges.forEach(({ node }) => {
     createPage({
-      path: `blogs/${node.slug}`,
-      component: path.resolve("src/templates/blog-template.js"),
+      path: `journal/${node.frontmatter.slug}`,
+      component: path.resolve("src/templates/post-template.js"),
       context: {
-        slug: node.slug,
+        slug: node.frontmatter.slug,
       },
     })
   })
-  //Amount of posts
-  const posts = data.posts.edges
-  // Posts per page
-  const postsPerPage = 6
-  // How many pages
-  const numPages = Math.ceil(posts.length / postsPerPage)
+  // //Amount of posts
+  // const posts = data.posts.edges
+  // // Posts per page
+  // const postsPerPage = 6
+  // // How many pages
+  // const numPages = Math.ceil(posts.length / postsPerPage)
 
-  Array.from({ length: numPages }).forEach((_, i) => {
-    createPage({
-      path: i === 0 ? `/blogs` : `/blogs/${i + 1}`,
-      component: path.resolve("./src/templates/blog-list-template.js"),
-      context: {
-        limit: postsPerPage,
-        skip: i * postsPerPage,
-        numPages,
-        currentPage: i + 1,
-      },
-    })
-  })
+  // Array.from({ length: numPages }).forEach((_, i) => {
+  //   createPage({
+  //     path: i === 0 ? `/blogs` : `/blogs/${i + 1}`,
+  //     component: path.resolve("./src/templates/blog-list-template.js"),
+  //     context: {
+  //       limit: postsPerPage,
+  //       skip: i * postsPerPage,
+  //       numPages,
+  //       currentPage: i + 1,
+  //     },
+  //   })
+  // })
 }
