@@ -95,7 +95,7 @@ const SideMenu = props => {
             <Link to="/about">About</Link>
           </li>
           <li>
-            <Link to="/blogs">Blog</Link>
+            <Link to="/journal">Journal</Link>
           </li>
         </motion.ul>
       </FlexCont>

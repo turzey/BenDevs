@@ -4,7 +4,6 @@ import { Link, graphql } from "gatsby"
 import Image from "gatsby-image"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
-// import Grid from "../components/Grid/Grid"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 import { MDXRenderer } from "gatsby-plugin-mdx"
@@ -42,9 +41,9 @@ const ContentArea = styled.div`
 `
 
 export default function PageTemplate({ data }) {
-  const { title, date, author, image } = data.mdx.frontmatter
+  const { title, date, author } = data.mdx.frontmatter
   const { body } = data.mdx
-  const img = image.childImageSharp.fluid
+  // const img = image.childImageSharp.fluid
   return (
     <Layout>
       <SEO title={title} />
@@ -74,13 +73,6 @@ export const pageQuery = graphql`
         slug
         author
         date(formatString: "MMMM, Do, YYYY")
-        image {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
       }
     }
   }
