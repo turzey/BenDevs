@@ -3,6 +3,7 @@ import SEO from "../components/SEO"
 import Layout from "../components/Layout"
 import Contact from "../components/Contact/Contact"
 import { Link, graphql } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import styled from "styled-components"
 import Img from "gatsby-image"
 
@@ -77,9 +78,14 @@ const projects = ({ data }) => {
               <TitleArea>
                 <Title key={node.contentful_id}>{node.name}</Title>
                 <p>{node.excerpt}</p>
-                <Link className="btn" to={`/projects/${node.slug}`}>
+                <AniLink
+                  cover
+                  bg="var(--background)"
+                  className="btn"
+                  to={`/projects/${node.slug}`}
+                >
                   View Project
-                </Link>
+                </AniLink>
               </TitleArea>
               <ImgArea>
                 <Img fluid={node.images[0].fluid} />

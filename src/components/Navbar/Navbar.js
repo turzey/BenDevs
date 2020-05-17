@@ -44,11 +44,6 @@ const NavCenter = styled.div`
 `
 
 const Navbar = ({ children }) => {
-  // const [isOpen, setNav] = useState(false)
-  // const toggleNav = () => {
-  //   setNav(isOpen => !isOpen)
-  // }
-
   const {
     site: { siteMetadata },
   } = useStaticQuery(graphql`
