@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 const FooterArea = styled.footer`
   padding-left: 1.875rem;
@@ -92,7 +93,9 @@ const Footer = () => {
             </a>
           </Copyright>
           <Privacy>
-            <Link to="/privacy">Privacy & Your Data</Link>
+            <AniLink cover bg="var(--background)" to="/privacy">
+              Privacy & Your Data
+            </AniLink>
           </Privacy>
         </GridContainer>
       </FooterArea>

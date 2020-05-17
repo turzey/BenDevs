@@ -3,6 +3,7 @@ import SEO from "../components/SEO"
 import Layout from "../components/Layout"
 import Contact from "../components/Contact/Contact"
 import { Link, graphql } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import styled from "styled-components"
 
 const Intro = styled.div`
@@ -78,9 +79,14 @@ const blog = ({ data }) => {
               <TitleArea>
                 <Title key="123">{node.frontmatter.title}</Title>
                 <p>Updated</p>
-                <Link className="btn" to={`/journal/${node.frontmatter.slug}`}>
+                <AniLink
+                  cover
+                  bg="var(--background)"
+                  className="btn"
+                  to={`/journal/${node.frontmatter.slug}`}
+                >
                   Read Article
-                </Link>
+                </AniLink>
               </TitleArea>
             </Grid>
           )

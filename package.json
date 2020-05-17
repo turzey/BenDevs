@@ -47,10 +47,7 @@
     "react-intersection-observer": "^8.26.2",
     "react-scroll": "^1.7.16",
     "styled-components": "^5.0.0",
-    "typeface-heebo": "0.0.72",
-    "typeface-jura": "^1.1.4",
-    "typeface-roboto": "0.0.75",
-    "use-dark-mode": "^2.3.1"
+    "typeface-heebo": "0.0.72"
   },
   "devDependencies": {
     "prettier": "^1.19.1"

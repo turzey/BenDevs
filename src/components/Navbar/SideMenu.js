@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import { Link } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { motion } from "framer-motion"
 
 const getItems = graphql`
@@ -87,15 +88,25 @@ const SideMenu = props => {
           {projectItems.map(({ node }) => {
             return (
               <li key={node.contentful_id}>
-                <Link to={`/projects/${node.slug}`}>{node.name}</Link>
+                <AniLink
+                  cover
+                  bg="var(--background)"
+                  to={`/projects/${node.slug}`}
+                >
+                  {node.name}
+                </AniLink>
               </li>
             )
           })}
           <li>
-            <Link to="/about">About</Link>
+            <AniLink cover bg="var(--background)" to="/about">
+              About
+            </AniLink>
           </li>
           <li>
-            <Link to="/journal">Journal</Link>
+            <AniLink cover bg="var(--background)" to="/journal">
+              Journal
+            </AniLink>
           </li>
         </motion.ul>
       </FlexCont>

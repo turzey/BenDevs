@@ -55,7 +55,7 @@ export default function PageTemplate({ data }) {
           <article>
             <MDXRenderer>{body}</MDXRenderer>
           </article>
-          <AniLink className="btn" cover bg="var(--background)" to="/blogs">
+          <AniLink className="btn" cover bg="var(--background)" to="/journal">
             Back to Journal Home
           </AniLink>
         </ContentArea>
