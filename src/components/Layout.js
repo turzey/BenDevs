@@ -5,7 +5,6 @@ import Hamburger from "./Navbar/Hamburger"
 import Footer from "./Footer"
 import { createGlobalStyle } from "styled-components"
 import CookieConsent from "react-cookie-consent"
-import "typeface-jura"
 import "typeface-heebo"
 
 const GlobalStyle = createGlobalStyle`
