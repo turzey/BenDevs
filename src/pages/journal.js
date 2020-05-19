@@ -2,7 +2,7 @@ import React from "react"
 import SEO from "../components/SEO"
 import Layout from "../components/Layout"
 import Contact from "../components/Contact/Contact"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import styled from "styled-components"
 
@@ -51,20 +51,8 @@ const Title = styled.h2`
   }
 `
 
-const ImgArea = styled.div`
-  grid-column: 1 / 4;
-
-  @media (min-width: 768px) {
-    grid-column: 3 / 4;
-    grid-row: 1 / 3;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-`
-
 const blog = ({ data }) => {
-  const blogs = data.blogs.edges
+  const blogs = data.allMdx.edges
 
   return (
     <Layout>
@@ -77,8 +65,12 @@ const blog = ({ data }) => {
           return (
             <Grid>
               <TitleArea>
-                <Title key="123">{node.frontmatter.title}</Title>
-                <p>Updated</p>
+                <Title key={node.id}>{node.frontmatter.title}</Title>
+                <p>
+                  <date datetime={node.frontmatter.date}>
+                    {node.frontmatter.date}
+                  </date>
+                </p>
                 <AniLink
                   cover
                   bg="var(--background)"
@@ -99,14 +91,15 @@ const blog = ({ data }) => {
 
 export const getBlogs = graphql`
   query {
-    blogs: allMdx {
+    allMdx {
       edges {
         node {
           frontmatter {
             title
-
+            date(formatString: "MMMM, Do, YYYY")
             slug
           }
+          id
         }
       }
     }
