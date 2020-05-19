@@ -1,11 +1,9 @@
 import React from "react"
 import styled from "styled-components"
-import { Link, graphql } from "gatsby"
-import Image from "gatsby-image"
+import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
-
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
 const ContentArea = styled.div`
@@ -51,7 +49,9 @@ export default function PageTemplate({ data }) {
         <ContentArea>
           <h1>{title}</h1>
           <h2>Written by {author}</h2>
-          <p>Published on - {date}</p>
+          <p>
+            Published on - <time datetime={date}>{date}</time>
+          </p>
           <article>
             <MDXRenderer>{body}</MDXRenderer>
           </article>

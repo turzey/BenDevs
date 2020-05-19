@@ -52,7 +52,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-mdx`,
-    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-plugin-gdpr-cookies`,
       options: {

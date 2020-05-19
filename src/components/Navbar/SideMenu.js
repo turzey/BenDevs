@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
-import { Link } from "gatsby"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { motion } from "framer-motion"
 
@@ -98,12 +97,12 @@ const SideMenu = props => {
               </li>
             )
           })}
-          <li>
+          <li key="aboutItem">
             <AniLink cover bg="var(--background)" to="/about">
               About
             </AniLink>
           </li>
-          <li>
+          <li key="journalItem">
             <AniLink cover bg="var(--background)" to="/journal">
               Journal
             </AniLink>

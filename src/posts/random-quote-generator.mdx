@@ -5,15 +5,15 @@ date: 2020-03-12
 author: Morgan
 ---
 
-I've put together a quick guide for creating a random quote generator using Javascript that you can integrate on your next project. I find writing about these things makes it easier for me to fully understand the processes required.
+This post details a simple code example to help you create a random quote generator using Javascript. Something that you can easily integrate on your next project or expand upon depending on your requirements. I've attempted to break down the process into simple steps, but if you don't have the time to complete the example yourself you'll find a CodePen example at the bottom of the post.
 
-## First Up
+## Getting prepared
 
-I find it is best to write down the steps required, this will make it easier later on down the line as you try to build up your functions.
+At the start I always think its a good idea to write down on paper what you are looking to achieve. Even if it is a relatively simple bit of code like this. It's just easier to know what you are aiming for and the steps to cet there should already be marked out before writing a single line of code. So lets have a quick think about what we would like this quote generator to do: - It needs an area to store the quotes. It needs to select one of those quotes at random and display that in HTML. It also needs to cycle through these quotes automatically.
 
-## A Place to Store the Quotes
+## Creating a Place to Store the Quotes
 
-You’ll need a place to store the quotes, and as with many languages there are a number of ways this could be done. For this example I am going to use a basic array.
+So the first step you need to get in place is an area to store the quotes. For this I have decided to use a basic array. In your JS file add the following code (You can add your choice of quotes here):
 
 ```javascript
 var quotes = [
@@ -30,9 +30,9 @@ var quotes = [
 ]
 ```
 
-## Setup the Markup
+## Setting up the HTML Markup
 
-This will be really simple as all you’re going to need is a container to store the updated content in. Styling, and class names are completely up to you but to get you going add this to your HTML file
+Another nice and simple part here. We basically need a container for displaying the quote on the frontend. The class names used here are again up to you as these will only be used for styling the generator later on. In the example I've given the text area an ID of quoteArea. If you change this, make sure you update it in your Javascript file further down the line. In your HTML file add the following markup:
 
 ```html
 <div class="quotes">
@@ -174,3 +174,5 @@ And add the following CSS to tart it up.
 ```
 
 And thats it, you should now have a random quote generator that you can implement on your next project. Or, you can take what we have here and expand on it.
+
+https://codepen.io/morgancarbonfourteen/pen/zYvWBxx

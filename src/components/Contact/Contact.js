@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import Grid from "../Grid/Grid"
 import styled from "styled-components"
 import Anim from "../Anim"
