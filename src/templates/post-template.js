@@ -5,6 +5,7 @@ import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import Button from "../components/Button/Button"
 
 const ContentArea = styled.div`
   max-width: 850px;
@@ -55,9 +56,7 @@ export default function PageTemplate({ data }) {
           <article>
             <MDXRenderer>{body}</MDXRenderer>
           </article>
-          <AniLink className="btn" cover bg="var(--background)" to="/journal">
-            Back to Journal Home
-          </AniLink>
+          <Button text="Back to Journal Home" link="/journal" />
         </ContentArea>
       </section>
     </Layout>

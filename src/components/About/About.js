@@ -4,6 +4,8 @@ import Img from "gatsby-image"
 import { graphql, useStaticQuery } from "gatsby"
 import Anim from "../Anim"
 import { Link } from "react-scroll"
+import { MdArrowForward } from "react-icons/md"
+import { IconContext } from "react-icons"
 
 const getImages = graphql`
   query AboutImage {
@@ -86,6 +88,13 @@ const About = ({ largePadding, id }) => {
             </p>
             <Link className="btn" to="projects" smooth={true} duration={500}>
               View Projects
+              <IconContext.Provider
+                value={{
+                  style: { marginLeft: "40px", verticalAlign: "middle" },
+                }}
+              >
+                <MdArrowForward />
+              </IconContext.Provider>
             </Link>
           </TitleArea>
           <ImgArea>

@@ -5,6 +5,7 @@ import Contact from "../components/Contact/Contact"
 import { graphql } from "gatsby"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import styled from "styled-components"
+import Button from "../components/Button/Button"
 
 const Intro = styled.div`
   max-width: 1200px;
@@ -71,14 +72,10 @@ const blog = ({ data }) => {
                     {node.frontmatter.date}
                   </date>
                 </p>
-                <AniLink
-                  cover
-                  bg="var(--background)"
-                  className="btn"
-                  to={`/journal/${node.frontmatter.slug}`}
-                >
-                  Read Article
-                </AniLink>
+                <Button
+                  text="Read Article"
+                  link={`/journal/${node.frontmatter.slug}`}
+                />
               </TitleArea>
             </Grid>
           )

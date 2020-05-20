@@ -111,12 +111,11 @@ button.btn {
     background-color: transparent;
     border: 0;
     text-decoration: none;
-    padding: 0;
+    padding: 0 0 10px 0;
     transition: var(--transition) color;
     font-size: 1rem;
     font-weight: 500;
     position: relative;
-    padding-bottom: 10px;
     align-self: flex-start;
 
     &::after {

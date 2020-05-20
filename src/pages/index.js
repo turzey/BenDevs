@@ -10,6 +10,8 @@ import { useStaticQuery, graphql } from "gatsby"
 import { motion } from "framer-motion"
 import SEO from "../components/SEO"
 import { Link } from "react-scroll"
+import { MdArrowForward } from "react-icons/md"
+import { IconContext } from "react-icons"
 
 const Index = () => {
   const data = useStaticQuery(graphql`
@@ -53,6 +55,13 @@ const Index = () => {
           >
             <Link className="btn" to="about" smooth={true} duration={500}>
               Learn More
+              <IconContext.Provider
+                value={{
+                  style: { marginLeft: "40px", verticalAlign: "middle" },
+                }}
+              >
+                <MdArrowForward />
+              </IconContext.Provider>
             </Link>
           </motion.div>
         </Banner>
