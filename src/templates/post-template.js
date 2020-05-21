@@ -3,7 +3,6 @@ import styled from "styled-components"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Button from "../components/Button/Button"
 
@@ -56,7 +55,7 @@ export default function PageTemplate({ data }) {
           <article>
             <MDXRenderer>{body}</MDXRenderer>
           </article>
-          <Button text="Back to Journal Home" link="/journal" />
+          <Button text="Back to Journal Home" link="/journal" anilink={true} />
         </ContentArea>
       </section>
     </Layout>

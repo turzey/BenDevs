@@ -10,8 +10,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { motion } from "framer-motion"
 import SEO from "../components/SEO"
 import { Link } from "react-scroll"
-import { MdArrowForward } from "react-icons/md"
-import { IconContext } from "react-icons"
+import Button from "../components/Button/Button"
 
 const Index = () => {
   const data = useStaticQuery(graphql`
@@ -53,22 +52,14 @@ const Index = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 2.5, duration: 1 }}
           >
-            <Link className="btn" to="about" smooth={true} duration={500}>
-              Learn More
-              <IconContext.Provider
-                value={{
-                  style: { marginLeft: "40px", verticalAlign: "middle" },
-                }}
-              >
-                <MdArrowForward />
-              </IconContext.Provider>
+            <Link to="about" smooth={true} duration={500}>
+              <Button text="Learn More" />
             </Link>
           </motion.div>
         </Banner>
       </Hero>
       <About id="about" largePadding={true} />
       <Service largePadding={true} />
-      {/* <FeaturedProducts largePadding={false} /> */}
       <FeaturedProjects id="projects" />
       <Contact />
     </Layout>

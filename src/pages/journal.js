@@ -3,7 +3,6 @@ import SEO from "../components/SEO"
 import Layout from "../components/Layout"
 import Contact from "../components/Contact/Contact"
 import { graphql } from "gatsby"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
 import styled from "styled-components"
 import Button from "../components/Button/Button"
 
@@ -75,6 +74,7 @@ const blog = ({ data }) => {
                 <Button
                   text="Read Article"
                   link={`/journal/${node.frontmatter.slug}`}
+                  anilink={true}
                 />
               </TitleArea>
             </Grid>

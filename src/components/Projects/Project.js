@@ -42,7 +42,7 @@ const Project = ({ project }) => {
           {excerpt ||
             "Custom project built using modern development techniques"}
         </p>
-        <Button text="View Project" link={`/projects/${slug}`} />
+        <Button text="View Project" link={`/projects/${slug}`} anilink={true} />
       </Content>
     </BackgroundImage>
   )
