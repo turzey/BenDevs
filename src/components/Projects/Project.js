@@ -3,7 +3,7 @@ import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
 import propTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import Button from "../Button/Button"
 
 const getImage = graphql`
   query {
@@ -42,14 +42,7 @@ const Project = ({ project }) => {
           {excerpt ||
             "Custom project built using modern development techniques"}
         </p>
-        <AniLink
-          cover
-          bg="var(--background)"
-          className="btn"
-          to={`/projects/${slug}`}
-        >
-          View Project
-        </AniLink>
+        <Button text="View Project" link={`/projects/${slug}`} anilink={true} />
       </Content>
     </BackgroundImage>
   )

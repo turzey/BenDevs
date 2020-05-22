@@ -1,7 +1,7 @@
 import React from "react"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
-import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
+import Logo from "../../images/mbdev-logo-white.svg"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 const NavBar = styled.nav`
   padding: 25px 1.875rem;
@@ -9,29 +9,9 @@ const NavBar = styled.nav`
   width: 100%;
   z-index: 5;
   background-color: transparent;
-`
 
-const NavLogo = styled.div`
-  font-size: 0.875rem;
-  font-weight: 400;
-  width: 60%;
-  flex-shrink: 0;
-  z-index: 2;
-
-  @media (min-width: 1200px) {
-    font-size: 1rem;
-  }
-
-  a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s;
-
-    @media (hover: hover) {
-      &:hover {
-        color: var(--primary);
-      }
-    }
+  img {
+    width: 95px;
   }
 `
 
@@ -44,29 +24,13 @@ const NavCenter = styled.div`
 `
 
 const Navbar = ({ children }) => {
-  const {
-    site: { siteMetadata },
-  } = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   return (
     <>
       <NavBar>
-        <NavCenter>
-          <NavLogo>
-            <AniLink cover bg="var(--background)" to="/">
-              {siteMetadata.title}
-            </AniLink>
-          </NavLogo>
-          {children}
-        </NavCenter>
+        <AniLink cover bg="#1d1d1d" to="/">
+          <img src={Logo} alt="Morgan Baker Development Logo" />
+        </AniLink>
+        <NavCenter>{children}</NavCenter>
       </NavBar>
     </>
   )
