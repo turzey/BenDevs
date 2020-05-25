@@ -49,8 +49,9 @@ const Privacy = () => {
           <TitleArea>
             <p>
               This site uses cookies, but only for the purpose of improving the
-              user experience. Any data processed by Google Analytics is
-              anonymised.
+              user experience. This site uses Google Analytics for the purpose
+              of understanding user behaviour and traffic numbers. Any data
+              processed by Google Analytics is anonymised.
             </p>
             <p>
               Your email address will never be sent on to a marketing company
