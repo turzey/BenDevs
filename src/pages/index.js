@@ -29,13 +29,6 @@ const Index = () => {
           }
         }
       }
-      featuredProductsImg: file(relativePath: { eq: "bark.jpg" }) {
-        childImageSharp {
-          fluid(quality: 90, maxWidth: 1920) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
     }
   `)
 
