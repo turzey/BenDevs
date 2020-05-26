@@ -29,9 +29,19 @@ const Cont = styled.div`
   transition: 0.5s;
   background-color: #1a1a1a;
 
+  ul {
+    padding-left: 0;
+  }
+
   li {
     list-style: none;
     line-height: 2.5rem;
+    transition: opacity 0.5s;
+
+    &:hover {
+      opacity: 0.35;
+      cursor: pointer;
+    }
 
     a {
       text-decoration: none;
@@ -39,6 +49,14 @@ const Cont = styled.div`
       color: #fff;
       font-size: var(--h2);
     }
+  }
+
+  hr {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border: none;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.05);
   }
 
   &.menu-open {
@@ -84,6 +102,12 @@ const SideMenu = props => {
           variants={variants}
           animate={!props.status ? "inactive" : "active"}
         >
+          <li key="homeItem">
+            <AniLink cover bg="var(--background)" to="/">
+              Home
+            </AniLink>
+          </li>
+          <hr />
           {projectItems.map(({ node }) => {
             return (
               <li key={node.contentful_id}>
@@ -97,6 +121,7 @@ const SideMenu = props => {
               </li>
             )
           })}
+          <hr />
           <li key="aboutItem">
             <AniLink cover bg="var(--background)" to="/about">
               About
