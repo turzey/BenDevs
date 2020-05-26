@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
   --transition: 0.3s;
   --h1: 1.5rem;
   --h2: 1.1rem;
+  --para: 0.875rem;
   --paddingBorder: 1.875rem;
   --paddingStd: 3.125rem;
   --paddingLarge: 4.688rem;
@@ -24,6 +25,7 @@ const GlobalStyle = createGlobalStyle`
   @media(min-width:768px) {
     --h1: 2rem;
     --h2: 1.25rem;
+    --para: 1rem;
     --paddingStd: 4.688rem;
     --paddingLarge: 7.813rem;
   }

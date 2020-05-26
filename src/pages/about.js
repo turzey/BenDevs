@@ -49,10 +49,12 @@ const About = () => {
         <Grid>
           <TitleArea>
             <p>
-              A frontend web developer with 5+years of agency-based employment.
-              Working in a professional capacity with WordPress/PHP and on
-              personal projects using the Javascript library React through the
-              GatsbyJS framework.
+              I'm a frontend web developer with 5+years of agency-based
+              employment working in Inverness for projects across Scotland.
+              Working in a professional capacity with WordPress/PHP, developing
+              bespoke websites that focus on design and fast speeds. On personal
+              projects using the Javascript library React through the GatsbyJS
+              framework.
             </p>
             <p>
               Professional projects that I have worked on include major timber

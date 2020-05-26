@@ -39,12 +39,12 @@ const ContentArea = styled.div`
 `
 
 export default function PageTemplate({ data }) {
-  const { title, date, author } = data.mdx.frontmatter
+  const { title, date, author, description } = data.mdx.frontmatter
   const { body } = data.mdx
   // const img = image.childImageSharp.fluid
   return (
     <Layout>
-      <SEO title={title} />
+      <SEO title={title} description={description} />
       <section className="section-padding">
         <ContentArea>
           <h1>{title}</h1>
@@ -71,6 +71,7 @@ export const pageQuery = graphql`
         slug
         author
         date(formatString: "MMMM, Do, YYYY")
+        description
       }
     }
   }
