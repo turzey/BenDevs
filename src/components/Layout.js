@@ -6,6 +6,7 @@ import Footer from "./Footer"
 import { createGlobalStyle } from "styled-components"
 import CookieConsent from "react-cookie-consent"
 import "typeface-heebo"
+import "typeface-orbitron"
 
 const GlobalStyle = createGlobalStyle`
 :root {
@@ -16,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
   --menuItem: 0.875rem;
   --transition: 0.3s;
   --h1: 1.5rem;
+  --h1Large: 2.5rem;
   --h2: 1.1rem;
   --para: 0.875rem;
   --paddingBorder: 1.875rem;
@@ -24,6 +26,7 @@ const GlobalStyle = createGlobalStyle`
 
   @media(min-width:768px) {
     --h1: 2rem;
+    --h1Large: 3.25rem;
     --h2: 1.25rem;
     --para: 1rem;
     --paddingStd: 4.688rem;
@@ -33,6 +36,7 @@ const GlobalStyle = createGlobalStyle`
   @media(min-width: 1200px) {
     /* --menuItem: 1.25rem; */
     --h1: 2.15rem;
+    --h1Large: 3.75rem;
     --h2: 1.35rem;
     --paddingStd: 5.625rem;
     --paddingLarge: 9.375rem;

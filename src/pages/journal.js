@@ -56,29 +56,31 @@ const blog = ({ data }) => {
 
   return (
     <Layout>
-      <SEO />
+      <SEO title="Development Journal" />
       <section className="section-padding--large">
         <Intro>
-          <h1>Journal</h1>
+          <h1>Development Journal</h1>
         </Intro>
         {blogs.map(({ node }) => {
-          return (
-            <Grid>
-              <TitleArea>
-                <Title key={node.id}>{node.frontmatter.title}</Title>
-                <p>
-                  <date datetime={node.frontmatter.date}>
-                    {node.frontmatter.date}
-                  </date>
-                </p>
-                <Button
-                  text="Read Article"
-                  link={`/journal/${node.frontmatter.slug}`}
-                  anilink={true}
-                />
-              </TitleArea>
-            </Grid>
-          )
+          if (node.frontmatter.slug) {
+            return (
+              <Grid>
+                <TitleArea>
+                  <Title key={node.id}>{node.frontmatter.title}</Title>
+                  <p>
+                    <date datetime={node.frontmatter.date}>
+                      {node.frontmatter.date}
+                    </date>
+                  </p>
+                  <Button
+                    text="Read Article"
+                    link={`/journal/${node.frontmatter.slug}`}
+                    anilink={true}
+                  />
+                </TitleArea>
+              </Grid>
+            )
+          } else return null
         })}
       </section>
       <Contact />

@@ -10,6 +10,19 @@ const NavBar = styled.nav`
   z-index: 5;
   background-color: transparent;
 
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    width: calc(100% - (1.875rem * 2));
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.35);
+  }
+
   img {
     width: 95px;
   }

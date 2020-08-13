@@ -10,7 +10,7 @@ module.exports = {
   siteMetadata: {
     title: "Morgan Baker Dev",
     description:
-      "I'm a web developer based in Inverness, building fast, elegant, & fully bespoke web applications",
+      "I'm your ****ing standard sweary, coffee drinking ****ing front-end developer",
     subline:
       "Coupling a love of design with web development I've created and continue to maintain a number of open-source themes",
     author: "Morgan Baker",

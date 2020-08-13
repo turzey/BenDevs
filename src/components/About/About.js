@@ -77,8 +77,8 @@ const About = ({ largePadding, id }) => {
         <Grid>
           <TitleArea>
             <Title>
-              Working with GatsbyJS, React, and WordPress to deliver clean,
-              modern web applications
+              Working with GatsbyJS and the JAMstack to deliver applications
+              that benfit from speedy delivery
             </Title>
             <p>
               Focusing on front-end development using modern Javascript

@@ -26,7 +26,7 @@ const HeroContainer = styled.div`
 
 const GridContainer = styled.div`
   width: 100%;
-  max-width: 1200px;
+  max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
   display: grid;
@@ -66,10 +66,12 @@ const ContentArea = styled.div`
 `
 
 const HeroTitle = styled.h1`
-  font-size: var(--h1);
+  font-size: var(--h1Large);
+  font-weight: 700;
   margin-top: 0;
   margin-bottom: 0;
-  line-height: 1.25;
+  line-height: 1.05;
+  letter-spacing: -1px;
 `
 
 const HeroSubTitle = styled.h2`

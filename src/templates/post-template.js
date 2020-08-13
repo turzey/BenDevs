@@ -36,12 +36,23 @@ const ContentArea = styled.div`
       border: 2px solid #1e1e1e;
     }
   }
-`
 
+  hr {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, #0575e6, #021b79);
+  }
+`
+const PostDate = styled.p`
+  /* font-weight: 300; */
+`
 export default function PageTemplate({ data }) {
   const { title, date, author, description } = data.mdx.frontmatter
   const { body } = data.mdx
   // const img = image.childImageSharp.fluid
+
   return (
     <Layout>
       <SEO title={title} description={description} />
@@ -49,12 +60,14 @@ export default function PageTemplate({ data }) {
         <ContentArea>
           <h1>{title}</h1>
           <h2>Written by {author}</h2>
-          <p>
+          <PostDate>
             Published on - <time datetime={date}>{date}</time>
-          </p>
+          </PostDate>
+          <hr />
           <article>
             <MDXRenderer>{body}</MDXRenderer>
           </article>
+          <hr />
           <Button text="Back to Journal Home" link="/journal" anilink={true} />
         </ContentArea>
       </section>
