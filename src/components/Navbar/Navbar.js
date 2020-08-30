@@ -1,30 +1,44 @@
 import React from "react"
 import styled from "styled-components"
-import Logo from "../../images/mbdev-logo-white.svg"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 const NavBar = styled.nav`
-  padding: 25px 1.875rem;
+  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 2.5);
   position: fixed;
   width: 100%;
   z-index: 5;
   background-color: transparent;
+  left: 0;
 
-  &:after {
-    content: "";
-    display: block;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 0 auto;
-    width: calc(100% - (1.875rem * 2));
-    height: 2px;
-    background-color: rgba(255, 255, 255, 0.35);
+  @media (min-width: 768px) {
+    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
   }
 
-  img {
-    width: 95px;
+  @media (min-width: 1200px) {
+    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 5);
+  }
+
+  &.menu-open {
+    a {
+      color: var(--charcoal);
+    }
+  }
+
+  a {
+    color: #fff;
+    transition: color 0.75s;
+    text-decoration: none;
+  }
+
+  h2 {
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin: 0;
+    transition: opacity 0.75s;
+
+    &:hover {
+      opacity: 0.5;
+    }
   }
 `
 
@@ -36,12 +50,12 @@ const NavCenter = styled.div`
   margin: 0 auto;
 `
 
-const Navbar = ({ children }) => {
+const Navbar = ({ children, status }) => {
   return (
     <>
-      <NavBar>
+      <NavBar className={status ? "menu-open" : "menu-init"}>
         <AniLink cover bg="#1d1d1d" to="/">
-          <img src={Logo} alt="Morgan Baker Development Logo" />
+          <h2>Morgan Baker.</h2>
         </AniLink>
         <NavCenter>{children}</NavCenter>
       </NavBar>

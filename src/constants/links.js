@@ -1,10 +1,14 @@
 export default [
   {
-    path: "/products",
-    text: "products",
+    path: "/projects",
+    text: "recent projects",
   },
   {
-    path: "/blogs",
-    text: "blogs",
+    path: "/about",
+    text: "about the devleoper",
+  },
+  {
+    path: "/journal",
+    text: "random ramblings",
   },
 ]
