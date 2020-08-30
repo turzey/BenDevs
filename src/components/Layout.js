@@ -1,15 +1,17 @@
 import React, { useState } from "react"
+import { Link } from "gatsby"
 import Navbar from "./Navbar/Navbar"
 import SideMenu from "./Navbar/SideMenu"
 import Hamburger from "./Navbar/Hamburger"
 import Footer from "./Footer"
-import { createGlobalStyle } from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 import CookieConsent from "react-cookie-consent"
-import "typeface-heebo"
+import "typeface-inter"
 
 const GlobalStyle = createGlobalStyle`
 :root {
   --background: #000;
+  --charcoal: #111;
   --border: #313131;
   --primary: #fff;
   --inActive: #505050;
@@ -22,6 +24,8 @@ const GlobalStyle = createGlobalStyle`
   --paddingBorder: 1.875rem;
   --paddingStd: 3.125rem;
   --paddingLarge: 4.688rem;
+  --sansSerif: 'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  --spacing: 1rem;
 
   @media(min-width:768px) {
     --h1: 2rem;
@@ -46,7 +50,7 @@ const GlobalStyle = createGlobalStyle`
 
 }  
 body {
-    font-family: 'Heebo', sans-serif;
+    font-family: var(--sansSerif);
     font-weight: 400;
     margin: 0;
     -webkit-font-smoothing: antialiased;
@@ -62,7 +66,8 @@ body {
   width: 100%;
 
   &.menu-open {
-    margin-left: 250px;
+    /* margin-left: 250px; */
+    margin-left: 100vw;
   }
 }
 
@@ -70,9 +75,17 @@ body {
   background-color: transparent;
   border: none;
   position: fixed;
-  top: 25px;
-  right: 20px;
+  top: calc(var(--spacing) * 2);
+  right: calc(var(--spacing) * 2.5);
   z-index: 5;
+
+  @media (min-width: 768px) {
+    right:  calc(var(--spacing) * 4);
+  }
+
+  @media (min-width: 1200px) {
+    right:  calc(var(--spacing) * 5);
+  }
 }
 
 h1,
@@ -94,7 +107,7 @@ h4,
 h5,
 h6,
 button {
-  font-family: 'Heebo', sans-serif;
+  font-family: var(--sansSerif);
 }
 
 h1 {
@@ -176,6 +189,63 @@ button.btn {
   }
 `
 
+const Email = styled.div`
+  position: fixed;
+  bottom: calc(var(--spacing) * 2);
+  left: calc(var(--spacing) * 2.5);
+  z-index: 5;
+
+  @media (min-width: 768px) {
+    left: calc(var(--spacing) * 4);
+  }
+
+  @media (min-width: 1200px) {
+    left: calc(var(--spacing) * 5);
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: -1px;
+  }
+
+  &.menu-open {
+    a {
+      color: var(--charcoal);
+    }
+  }
+`
+
+const Github = styled.div`
+  position: fixed;
+  bottom: calc(var(--spacing) * 2);
+  right: calc(var(--spacing) * 2.5);
+  z-index: 5;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: -1px;
+    transition: color 0.75s;
+  }
+
+  &.menu-open {
+    a {
+      color: var(--charcoal);
+    }
+  }
+
+  @media (min-width: 768px) {
+    right: calc(var(--spacing) * 4);
+  }
+
+  @media (min-width: 1200px) {
+    right: calc(var(--spacing) * 5);
+  }
+`
+
 const Layout = ({ children }) => {
   const [isOpen, setNav] = useState(false)
   const toggleNav = () => {
@@ -195,10 +265,22 @@ const Layout = ({ children }) => {
       </CookieConsent>
       <div id="main" className={isOpen ? "menu-open" : "menu-closed"}>
         <SideMenu status={isOpen} />
-        <Navbar></Navbar>
+        <Navbar status={isOpen} />
         <button className="burger" onClick={toggleNav}>
           <Hamburger status={isOpen} />
         </button>
+        <Email className={isOpen ? "menu-open" : "menu-closed"}>
+          <Link to="mailto:hello@morganbaker.dev">hello@morganbaker.dev</Link>
+        </Email>
+        <Github className={isOpen ? "menu-open" : "menu-closed"}>
+          <Link
+            to="https://github.com/bagseye"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Github Repo
+          </Link>
+        </Github>
         {children}
         <Footer />
       </div>
