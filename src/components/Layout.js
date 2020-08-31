@@ -26,6 +26,7 @@ const GlobalStyle = createGlobalStyle`
   --paddingLarge: 4.688rem;
   --sansSerif: 'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   --spacing: 1rem;
+  --hero: 1.65rem;
 
   @media(min-width:768px) {
     --h1: 2rem;
@@ -34,6 +35,7 @@ const GlobalStyle = createGlobalStyle`
     --para: 1rem;
     --paddingStd: 4.688rem;
     --paddingLarge: 7.813rem;
+    --hero: 2rem;
   }
 
   @media(min-width: 1200px) {
@@ -43,6 +45,7 @@ const GlobalStyle = createGlobalStyle`
     --h2: 1.35rem;
     --paddingStd: 5.625rem;
     --paddingLarge: 9.375rem;
+    --hero: 3.5rem;
   }
 }
 * {
@@ -62,11 +65,10 @@ body {
   }
 
 #main {
-  transition: margin-left 0.5s;
+  transition: margin-left 0.75s cubic-bezier(0.445, 0.050, 0.550, 0.950);
   width: 100%;
 
   &.menu-open {
-    /* margin-left: 250px; */
     margin-left: 100vw;
   }
 }
@@ -92,8 +94,7 @@ h1,
 h2 {
   margin-bottom: 1rem;
   line-height: 1.35em;
-  /* color: var(--primary); */
-  font-weight: 500;
+  font-weight: 700;
 
   @media(min-width: 1200px) {
     margin-bottom: 1.5rem;
@@ -189,39 +190,16 @@ button.btn {
   }
 `
 
-const Email = styled.div`
+const ContactLink = styled.div`
   position: fixed;
   bottom: calc(var(--spacing) * 2);
-  left: calc(var(--spacing) * 2.5);
   z-index: 5;
+  transition: opacity 0.75s;
 
-  @media (min-width: 768px) {
-    left: calc(var(--spacing) * 4);
-  }
-
-  @media (min-width: 1200px) {
-    left: calc(var(--spacing) * 5);
-  }
-
-  a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 700;
-    letter-spacing: -1px;
-  }
-
-  &.menu-open {
-    a {
-      color: var(--charcoal);
-    }
-  }
-`
-
-const Github = styled.div`
-  position: fixed;
-  bottom: calc(var(--spacing) * 2);
-  right: calc(var(--spacing) * 2.5);
-  z-index: 5;
+  ${props =>
+    props.right
+      ? "right: calc(var(--spacing) * 2.5);"
+      : "left: calc(var(--spacing) * 2.5);"}
 
   a {
     color: #fff;
@@ -237,12 +215,22 @@ const Github = styled.div`
     }
   }
 
+  &:hover {
+    opacity: 0.5;
+  }
+
   @media (min-width: 768px) {
-    right: calc(var(--spacing) * 4);
+    ${props =>
+      props.right
+        ? "right: calc(var(--spacing) * 4);"
+        : "left: calc(var(--spacing) * 4);"}
   }
 
   @media (min-width: 1200px) {
-    right: calc(var(--spacing) * 5);
+    ${props =>
+      props.right
+        ? "right: calc(var(--spacing) * 5);"
+        : "left: calc(var(--spacing) * 5);"}
   }
 `
 
@@ -269,10 +257,10 @@ const Layout = ({ children }) => {
         <button className="burger" onClick={toggleNav}>
           <Hamburger status={isOpen} />
         </button>
-        <Email className={isOpen ? "menu-open" : "menu-closed"}>
+        <ContactLink className={isOpen ? "menu-open" : "menu-closed"}>
           <Link to="mailto:hello@morganbaker.dev">hello@morganbaker.dev</Link>
-        </Email>
-        <Github className={isOpen ? "menu-open" : "menu-closed"}>
+        </ContactLink>
+        <ContactLink right className={isOpen ? "menu-open" : "menu-closed"}>
           <Link
             to="https://github.com/bagseye"
             target="_blank"
@@ -280,7 +268,7 @@ const Layout = ({ children }) => {
           >
             Github Repo
           </Link>
-        </Github>
+        </ContactLink>
         {children}
         <Footer />
       </div>
