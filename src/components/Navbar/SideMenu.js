@@ -6,14 +6,15 @@ import menuItems from "../../constants/links"
 
 const Cont = styled.div`
   height: 100%;
-  width: 0;
+  width: 100vw;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
   overflow-x: hidden;
-  transition: 0.5s;
+  transition: transform 0.75s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   background-color: #fff;
+  transform: translateX(-100vw);
 
   ul {
     padding-left: 0;
@@ -49,7 +50,8 @@ const Cont = styled.div`
   }
 
   &.menu-open {
-    width: 100vw;
+    /* width: 100vw; */
+    transform: translateX(0);
   }
 `
 
