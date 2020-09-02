@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import { motion } from "framer-motion"
-import Button from "../../components/Button/Button"
 
 const HeroContainer = styled.div``
 
@@ -62,15 +61,6 @@ const HeroTitle = styled.h1`
   line-height: 1.05;
   letter-spacing: -1.5px;
 `
-const CTA = styled.div`
-  padding-top: calc(var(--spacing) * 2);
-  grid-column: 1 / 5;
-  grid-row: 2 / 3;
-
-  @media (min-width: 768px) {
-    padding-top: calc(var(--spacing) * 4);
-  }
-`
 
 const Banner = ({ description }) => {
   return (
@@ -81,14 +71,11 @@ const Banner = ({ description }) => {
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.5, duration: 1 }}
+              transition={{ delay: 1.25, duration: 0.75 }}
             >
               <HeroTitle>{description}</HeroTitle>
             </motion.div>
           </TitleArea>
-          <CTA>
-            <Button text="View Projects" />
-          </CTA>
         </GridContainer>
       </Container>
     </HeroContainer>
