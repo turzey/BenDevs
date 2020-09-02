@@ -1,19 +1,24 @@
 import React from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { MdArrowForward } from "react-icons/md"
+import { IoIosArrowRoundDown } from "react-icons/io"
 import { IconContext } from "react-icons"
 
-const Button = ({ text, link, anilink }) => {
+const Button = ({ text, link, anilink, down }) => {
   if (anilink) {
     return (
       <AniLink className="btn" cover bg="#1d1d1d" to={link}>
         {text}
         <IconContext.Provider
           value={{
-            style: { marginLeft: "40px", verticalAlign: "middle" },
+            style: {
+              marginLeft: "1rem",
+              verticalAlign: "middle",
+              fontSize: "4rem",
+            },
           }}
         >
-          <MdArrowForward />
+          {down && <IoIosArrowRoundDown />}
         </IconContext.Provider>
       </AniLink>
     )
@@ -21,13 +26,13 @@ const Button = ({ text, link, anilink }) => {
     return (
       <button className="btn">
         {text}
-        <IconContext.Provider
+        {/* <IconContext.Provider
           value={{
             style: { marginLeft: "40px", verticalAlign: "middle" },
           }}
         >
           <MdArrowForward />
-        </IconContext.Provider>
+        </IconContext.Provider> */}
       </button>
     )
   }
