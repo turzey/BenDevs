@@ -1,14 +1,12 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
 import SideMenu from "./Navbar/SideMenu"
 import Hamburger from "./Navbar/Hamburger"
 import Footer from "./Footer"
 import styled, { createGlobalStyle } from "styled-components"
 import CookieConsent from "react-cookie-consent"
-import { DiGithubFull } from "react-icons/di"
-import { AiOutlineMail } from "react-icons/ai"
 import "typeface-inter"
 import Logo from "../components/Logo/Logo"
+import HeaderContact from "../components/HeaderContact/HeaderContact"
 
 const GlobalStyle = createGlobalStyle`
 :root {
@@ -191,58 +189,6 @@ button.btn {
   }
 `
 
-const ContactLink = styled.div`
-  position: fixed;
-  bottom: calc(var(--spacing) * 2);
-  z-index: 5;
-  transition: opacity 0.75s;
-
-  span {
-    display: none;
-  }
-
-  ${props =>
-    props.right
-      ? "right: calc(var(--spacing) * 2.5);"
-      : "left: calc(var(--spacing) * 2.5);"}
-
-  a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 700;
-    letter-spacing: -1px;
-    transition: color 0.75s;
-  }
-
-  &.menu-open {
-    a {
-      color: var(--charcoal);
-    }
-  }
-
-  &:hover {
-    opacity: 0.5;
-  }
-
-  @media (min-width: 768px) {
-    span {
-      display: inline-block;
-    }
-
-    ${props =>
-      props.right
-        ? "right: calc(var(--spacing) * 4);"
-        : "left: calc(var(--spacing) * 4);"}
-  }
-
-  @media (min-width: 1200px) {
-    ${props =>
-      props.right
-        ? "right: calc(var(--spacing) * 5);"
-        : "left: calc(var(--spacing) * 5);"}
-  }
-`
-
 const Layout = ({ children }) => {
   const [isOpen, setNav] = useState(false)
   const toggleNav = () => {
@@ -266,22 +212,17 @@ const Layout = ({ children }) => {
           <Hamburger status={isOpen} />
         </button>
         <Logo status={isOpen} />
-        <ContactLink className={isOpen ? "menu-open" : "menu-closed"}>
-          <Link to="mailto:hello@morganbaker.dev">
-            <AiOutlineMail />
-            <span>hello@morganbaker.dev</span>
-          </Link>
-        </ContactLink>
-        <ContactLink right className={isOpen ? "menu-open" : "menu-closed"}>
-          <Link
-            to="https://github.com/bagseye"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <DiGithubFull />
-            <span>Github Repo</span>
-          </Link>
-        </ContactLink>
+        <HeaderContact
+          text="hello@morganbaker.dev"
+          link="mailto:hello@morganbaker.dev"
+          open={isOpen}
+        />
+        <HeaderContact
+          text="Github Repo"
+          link="https://github.com/bagseye"
+          direction="right"
+          open={isOpen}
+        />
         {children}
         <Footer />
       </div>
