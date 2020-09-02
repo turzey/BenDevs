@@ -1,26 +1,19 @@
 import React from "react"
 import styled from "styled-components"
 import { motion } from "framer-motion"
+import Button from "../../components/Button/Button"
 
-const HeroContainer = styled.div`
-  height: 100vh;
-
-  .hero-img {
-    height: 100%;
-  }
-`
+const HeroContainer = styled.div``
 
 const GridContainer = styled.div`
   width: 100%;
   display: grid;
   grid-gap: var(--spacing);
   grid-template-columns: 1fr 1fr 1fr 1fr;
-
-  @media (min-width: 768px) {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+  grid-template-rows: auto auto;
 
   @media (min-width: 1200px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto auto;
     grid-gap: 15px;
   }
@@ -32,25 +25,33 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 2.5);
+  padding: calc(var(--spacing) * 8) calc(var(--spacing) * 2.5);
 
   @media (min-width: 768px) {
-    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
+    padding: calc(var(--spacing) * 12) calc(var(--spacing) * 4);
   }
 
   @media (min-width: 1200px) {
-    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 5);
+    padding: calc(var(--spacing) * 14) calc(var(--spacing) * 5);
   }
 `
 
 const TitleArea = styled.div`
-  grid-column: 1 / 4;
+  grid-column: 1 / 5;
   grid-row: 1 / 2;
   z-index: 2;
   display: flex;
   align-items: center;
   @media (min-width: 768px) {
-    grid-column: 1 / 3;
+    grid-column: 1 / 4;
+  }
+
+  @media (min-width: 1200px) {
+    grid-column: 1 / 5;
+  }
+
+  @media (min-width: 1800px) {
+    grid-column: 1 / 4;
   }
 `
 
@@ -61,16 +62,13 @@ const HeroTitle = styled.h1`
   line-height: 1.05;
   letter-spacing: -1.5px;
 `
+const CTA = styled.div`
+  padding-top: calc(var(--spacing) * 2);
+  grid-column: 1 / 5;
+  grid-row: 2 / 3;
 
-const ImgArea = styled.div`
-  grid-column: 2 / 5;
-  grid-row: 1 / 2;
-  z-index: 1;
-
-  img {
-    background-color: red;
-    height: 45vh;
-    width: 100%;
+  @media (min-width: 768px) {
+    padding-top: calc(var(--spacing) * 4);
   }
 `
 
@@ -88,15 +86,9 @@ const Banner = ({ description }) => {
               <HeroTitle>{description}</HeroTitle>
             </motion.div>
           </TitleArea>
-          <ImgArea>
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 2.0, duration: 1 }}
-            >
-              <img />
-            </motion.div>
-          </ImgArea>
+          <CTA>
+            <Button text="View Projects" />
+          </CTA>
         </GridContainer>
       </Container>
     </HeroContainer>

@@ -25,8 +25,9 @@ const Cont = styled.div`
     transition: opacity 0.75s;
     font-weight: 700;
     letter-spacing: -1px;
-    font-size: var(--h1Large);
-    line-height: var(--h1Large);
+    /* font-size: var(--h1Large); */
+    font-size: var(--hero);
+    line-height: var(--hero);
     margin-bottom: calc(var(--spacing) / 2);
 
     &:last-child {

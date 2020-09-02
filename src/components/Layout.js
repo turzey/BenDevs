@@ -1,12 +1,14 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
-import Navbar from "./Navbar/Navbar"
 import SideMenu from "./Navbar/SideMenu"
 import Hamburger from "./Navbar/Hamburger"
 import Footer from "./Footer"
 import styled, { createGlobalStyle } from "styled-components"
 import CookieConsent from "react-cookie-consent"
+import { DiGithubFull } from "react-icons/di"
+import { AiOutlineMail } from "react-icons/ai"
 import "typeface-inter"
+import Logo from "../components/Logo/Logo"
 
 const GlobalStyle = createGlobalStyle`
 :root {
@@ -20,13 +22,14 @@ const GlobalStyle = createGlobalStyle`
   --h1: 1.5rem;
   --h1Large: 2.5rem;
   --h2: 1.1rem;
-  --para: 0.875rem;
   --paddingBorder: 1.875rem;
   --paddingStd: 3.125rem;
   --paddingLarge: 4.688rem;
   --sansSerif: 'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   --spacing: 1rem;
   --hero: 1.65rem;
+  --button: 1.15rem;
+  --logo: 1.1rem;
 
   @media(min-width:768px) {
     --h1: 2rem;
@@ -35,7 +38,9 @@ const GlobalStyle = createGlobalStyle`
     --para: 1rem;
     --paddingStd: 4.688rem;
     --paddingLarge: 7.813rem;
-    --hero: 2rem;
+    --hero: 2.5rem;
+    --button: 1.35rem;
+    --logo: 1.25rem;
   }
 
   @media(min-width: 1200px) {
@@ -46,6 +51,8 @@ const GlobalStyle = createGlobalStyle`
     --paddingStd: 5.625rem;
     --paddingLarge: 9.375rem;
     --hero: 3.5rem;
+    --button: 1.6rem;
+    --logo: 1.35rem;
   }
 }
 * {
@@ -133,10 +140,12 @@ button.btn {
     text-decoration: none;
     padding: 0 0 10px 0;
     transition: var(--transition) color;
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: var(--button);
+    font-family: var(--sansSerif);
+    font-weight: 700;
     position: relative;
     align-self: flex-start;
+    letter-spacing: -1px;
 
     &::after {
       content: "";
@@ -148,15 +157,11 @@ button.btn {
       bottom: 4px;
       background-color: var(--primary);
       opacity: 0.35;
-      transition: opacity 0.5s;
+      transition: opacity 0.75s;
     }
 
     &:focus {
       color: var(--primary);
-    }
-
-    @media(min-width: 768px) {
-      font-size: 1.1rem;
     }
 
     @media(hover: hover) {
@@ -169,10 +174,6 @@ button.btn {
       }
     }
   }
-
-  @media (min-width: 1200px) {
-      font-size: var(--menuItem);
-    }
 
   .container {
     max-width: 1200px;
@@ -195,6 +196,10 @@ const ContactLink = styled.div`
   bottom: calc(var(--spacing) * 2);
   z-index: 5;
   transition: opacity 0.75s;
+
+  span {
+    display: none;
+  }
 
   ${props =>
     props.right
@@ -220,6 +225,10 @@ const ContactLink = styled.div`
   }
 
   @media (min-width: 768px) {
+    span {
+      display: inline-block;
+    }
+
     ${props =>
       props.right
         ? "right: calc(var(--spacing) * 4);"
@@ -253,12 +262,15 @@ const Layout = ({ children }) => {
       </CookieConsent>
       <div id="main" className={isOpen ? "menu-open" : "menu-closed"}>
         <SideMenu status={isOpen} />
-        <Navbar status={isOpen} />
         <button className="burger" onClick={toggleNav}>
           <Hamburger status={isOpen} />
         </button>
+        <Logo status={isOpen} />
         <ContactLink className={isOpen ? "menu-open" : "menu-closed"}>
-          <Link to="mailto:hello@morganbaker.dev">hello@morganbaker.dev</Link>
+          <Link to="mailto:hello@morganbaker.dev">
+            <AiOutlineMail />
+            <span>hello@morganbaker.dev</span>
+          </Link>
         </ContactLink>
         <ContactLink right className={isOpen ? "menu-open" : "menu-closed"}>
           <Link
@@ -266,7 +278,8 @@ const Layout = ({ children }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Github Repo
+            <DiGithubFull />
+            <span>Github Repo</span>
           </Link>
         </ContactLink>
         {children}
