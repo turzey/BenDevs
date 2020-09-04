@@ -6,7 +6,6 @@ import Footer from "./Footer"
 import { createGlobalStyle } from "styled-components"
 import CookieConsent from "react-cookie-consent"
 import "typeface-heebo"
-import "typeface-orbitron"
 
 const GlobalStyle = createGlobalStyle`
 :root {
