@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { motion } from "framer-motion"
+import PropTypes from "prop-types"
 
 const Contact = styled.div`
   position: fixed;
@@ -71,3 +72,9 @@ const HeaderContact = ({ text, link, direction, open }) => {
 }
 
 export default HeaderContact
+
+HeaderContact.propTypes = {
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  link: PropTypes.string.isRequired,
+  direction: PropTypes.string,
+}
