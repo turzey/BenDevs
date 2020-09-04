@@ -218,7 +218,7 @@ const Layout = ({ children }) => {
           open={isOpen}
         />
         <HeaderContact
-          text="Github Repo"
+          text="GitHub"
           link="https://github.com/bagseye"
           direction="right"
           open={isOpen}
