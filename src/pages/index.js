@@ -11,6 +11,7 @@ import { motion } from "framer-motion"
 import SEO from "../components/SEO"
 import { Link } from "react-scroll"
 import Button from "../components/Button/Button"
+import FullWidthImage from "../components/FullWidthImage/FullWidthImage"
 
 const Index = () => {
   const data = useStaticQuery(graphql`
@@ -51,7 +52,8 @@ const Index = () => {
           </motion.div>
         </Banner>
       </Hero>
-      <About id="about" largePadding={true} />
+      <FullWidthImage />
+      <About id="about" />
       <Service largePadding={true} />
       <FeaturedProjects id="projects" />
       <Contact />
