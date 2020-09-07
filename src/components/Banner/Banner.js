@@ -58,7 +58,6 @@ const HeroTitle = styled.h1`
   font-size: var(--hero);
   font-weight: 700;
   margin: 0;
-  line-height: 1.05;
   letter-spacing: -1.5px;
 `
 

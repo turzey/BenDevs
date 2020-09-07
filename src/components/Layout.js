@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
   --transition: 0.3s;
   --h1: 1.5rem;
   --h1Large: 2.5rem;
-  --h2: 1.1rem;
+  --h2: 1.2rem;
   --paddingBorder: 1.875rem;
   --paddingStd: 3.125rem;
   --paddingLarge: 4.688rem;
@@ -32,7 +32,7 @@ const GlobalStyle = createGlobalStyle`
   @media(min-width:768px) {
     --h1: 2rem;
     --h1Large: 3.25rem;
-    --h2: 1.25rem;
+    --h2: 1.35rem;
     --para: 1rem;
     --paddingStd: 4.688rem;
     --paddingLarge: 7.813rem;
@@ -45,7 +45,7 @@ const GlobalStyle = createGlobalStyle`
     /* --menuItem: 1.25rem; */
     --h1: 2.15rem;
     --h1Large: 3.75rem;
-    --h2: 1.35rem;
+    --h2: 1.65rem;
     --paddingStd: 5.625rem;
     --paddingLarge: 9.375rem;
     --hero: 3.5rem;
@@ -98,7 +98,7 @@ body {
 h1,
 h2 {
   margin-bottom: 1rem;
-  line-height: 1.35em;
+  line-height: 1.3;
   font-weight: 700;
 
   @media(min-width: 1200px) {
@@ -121,14 +121,22 @@ h1 {
   font-size: var(--h1);
   letter-spacing: -0.25px;
 
-  @media(min-width: 768px) {
+  /* @media(min-width: 768px) {
     line-height: 1.2;
-  }
+  } */
 }
 
 h2 {
   font-size: var(--h2);
+  line-height: 1.4;
 }
+
+
+a {
+  color: #fff;
+  font-weight: 700;
+}
+
 
 a.btn,
 button.btn {
