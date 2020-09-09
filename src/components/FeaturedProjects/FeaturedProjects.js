@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import Project from "../Projects/Project"
+// import Project from "../Projects/Project"
 import { useStaticQuery, graphql } from "gatsby"
 
 const getProjects = graphql`
@@ -72,13 +72,13 @@ const FeaturedProjects = props => {
   return (
     <Container id={props.id}>
       <ScrollCont>
-        {projects.map(({ node }) => {
+        {/* {projects.map(({ node }) => {
           return (
             <ScrollItem>
               <Project key={node.contentful_id} project={node} />
             </ScrollItem>
           )
-        })}
+        })} */}
       </ScrollCont>
     </Container>
   )
