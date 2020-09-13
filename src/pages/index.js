@@ -40,8 +40,14 @@ const Index = () => {
       </Hero>
       <FullWidthImage />
       <About id="about" />
-      {project.map(({ node }) => {
-        return <Project item={node} />
+      {project.map((node, i) => {
+        return (
+          <Project
+            key={i}
+            item={node}
+            className={i % 2 ? "align-left" : "align-right"}
+          />
+        )
       })}
       {/* <Service largePadding={true} /> */}
       {/* <FeaturedProjects id="projects" /> */}

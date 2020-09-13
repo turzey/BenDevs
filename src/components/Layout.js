@@ -20,6 +20,8 @@ const GlobalStyle = createGlobalStyle`
   --h1: 1.5rem;
   --h1Large: 2.5rem;
   --h2: 1.2rem;
+  --h3: 1.05rem;
+  --para: 0.85rem;
   --paddingBorder: 1.875rem;
   --paddingStd: 3.125rem;
   --paddingLarge: 4.688rem;
@@ -33,6 +35,7 @@ const GlobalStyle = createGlobalStyle`
     --h1: 2rem;
     --h1Large: 3.25rem;
     --h2: 1.35rem;
+    --h3: 1.2rem;
     --para: 1rem;
     --paddingStd: 4.688rem;
     --paddingLarge: 7.813rem;
@@ -65,7 +68,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     background-color: var(--background);
     color: #fff;
-    font-size: 1rem;
+    font-size: 16px;
     line-height: 1.4em;
   }
 
