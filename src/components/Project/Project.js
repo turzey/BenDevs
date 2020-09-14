@@ -11,7 +11,8 @@ const Container = styled.section`
     props.className == "align-right" ? `calc(var(--spacing) * 2.5)` : "0"};
 
   @media (min-width: 768px) {
-    padding-left: calc(var(--spacing) * 4);
+    padding-left: ${props =>
+      props.className == "align-right" ? `calc(var(--spacing) * 4)` : "0"};
   }
 
   @media (min-width: 1200px) {
@@ -41,13 +42,13 @@ const ProjectDetails = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  /* grid-column: 1 / 4; */
-  background-color: ${props =>
-    props.className == "align-right" ? "red" : "blue"};
   grid-row: 1 / 2;
+  grid-column: ${props =>
+    props.className == "align-right" ? "1 / 4" : "2 / 5"};
 
   @media (min-width: 768px) {
-    grid-column: 1 / 3;
+    grid-column: ${props =>
+      props.className == "align-right" ? "1 / 3" : "3 / 5"};
   }
 
   @media (min-width: 1200px) {
@@ -119,7 +120,8 @@ const ProjectImage = styled.div`
   }
 
   @media (min-width: 1200px) {
-    grid-column: 3 / 7;
+    grid-column: ${props =>
+      props.className == "align-right" ? "3 / 7" : "1 / 5"};
   }
 `
 
@@ -130,14 +132,14 @@ const Project = props => {
   return (
     <Container className={props.className}>
       <GridContainer>
-        <ProjectDetails>
+        <ProjectDetails className={props.className}>
           <ProjectName>{projectNode.name}</ProjectName>
           <ProjectExcerpt>{projectNode.excerpt}</ProjectExcerpt>
           <ProjectLink href={`projects/${projectNode.slug}`}>
             View {projectNode.name}
           </ProjectLink>
         </ProjectDetails>
-        <ProjectImage>
+        <ProjectImage className={props.className}>
           <BackgroundImage fluid={projectImg} className="project-image" />
         </ProjectImage>
       </GridContainer>
