@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
+import Anim from "../Anim"
 
 const Container = styled.section`
   padding-top: calc(var(--spacing) * 2.5);
@@ -130,20 +131,22 @@ const Project = props => {
   let projectImg = projectNode.images[0].fluid
 
   return (
-    <Container className={props.className}>
-      <GridContainer>
-        <ProjectDetails className={props.className}>
-          <ProjectName>{projectNode.name}</ProjectName>
-          <ProjectExcerpt>{projectNode.excerpt}</ProjectExcerpt>
-          <ProjectLink href={`projects/${projectNode.slug}`}>
-            View {projectNode.name}
-          </ProjectLink>
-        </ProjectDetails>
-        <ProjectImage className={props.className}>
-          <BackgroundImage fluid={projectImg} className="project-image" />
-        </ProjectImage>
-      </GridContainer>
-    </Container>
+    <Anim>
+      <Container className={props.className}>
+        <GridContainer>
+          <ProjectDetails className={props.className}>
+            <ProjectName>{projectNode.name}</ProjectName>
+            <ProjectExcerpt>{projectNode.excerpt}</ProjectExcerpt>
+            <ProjectLink href={`projects/${projectNode.slug}`}>
+              View {projectNode.name}
+            </ProjectLink>
+          </ProjectDetails>
+          <ProjectImage className={props.className}>
+            <BackgroundImage fluid={projectImg} className="project-image" />
+          </ProjectImage>
+        </GridContainer>
+      </Container>
+    </Anim>
   )
 }
 
