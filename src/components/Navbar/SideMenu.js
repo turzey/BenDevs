@@ -1,33 +1,20 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { motion } from "framer-motion"
-
-const getItems = graphql`
-  {
-    allContentfulProjects {
-      edges {
-        node {
-          contentful_id
-          name
-          slug
-        }
-      }
-    }
-  }
-`
+import menuItems from "../../constants/links"
 
 const Cont = styled.div`
   height: 100%;
-  width: 0;
+  width: 100vw;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
   overflow-x: hidden;
-  transition: 0.5s;
-  background-color: #1a1a1a;
+  transition: transform 0.75s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  background-color: #fff;
+  transform: translateX(-100vw);
 
   ul {
     padding-left: 0;
@@ -35,32 +22,37 @@ const Cont = styled.div`
 
   li {
     list-style: none;
-    line-height: 2.5rem;
-    transition: opacity 0.5s;
+    transition: opacity 0.75s;
+    font-weight: 700;
+    letter-spacing: -1px;
+    /* font-size: var(--h1Large); */
+    font-size: var(--hero);
+    line-height: var(--hero);
+    margin-bottom: calc(var(--spacing) / 2);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
 
     &:hover {
-      opacity: 0.35;
+      opacity: 0.5;
       cursor: pointer;
     }
 
     a {
       text-decoration: none;
       text-transform: capitalize;
-      color: #fff;
-      font-size: var(--h2);
+      color: var(--charcoal);
+    }
+
+    @media (max-width: 768px) {
+      margin-bottom: var(--spacing);
     }
   }
 
-  hr {
-    margin-top: 25px;
-    margin-bottom: 25px;
-    border: none;
-    height: 2px;
-    background-color: rgba(255, 255, 255, 0.05);
-  }
-
   &.menu-open {
-    width: 250px;
+    /* width: 100vw; */
+    transform: translateX(0);
   }
 `
 
@@ -69,14 +61,18 @@ const FlexCont = styled.div`
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  padding: var(--paddingBorder);
+  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 2.5);
+
+  @media (min-width: 768px) {
+    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
+  }
+
+  @media (min-width: 1200px) {
+    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 5);
+  }
 `
 
 const SideMenu = props => {
-  const queryResponse = useStaticQuery(getItems)
-
-  const projectItems = queryResponse.allContentfulProjects.edges
-
   const variants = {
     inactive: {
       opacity: 0,
@@ -89,8 +85,8 @@ const SideMenu = props => {
       opacity: 1,
       y: 0,
       transition: {
-        delay: 0.3,
-        duration: 0.5,
+        delay: 0.75,
+        duration: 0.75,
       },
     },
   }
@@ -102,36 +98,15 @@ const SideMenu = props => {
           variants={variants}
           animate={!props.status ? "inactive" : "active"}
         >
-          <li key="homeItem">
-            <AniLink cover bg="var(--background)" to="/">
-              Home
-            </AniLink>
-          </li>
-          <hr />
-          {projectItems.map(({ node }) => {
+          {menuItems.map((item, index) => {
             return (
-              <li key={node.contentful_id}>
-                <AniLink
-                  cover
-                  bg="var(--background)"
-                  to={`/projects/${node.slug}`}
-                >
-                  {node.name}
+              <li key={index}>
+                <AniLink cover bg="var(--background)" to={item.path}>
+                  {item.text}
                 </AniLink>
               </li>
             )
           })}
-          <hr />
-          <li key="aboutItem">
-            <AniLink cover bg="var(--background)" to="/about">
-              About
-            </AniLink>
-          </li>
-          <li key="journalItem">
-            <AniLink cover bg="var(--background)" to="/journal">
-              Journal
-            </AniLink>
-          </li>
         </motion.ul>
       </FlexCont>
     </Cont>

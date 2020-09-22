@@ -6,19 +6,21 @@ const Container = styled.div`
   width: 32px;
   height: 23px;
   border: none;
+  transition: opacity 0.75s;
 
   @media (hover: hover) {
     &:hover {
       cursor: pointer;
+      opacity: 0.5;
     }
   }
 
   span {
     position: absolute;
-    transition: left 0.25s, opacity 0.15s;
+    transition: left 0.25s, opacity 0.75s, background-color 0.75s;
     background-color: var(--primary);
     width: 100%;
-    height: 2px;
+    height: 1px;
     display: block;
     margin: 0;
 
@@ -35,23 +37,24 @@ const Container = styled.div`
     }
 
     &:nth-child(1) {
-      top: 0;
+      top: 3px;
     }
 
     &:nth-child(2) {
-      top: 50%;
+      top: 11px;
       transform: translateY(-50%);
     }
 
     &:nth-child(3) {
-      bottom: 0;
+      bottom: 3px;
     }
   }
 
   &.menu-open {
     span {
+      background-color: var(--charcoal);
       &:nth-child(1) {
-        top: 10px;
+        top: 11px;
         transform: rotate(45deg);
       }
 
@@ -61,7 +64,7 @@ const Container = styled.div`
       }
 
       &:nth-child(3) {
-        bottom: 10px;
+        bottom: 11px;
         transform: rotate(-45deg);
       }
     }

@@ -1,15 +1,17 @@
 import React, { useState } from "react"
-import Navbar from "./Navbar/Navbar"
 import SideMenu from "./Navbar/SideMenu"
 import Hamburger from "./Navbar/Hamburger"
 import Footer from "./Footer"
-import { createGlobalStyle } from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 import CookieConsent from "react-cookie-consent"
-import "typeface-heebo"
+import "typeface-inter"
+import Logo from "../components/Logo/Logo"
+import HeaderContact from "../components/HeaderContact/HeaderContact"
 
 const GlobalStyle = createGlobalStyle`
 :root {
   --background: #000;
+  --charcoal: #111;
   --border: #313131;
   --primary: #fff;
   --inActive: #505050;
@@ -17,28 +19,41 @@ const GlobalStyle = createGlobalStyle`
   --transition: 0.3s;
   --h1: 1.5rem;
   --h1Large: 2.5rem;
-  --h2: 1.1rem;
-  --para: 0.875rem;
+  --h2: 1.2rem;
+  --h3: 1.05rem;
+  --para: 0.85rem;
   --paddingBorder: 1.875rem;
   --paddingStd: 3.125rem;
   --paddingLarge: 4.688rem;
+  --sansSerif: 'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  --spacing: 1rem;
+  --hero: 1.65rem;
+  --button: 1.15rem;
+  --logo: 1.1rem;
 
   @media(min-width:768px) {
     --h1: 2rem;
     --h1Large: 3.25rem;
-    --h2: 1.25rem;
+    --h2: 1.35rem;
+    --h3: 1.2rem;
     --para: 1rem;
     --paddingStd: 4.688rem;
     --paddingLarge: 7.813rem;
+    --hero: 2.5rem;
+    --button: 1.35rem;
+    --logo: 1.25rem;
   }
 
   @media(min-width: 1200px) {
     /* --menuItem: 1.25rem; */
     --h1: 2.15rem;
     --h1Large: 3.75rem;
-    --h2: 1.35rem;
+    --h2: 1.65rem;
     --paddingStd: 5.625rem;
     --paddingLarge: 9.375rem;
+    --hero: 3.5rem;
+    --button: 1.6rem;
+    --logo: 1.35rem;
   }
 }
 * {
@@ -46,23 +61,23 @@ const GlobalStyle = createGlobalStyle`
 
 }  
 body {
-    font-family: 'Heebo', sans-serif;
+    font-family: var(--sansSerif);
     font-weight: 400;
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: var(--background);
     color: #fff;
-    font-size: 1rem;
+    font-size: 16px;
     line-height: 1.4em;
   }
 
 #main {
-  transition: margin-left 0.5s;
+  transition: margin-left 0.75s cubic-bezier(0.445, 0.050, 0.550, 0.950);
   width: 100%;
 
   &.menu-open {
-    margin-left: 250px;
+    margin-left: 100vw;
   }
 }
 
@@ -70,17 +85,24 @@ body {
   background-color: transparent;
   border: none;
   position: fixed;
-  top: 25px;
-  right: 20px;
+  top: calc(var(--spacing) * 2);
+  right: calc(var(--spacing) * 2.5);
   z-index: 5;
+
+  @media (min-width: 768px) {
+    right:  calc(var(--spacing) * 4);
+  }
+
+  @media (min-width: 1200px) {
+    right:  calc(var(--spacing) * 5);
+  }
 }
 
 h1,
 h2 {
   margin-bottom: 1rem;
-  line-height: 1.35em;
-  /* color: var(--primary); */
-  font-weight: 500;
+  line-height: 1.3;
+  font-weight: 700;
 
   @media(min-width: 1200px) {
     margin-bottom: 1.5rem;
@@ -94,7 +116,7 @@ h4,
 h5,
 h6,
 button {
-  font-family: 'Heebo', sans-serif;
+  font-family: var(--sansSerif);
 }
 
 h1 {
@@ -102,14 +124,22 @@ h1 {
   font-size: var(--h1);
   letter-spacing: -0.25px;
 
-  @media(min-width: 768px) {
+  /* @media(min-width: 768px) {
     line-height: 1.2;
-  }
+  } */
 }
 
 h2 {
   font-size: var(--h2);
+  line-height: 1.4;
 }
+
+
+a {
+  color: #fff;
+  font-weight: 700;
+}
+
 
 a.btn,
 button.btn {
@@ -119,10 +149,12 @@ button.btn {
     text-decoration: none;
     padding: 0 0 10px 0;
     transition: var(--transition) color;
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: var(--button);
+    font-family: var(--sansSerif);
+    font-weight: 700;
     position: relative;
     align-self: flex-start;
+    letter-spacing: -1px;
 
     &::after {
       content: "";
@@ -134,15 +166,11 @@ button.btn {
       bottom: 4px;
       background-color: var(--primary);
       opacity: 0.35;
-      transition: opacity 0.5s;
+      transition: opacity 0.75s;
     }
 
     &:focus {
       color: var(--primary);
-    }
-
-    @media(min-width: 768px) {
-      font-size: 1.1rem;
     }
 
     @media(hover: hover) {
@@ -155,10 +183,6 @@ button.btn {
       }
     }
   }
-
-  @media (min-width: 1200px) {
-      font-size: var(--menuItem);
-    }
 
   .container {
     max-width: 1200px;
@@ -195,10 +219,21 @@ const Layout = ({ children }) => {
       </CookieConsent>
       <div id="main" className={isOpen ? "menu-open" : "menu-closed"}>
         <SideMenu status={isOpen} />
-        <Navbar></Navbar>
         <button className="burger" onClick={toggleNav}>
           <Hamburger status={isOpen} />
         </button>
+        <Logo status={isOpen} />
+        <HeaderContact
+          text="hello@morganbaker.dev"
+          link="mailto:hello@morganbaker.dev"
+          open={isOpen}
+        />
+        <HeaderContact
+          text="GitHub"
+          link="https://github.com/bagseye"
+          direction="right"
+          open={isOpen}
+        />
         {children}
         <Footer />
       </div>

@@ -10,7 +10,7 @@ module.exports = {
   siteMetadata: {
     title: "Morgan Baker Dev",
     description:
-      "I'm a front-end developer from Inverness, buidling React applications using GatsbyJS",
+      "I'm a front end developer from Inverness, building React applications using GatsbyJS",
     subline:
       "Coupling a love of design with web development I've created and continue to maintain a number of open-source themes",
     author: "Morgan Baker",
