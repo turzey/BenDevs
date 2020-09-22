@@ -2,27 +2,29 @@ import React from "react"
 import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
 import Anim from "../Anim"
+import { Link } from "gatsby"
+import PropTypes from "prop-types"
 
 const Container = styled.section`
   padding-top: calc(var(--spacing) * 2.5);
   padding-right: ${props =>
-    props.className == "align-right" ? "0" : `calc(var(--spacing) * 2.5)`};
+    props.className === "align-right" ? "0" : `calc(var(--spacing) * 2.5)`};
   padding-bottom: calc(var(--spacing) * 2.5);
   padding-left: ${props =>
-    props.className == "align-right" ? `calc(var(--spacing) * 2.5)` : "0"};
+    props.className === "align-right" ? `calc(var(--spacing) * 2.5)` : "0"};
 
   @media (min-width: 768px) {
     padding-left: ${props =>
-      props.className == "align-right" ? `calc(var(--spacing) * 4)` : "0"};
+      props.className === "align-right" ? `calc(var(--spacing) * 4)` : "0"};
   }
 
   @media (min-width: 1200px) {
     padding-top: calc(var(--spacing) * 8);
     padding-right: ${props =>
-      props.className == "align-right" ? "0" : `calc(var(--spacing) * 5)`};
+      props.className === "align-right" ? "0" : `calc(var(--spacing) * 5)`};
     padding-bottom: calc(var(--spacing) * 8);
     padding-left: ${props =>
-      props.className == "align-right" ? `calc(var(--spacing) * 5)` : "0"};
+      props.className === "align-right" ? `calc(var(--spacing) * 5)` : "0"};
   }
 `
 
@@ -45,11 +47,11 @@ const ProjectDetails = styled.div`
   justify-content: flex-start;
   grid-row: 1 / 2;
   grid-column: ${props =>
-    props.className == "align-right" ? "1 / 4" : "2 / 5"};
+    props.className === "align-right" ? "1 / 4" : "2 / 5"};
 
   @media (min-width: 768px) {
     grid-column: ${props =>
-      props.className == "align-right" ? "1 / 3" : "3 / 5"};
+      props.className === "align-right" ? "1 / 3" : "3 / 5"};
   }
 
   @media (min-width: 1200px) {
@@ -57,29 +59,25 @@ const ProjectDetails = styled.div`
   }
 `
 
-const ProjectLink = styled.a`
-  font-size: var(--para);
+const ProjectLink = styled(Link)`
+  font-size: var(--h3);
   letter-spacing: -0.5px;
   font-weight: 700;
-  margin-bottom: var(--spacing);
+  margin-bottom: calc(var(--spacing) * 2);
 `
 
 const ProjectName = styled.h2`
-  font-size: var(--hero);
+  font-size: var(--h1);
   font-weight: 700;
   margin: 0 0 var(--spacing) 0;
   letter-spacing: -1.5px;
 `
 
 const ProjectExcerpt = styled.h3`
-  font-size: var(--para);
+  font-size: var(--h3);
   line-height: 1.3;
-  margin: 0 0 var(--spacing) 0;
+  margin: 0 0 calc(var(--spacing) * 2) 0;
   font-weight: 300;
-
-  @media (min-width: 768px) {
-    margin-top: auto;
-  }
 `
 
 const ProjectImage = styled.div`
@@ -101,7 +99,6 @@ const ProjectImage = styled.div`
   }
 
   &::after {
-    /* to clear float */
     content: "";
     display: table;
     clear: both;
@@ -110,10 +107,11 @@ const ProjectImage = styled.div`
   .project-image {
     height: 100%;
     width: 100%;
-    position: absolute;
+    position: absolute !important;
     top: 0;
     left: 0;
     right: 0;
+    bottom: 0;
   }
 
   @media (min-width: 768px) {
@@ -122,26 +120,27 @@ const ProjectImage = styled.div`
 
   @media (min-width: 1200px) {
     grid-column: ${props =>
-      props.className == "align-right" ? "3 / 7" : "1 / 5"};
+      props.className === "align-right" ? "3 / 7" : "1 / 5"};
   }
 `
 
-const Project = props => {
-  const projectNode = props.item.node
-  let projectImg = projectNode.images[0].fluid
+const Project = ({ item, className }) => {
+  // Destructure the project prop
+  // Passed in from parent component
+  // Info - https://wesbos.com/destructuring-objects/
+  const { name, excerpt, slug, images } = item
+  let projectImg = images[0].fluid
 
   return (
     <Anim>
-      <Container className={props.className}>
+      <Container className={className}>
         <GridContainer>
-          <ProjectDetails className={props.className}>
-            <ProjectName>{projectNode.name}</ProjectName>
-            <ProjectExcerpt>{projectNode.excerpt}</ProjectExcerpt>
-            <ProjectLink href={`projects/${projectNode.slug}`}>
-              View {projectNode.name}
-            </ProjectLink>
+          <ProjectDetails className={className}>
+            <ProjectName>{name}</ProjectName>
+            <ProjectExcerpt>{excerpt}</ProjectExcerpt>
+            <ProjectLink to={`projects/${slug}`}>View {name}</ProjectLink>
           </ProjectDetails>
-          <ProjectImage className={props.className}>
+          <ProjectImage className={className}>
             <BackgroundImage fluid={projectImg} className="project-image" />
           </ProjectImage>
         </GridContainer>
@@ -151,3 +150,12 @@ const Project = props => {
 }
 
 export default Project
+
+// Check the supplied data is in the correct format
+Project.propTypes = {
+  item: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    excerpt: PropTypes.string.isRequired,
+    images: PropTypes.arrayOf(PropTypes.object).isRequired,
+  }),
+}
