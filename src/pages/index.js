@@ -40,7 +40,7 @@ const Index = () => {
       </Hero>
       <FullWidthImage />
       <About id="about" />
-      {project.map((node, i) => {
+      {project.map(({ node }, i) => {
         return (
           <Project
             key={i}
