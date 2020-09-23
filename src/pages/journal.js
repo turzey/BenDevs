@@ -1,7 +1,7 @@
 import React from "react"
 import SEO from "../components/SEO"
 import Layout from "../components/Layout"
-import Contact from "../components/Contact/Contact"
+import Contact from "../components/Contact"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 import Button from "../components/Button/Button"

@@ -4,7 +4,7 @@ import Grid from "../components/Grid/Grid"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import SEO from "../components/SEO"
-import Contact from "../components/Contact/Contact"
+import Contact from "../components/Contact"
 
 const Error404 = styled.section`
   background-color: var(--background);
