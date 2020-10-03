@@ -3,64 +3,74 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 
-const FooterArea = styled.footer`
-  padding-left: 1.875rem;
-  padding-right: 1.875rem;
+const Container = styled.footer`
+  padding: calc(var(--spacing) * 2.5) calc(var(--spacing) * 2.5)
+    calc(var(--spacing) * 4) calc(var(--spacing) * 2.5);
+
+  @media (min-width: 768px) {
+    padding: calc(var(--spacing) * 5) calc(var(--spacing) * 4)
+      calc(var(--spacing) * 4) calc(var(--spacing) * 4);
+  }
+
+  @media (min-width: 1200px) {
+    padding-left: calc(var(--spacing) * 5);
+    padding-right: calc(var(--spacing) * 5);
+  }
 `
 
 const GridContainer = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+
   @media (min-width: 768px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto auto;
-    grid-gap: 40px;
+    grid-template-rows: auto;
   }
 `
 
 const Copyright = styled.div`
-  margin-top: 20px;
-  margin-bottom: 5px;
-  font-size: 0.875rem;
-  width: 100%;
+  grid-column: 1 / 5;
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: var(--inActive);
 
   a {
+    font-size: var(--para);
+    color: var(--inActive);
     text-decoration: none;
-    color: var(--primary);
-    opacity: 0.35;
-    transition: opacity 0.5s;
+    transition: color 0.75s;
 
     &:hover {
-      opacity: 1;
+      color: #fff;
     }
   }
 
   @media (min-width: 768px) {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-    margin-bottom: 20px;
+    grid-column: 1 / 3;
+    margin-bottom: 0;
   }
 `
 
 const Privacy = styled.div`
-  margin-top: 5px;
-  margin-bottom: 20px;
-  font-size: 0.875rem;
+  grid-column: 1 / 5;
+  letter-spacing: -1px;
 
   a {
     text-decoration: none;
-    color: var(--primary);
-    opacity: 0.35;
-    transition: opacity 0.5s;
+    color: var(--inActive);
+    transition: color 0.75s;
+    font-size: var(--para);
+    font-weight: 700;
 
     &:hover {
-      opacity: 1;
+      color: #fff;
     }
   }
 
   @media (min-width: 768px) {
-    grid-column: 3 / 4;
-    grid-row: 2 / 3;
-    margin-top: 20px;
+    grid-column: 3 / 6;
     text-align: right;
   }
 `
@@ -80,10 +90,10 @@ const Footer = () => {
 
   return (
     <>
-      <FooterArea>
-        <GridContainer className="container">
+      <Container>
+        <GridContainer>
           <Copyright>
-            Copyright &copy; {new Date().getFullYear()}{" "}
+            &copy; {new Date().getFullYear()}{" "}
             <a
               href="https://www.linkedin.com/in/morgan-baker-developer-inverness/"
               target="_blank"
@@ -98,7 +108,7 @@ const Footer = () => {
             </AniLink>
           </Privacy>
         </GridContainer>
-      </FooterArea>
+      </Container>
     </>
   )
 }
