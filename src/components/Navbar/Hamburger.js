@@ -20,7 +20,7 @@ const Container = styled.div`
     transition: left 0.25s, opacity 0.75s, background-color 0.75s;
     background-color: var(--primary);
     width: 100%;
-    height: 1px;
+    height: 2px;
     display: block;
     margin: 0;
 
@@ -54,7 +54,7 @@ const Container = styled.div`
     span {
       background-color: var(--charcoal);
       &:nth-child(1) {
-        top: 11px;
+        top: 10px;
         transform: rotate(45deg);
       }
 

@@ -8,7 +8,7 @@ const Cont = styled.div`
   height: 100%;
   width: 100vw;
   position: fixed;
-  z-index: 1;
+  z-index: 4;
   top: 0;
   left: 0;
   overflow-x: hidden;
