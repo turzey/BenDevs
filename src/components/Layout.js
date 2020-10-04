@@ -88,6 +88,7 @@ body {
   top: calc(var(--spacing) * 2);
   right: calc(var(--spacing) * 2.5);
   z-index: 5;
+  padding: 0;
 
   @media (min-width: 768px) {
     right:  calc(var(--spacing) * 4);
@@ -219,6 +220,7 @@ const Layout = ({ children }) => {
       </CookieConsent>
       <div id="main" className={isOpen ? "menu-open" : "menu-closed"}>
         <SideMenu status={isOpen} />
+
         <button className="burger" onClick={toggleNav}>
           <Hamburger status={isOpen} />
         </button>
