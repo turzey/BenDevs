@@ -6,7 +6,7 @@ import styled, { createGlobalStyle } from "styled-components"
 import CookieConsent from "react-cookie-consent"
 import "typeface-inter"
 import Logo from "../components/Logo/Logo"
-import HeaderContact from "../components/HeaderContact/HeaderContact"
+import QuickLinks from "../components/QuickLinks"
 
 const GlobalStyle = createGlobalStyle`
 :root {
@@ -124,10 +124,6 @@ h1 {
   margin-bottom: 1rem;
   font-size: var(--h1);
   letter-spacing: -0.25px;
-
-  /* @media(min-width: 768px) {
-    line-height: 1.2;
-  } */
 }
 
 h2 {
@@ -185,6 +181,11 @@ button.btn {
     }
   }
 
+  .burger {
+    width: 32px;
+    height: 32px;
+  }
+
   .container {
     max-width: 1200px;
     margin-left: auto;
@@ -221,21 +222,11 @@ const Layout = ({ children }) => {
       <div id="main" className={isOpen ? "menu-open" : "menu-closed"}>
         <SideMenu status={isOpen} />
 
+        <QuickLinks status={isOpen} />
         <button className="burger" onClick={toggleNav}>
           <Hamburger status={isOpen} />
         </button>
         <Logo status={isOpen} />
-        <HeaderContact
-          text="hello@morganbaker.dev"
-          link="mailto:hello@morganbaker.dev"
-          open={isOpen}
-        />
-        <HeaderContact
-          text="GitHub"
-          link="https://github.com/bagseye"
-          direction="right"
-          open={isOpen}
-        />
         {children}
         <Footer />
       </div>
