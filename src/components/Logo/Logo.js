@@ -4,6 +4,7 @@ import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { motion } from "framer-motion"
 
 const LogoCont = styled.div`
+  line-height: 32px;
   font-weight: 700;
   letter-spacing: -1px;
   margin: 0;
@@ -14,9 +15,25 @@ const LogoCont = styled.div`
   left: calc(var(--spacing) * 2.5);
   z-index: 5;
 
+  .grey {
+    color: #777;
+  }
+
   &.menu-open {
     a {
       color: var(--charcoal);
+    }
+  }
+
+  @media (max-width: 374px) {
+    .hide-iphone-5 {
+      display: none;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .hide-mobile {
+      display: none;
     }
   }
 
@@ -49,6 +66,10 @@ const Logo = ({ status }) => {
       >
         <AniLink cover bg="#1d1d1d" to="/">
           Morgan Baker.
+          <span className="grey hide-iphone-5">
+            {" "}
+            Dev<span className="hide-mobile">eloper</span>
+          </span>
         </AniLink>
       </motion.div>
     </LogoCont>

@@ -1,13 +1,13 @@
 import React from "react"
-import { MdHome, MdEmail } from "react-icons/md"
+import { VscMail, VscHome } from "react-icons/vsc"
 
 export default [
   {
-    icon: <MdEmail />,
-    path: "/contact",
+    icon: <VscMail />,
+    path: "mailto:hello@morganbaker.dev",
   },
   {
-    icon: <MdHome />,
+    icon: <VscHome />,
     path: "/",
   },
 ]
