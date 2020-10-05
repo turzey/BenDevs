@@ -17,7 +17,7 @@ const Container = styled.div`
 
   span {
     position: absolute;
-    transition: left 0.25s, opacity 0.75s, background-color 0.75s;
+    transition: left 0.25s, opacity 0.75s ease, background-color 0.75s ease;
     background-color: var(--primary);
     width: 100%;
     height: 2px;

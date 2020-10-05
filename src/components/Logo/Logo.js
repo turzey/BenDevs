@@ -8,7 +8,7 @@ const LogoCont = styled.div`
   font-weight: 700;
   letter-spacing: -1px;
   margin: 0;
-  transition: opacity 0.75s;
+  transition: opacity 0.75s ease;
   font-size: var(--logo);
   position: fixed;
   top: calc(var(--spacing) * 2);

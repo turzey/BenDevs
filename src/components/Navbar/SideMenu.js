@@ -22,10 +22,9 @@ const Cont = styled.div`
 
   li {
     list-style: none;
-    transition: opacity 0.75s;
+    transition: opacity 0.75s ease;
     font-weight: 700;
     letter-spacing: -1px;
-    /* font-size: var(--h1Large); */
     font-size: var(--hero);
     line-height: var(--hero);
     margin-bottom: calc(var(--spacing) / 2);
@@ -51,7 +50,6 @@ const Cont = styled.div`
   }
 
   &.menu-open {
-    /* width: 100vw; */
     transform: translateX(0);
   }
 `

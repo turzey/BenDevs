@@ -2,14 +2,16 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
+import Banner from "../components/Banner/Banner"
 import Image from "gatsby-image"
 import Contact from "../components/Contact"
 import Grid from "../components/Grid/Grid"
 import styled from "styled-components"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import Hero from "../components/Hero/Hero"
 
 const Header = styled.header`
-  height: 50vh;
+  height: 100vh;
 
   .hero {
     height: 100%;
@@ -150,6 +152,9 @@ const projectTemplate = ({ data }) => {
   return (
     <Layout>
       <SEO title={name} description={excerpt} />
+      <Hero>
+        <Banner description={name} />
+      </Hero>
       <Header>
         <Image className="hero" fluid={mainImage.fluid}>
           <Grid>
