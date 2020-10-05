@@ -41,6 +41,13 @@ const ContactLink = styled.a`
   grid-column: 1 / 3;
   font-size: var(--h1);
   letter-spacing: -1.5px;
+  text-underline-position: under;
+  text-decoration-color: rgba(255, 255, 255, 0.35);
+  transition: text-decoration-color 0.75s ease;
+
+  &:hover {
+    text-decoration-color: rgba(255, 255, 255, 1);
+  }
 `
 
 const Contact = () => {

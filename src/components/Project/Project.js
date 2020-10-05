@@ -64,6 +64,13 @@ const ProjectLink = styled(Link)`
   letter-spacing: -0.5px;
   font-weight: 700;
   margin-bottom: calc(var(--spacing) * 2);
+  text-underline-position: under;
+  text-decoration-color: rgba(255, 255, 255, 0.35);
+  transition: text-decoration-color 0.75s ease;
+
+  &:hover {
+    text-decoration-color: rgba(255, 255, 255, 1);
+  }
 `
 
 const ProjectName = styled.h2`

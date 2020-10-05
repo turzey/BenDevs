@@ -28,7 +28,7 @@ const LinkIcon = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: opacity 0.75s;
+  transition: opacity 0.75s ease;
 
   &:hover {
     opacity: 0.5;
@@ -37,7 +37,7 @@ const LinkIcon = styled.li`
   a {
     width: 100%;
     height: 100%;
-    transition: color 0.75s;
+    transition: color 0.75s ease;
   }
 
   svg {
