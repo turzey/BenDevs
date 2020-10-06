@@ -143,41 +143,24 @@ button.btn {
     color: #fff;
     background-color: transparent;
     border: 0;
-    text-decoration: none;
     padding: 0 0 10px 0;
-    transition: var(--transition) color;
     font-size: var(--button);
     font-family: var(--sansSerif);
     font-weight: 700;
     position: relative;
     align-self: flex-start;
     letter-spacing: -1px;
+    text-underline-position: under;
+    text-decoration-color: rgba(255, 255, 255, 0.35);
+    transition: text-decoration-color 0.75s ease, color 0.75s ease;
 
-    &::after {
-      content: "";
-      display: block;
-      position: absolute;
-      height: 2px;
-      left: 0;
-      right: 0;
-      bottom: 4px;
-      background-color: var(--primary);
-      opacity: 0.35;
-      transition: opacity 0.75s;
+    &:hover {
+      cursor: pointer;
+      text-decoration-color: rgba(255, 255, 255, 1);
     }
 
     &:focus {
       color: var(--primary);
-    }
-
-    @media(hover: hover) {
-      &:hover {
-      cursor: pointer;
-
-      &::after {
-        opacity: 1;
-      }
-      }
     }
   }
 

@@ -24,14 +24,17 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  padding: calc(var(--spacing) * 8) calc(var(--spacing) * 2.5);
+  padding: calc(var(--spacing) * 8) calc(var(--spacing) * 2.5)
+    calc(var(--spacing) * 4) calc(var(--spacing) * 2.5);
 
   @media (min-width: 768px) {
-    padding: calc(var(--spacing) * 12) calc(var(--spacing) * 4);
+    padding: calc(var(--spacing) * 12) calc(var(--spacing) * 4)
+      calc(var(--spacing) * 9) calc(var(--spacing) * 4);
   }
 
   @media (min-width: 1200px) {
-    padding: calc(var(--spacing) * 14) calc(var(--spacing) * 5);
+    padding: calc(var(--spacing) * 14) calc(var(--spacing) * 5)
+      calc(var(--spacing) * 11) calc(var(--spacing) * 5);
   }
 `
 

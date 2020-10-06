@@ -5,120 +5,109 @@ import SEO from "../components/SEO"
 import Banner from "../components/Banner/Banner"
 import Image from "gatsby-image"
 import Contact from "../components/Contact"
-import Grid from "../components/Grid/Grid"
 import styled from "styled-components"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import Hero from "../components/Hero/Hero"
+
+const Container = styled.div`
+  padding: calc(var(--spacing) * 2.5) calc(var(--spacing) * 2.5);
+
+  @media (min-width: 768px) {
+    padding: calc(var(--spacing) * 5) calc(var(--spacing) * 4);
+  }
+
+  @media (min-width: 1200px) {
+    padding: calc(var(--spacing) * 7.5) calc(var(--spacing) * 5);
+  }
+`
+
+const GridContainer = styled.div`
+  width: 100%;
+  display: grid;
+  grid-gap: var(--spacing);
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+
+  @media (min-width: 768px) {
+    grid-template-rows: auto;
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 15px;
+  }
+`
 
 const Header = styled.header`
   height: 100vh;
 
   .hero {
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: var(--paddingBorder);
-    padding-right: var(--paddingBorder);
-
-    h1 {
-      font-size: var(--h1);
-    }
-  }
-`
-
-const HeroContent = styled.div`
-  grid-column: 1 / 4;
-
-  @media (min-width: 1200px) {
-    grid-column: 1 / 3;
   }
 `
 
 const Content = styled.div`
-  grid-column: 1 / 4;
+  grid-column: 1 / 5;
+  grid-row: 2 / 3;
 
   p {
+    font-size: var(--h3);
+    line-height: 1.3;
+    margin-top: 0;
+    margin-bottom: var(--spacing);
+
     &:first-child,
     &:last-child {
       margin-top: 0;
       margin-bottom: 0;
     }
-    &:nth-child(2) {
-      margin-top: 0;
-    }
-    &:nth-last-child(2) {
-      margin-bottom: 0;
-    }
+
     a {
       color: var(--primary);
-      text-decoration-style: dashed;
+      text-underline-position: under;
+      text-decoration-color: rgba(255, 255, 255, 0.35);
+      transition: text-decoration-color 0.75s ease, color 0.75s ease;
 
       &:hover {
-        text-decoration-style: solid;
+        cursor: pointer;
+        text-decoration-color: rgba(255, 255, 255, 1);
       }
     }
   }
 
+  @media (min-width: 768px) {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+  }
+
   @media (min-width: 1200px) {
-    grid-column: 1 / 3;
+    grid-column: 1 / 4;
   }
 `
 
 const Details = styled.div`
   h2 {
     margin-top: 0;
+    font-size: var(--h3);
+    letter-spacing: -0.5px;
   }
   a {
-    font-size: var(--h2);
+    font-size: var(--h3);
+    letter-spacing: -0.5px;
+    font-weight: 700;
   }
   grid-column: 1 / 4;
+  grid-row: 1 / 2;
+
+  @media (min-width: 768px) {
+    grid-column: 4 / 5;
+  }
+
   @media (min-width: 1200px) {
-    grid-column: 3 / 4;
+    grid-column: 5 /7;
   }
 `
 
-const ImageArea = styled.section`
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1800px;
-
-  .gallery-item {
-    flex: 0 0 85%;
-
-    &::before {
-      content: "";
-      display: block;
-      padding-top: 25%;
-    }
-
-    @media (min-width: 768px) {
-      flex-basis: 80%;
-    }
-
-    @media (min-width: 1024px) {
-      flex-basis: calc(100% / 3);
-    }
-  }
-`
-
-const Scroll = styled.div`
-  height: 100%;
-  overflow-x: scroll;
-  display: flex;
-  flex-wrap: nowrap;
-
-  -ms-overflow-style: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  @media (min-width: 1024px) {
-    overflow-x: auto;
-    flex-wrap: wrap;
-  }
-`
+const ImageArea = styled.section``
 
 const projectTemplate = ({ data }) => {
   const {
@@ -152,21 +141,12 @@ const projectTemplate = ({ data }) => {
   return (
     <Layout>
       <SEO title={name} description={excerpt} />
-      <Hero>
-        <Banner description={name} />
-      </Hero>
+      <Banner description={name} />
       <Header>
-        <Image className="hero" fluid={mainImage.fluid}>
-          <Grid>
-            <HeroContent>
-              <h1>{name}</h1>
-              <h2>{excerpt}</h2>
-            </HeroContent>
-          </Grid>
-        </Image>
+        <Image className="hero" fluid={mainImage.fluid} />
       </Header>
-      <section className="section-padding--large">
-        <Grid>
+      <Container>
+        <GridContainer>
           <Content>
             {/* Render Contentful rich content here */}
             {documentToReactComponents(json, options)}
@@ -182,16 +162,14 @@ const projectTemplate = ({ data }) => {
               View Site
             </a>
           </Details>
-        </Grid>
-      </section>
+        </GridContainer>
+      </Container>
       <ImageArea>
-        <Scroll>
-          {projectImages.map((item, index) => {
-            return (
-              <Image className="gallery-item" key={index} fluid={item.fluid} />
-            )
-          })}
-        </Scroll>
+        {projectImages.map((item, index) => {
+          return (
+            <Image className="gallery-item" key={index} fluid={item.fluid} />
+          )
+        })}
       </ImageArea>
       <Contact />
     </Layout>
@@ -206,7 +184,7 @@ export const query = graphql`
       technology
       website
       images {
-        fluid {
+        fluid(maxWidth: 2000) {
           ...GatsbyContentfulFluid_tracedSVG
         }
       }
