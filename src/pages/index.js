@@ -46,6 +46,7 @@ const Index = () => {
             key={i}
             item={node}
             className={i % 2 ? "align-left" : "align-right"}
+            prefix={true}
           />
         )
       })}

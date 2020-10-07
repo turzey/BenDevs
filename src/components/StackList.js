@@ -4,6 +4,18 @@ import styled from "styled-components"
 import Image from "gatsby-image"
 import Anim from "./Anim"
 
+const Container = styled.div`
+  padding: calc(var(--spacing) * 2.5) calc(var(--spacing) * 2.5);
+
+  @media (min-width: 768px) {
+    padding: calc(var(--spacing) * 5) calc(var(--spacing) * 4);
+  }
+
+  @media (min-width: 1200px) {
+    padding: calc(var(--spacing) * 7.5) calc(var(--spacing) * 5);
+  }
+`
+
 const Title = styled.h2`
   font-size: var(--h1);
 `
@@ -50,11 +62,8 @@ const StackList = () => {
   `)
 
   return (
-    <section
-      style={{ paddingTop: 0, paddingBottom: 0 }}
-      className="section-padding"
-    >
-      <div className="container">
+    <>
+      <Container>
         <Title>Current Tech Stack</Title>
         <Anim>
           <FlexCont>
@@ -68,8 +77,8 @@ const StackList = () => {
             ))}
           </FlexCont>
         </Anim>
-      </div>
-    </section>
+      </Container>
+    </>
   )
 }
 
