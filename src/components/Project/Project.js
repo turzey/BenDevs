@@ -131,7 +131,7 @@ const ProjectImage = styled.div`
   }
 `
 
-const Project = ({ item, className }) => {
+const Project = ({ item, className, prefix }) => {
   // Destructure the project prop
   // Passed in from parent component
   // Info - https://wesbos.com/destructuring-objects/
@@ -145,7 +145,9 @@ const Project = ({ item, className }) => {
           <ProjectDetails className={className}>
             <ProjectName>{name}</ProjectName>
             <ProjectExcerpt>{excerpt}</ProjectExcerpt>
-            <ProjectLink to={`projects/${slug}`}>View {name}</ProjectLink>
+            <ProjectLink to={`${prefix ? "projects/" : ""}${slug}`}>
+              View {name}
+            </ProjectLink>
           </ProjectDetails>
           <ProjectImage className={className}>
             <BackgroundImage fluid={projectImg} className="project-image" />

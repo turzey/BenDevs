@@ -37,14 +37,6 @@ const GridContainer = styled.div`
   }
 `
 
-const Header = styled.header`
-  height: 100vh;
-
-  .hero {
-    height: 100%;
-  }
-`
-
 const Content = styled.div`
   grid-column: 1 / 5;
   grid-row: 2 / 3;
@@ -142,9 +134,7 @@ const projectTemplate = ({ data }) => {
     <Layout>
       <SEO title={name} description={excerpt} />
       <Banner description={name} />
-      <Header>
-        <Image className="hero" fluid={mainImage.fluid} />
-      </Header>
+      <Image className="hero" fluid={mainImage.fluid} />
       <Container>
         <GridContainer>
           <Content>
