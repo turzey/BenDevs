@@ -1,10 +1,10 @@
 import React from "react"
-import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import Contact from "../components/Contact"
 import styled from "styled-components"
 import Stack from "../components/StackList"
 import Banner from "../components/Banner/Banner"
+import PageTransition from "gatsby-v2-plugin-page-transitions"
 
 const Container = styled.div`
   padding: 0 calc(var(--spacing) * 2.5);
@@ -76,7 +76,7 @@ const Content = styled.div`
 
 const About = () => {
   return (
-    <Layout>
+    <PageTransition>
       <SEO title="About the developer" />
       <Banner description="About the developer" />
       <Container>
@@ -116,7 +116,7 @@ const About = () => {
       </Container>
       <Stack />
       <Contact />
-    </Layout>
+    </PageTransition>
   )
 }
 

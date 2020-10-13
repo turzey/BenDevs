@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
-import { motion } from "framer-motion"
+import { Link } from "gatsby"
 
 const LogoCont = styled.div`
   line-height: 32px;
@@ -59,19 +58,13 @@ const LogoCont = styled.div`
 const Logo = ({ status }) => {
   return (
     <LogoCont className={status ? "menu-open" : "menu-init"}>
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.75, duration: 0.75 }}
-      >
-        <AniLink cover bg="#1d1d1d" to="/">
-          Morgan Baker.
-          <span className="grey hide-iphone-5">
-            {" "}
-            Dev<span className="hide-mobile">eloper</span>
-          </span>
-        </AniLink>
-      </motion.div>
+      <Link to="/">
+        Morgan Baker.
+        <span className="grey hide-iphone-5">
+          {" "}
+          Dev<span className="hide-mobile">eloper</span>
+        </span>
+      </Link>
     </LogoCont>
   )
 }

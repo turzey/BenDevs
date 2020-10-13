@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import Anim from "../Anim"
 
 const Container = styled.div`
   padding: calc(var(--spacing) * 2.5) calc(var(--spacing) * 2.5);
@@ -59,26 +58,24 @@ const Title = styled.h2`
 const About = ({ id }) => {
   return (
     <section id={id}>
-      <Anim>
-        <Container>
-          <GridContainer>
-            <TitleArea>
-              <Title>
-                Using{" "}
-                <a
-                  href="https://www.gatsbyjs.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GatsbyJS
-                </a>{" "}
-                I have built, and continue to maintain, a number of open source
-                projects that are listed within their official starters library
-              </Title>
-            </TitleArea>
-          </GridContainer>
-        </Container>
-      </Anim>
+      <Container>
+        <GridContainer>
+          <TitleArea>
+            <Title>
+              Using{" "}
+              <a
+                href="https://www.gatsbyjs.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GatsbyJS
+              </a>{" "}
+              I have built, and continue to maintain, a number of open source
+              projects that are listed within their official starters library
+            </Title>
+          </TitleArea>
+        </GridContainer>
+      </Container>
     </section>
   )
 }
