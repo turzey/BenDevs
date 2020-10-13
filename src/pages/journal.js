@@ -1,11 +1,12 @@
 import React from "react"
 import SEO from "../components/SEO"
-import Layout from "../components/Layout"
+// import Layout from "../components/Layout"
 import Contact from "../components/Contact"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 import Button from "../components/Button/Button"
 import Banner from "../components/Banner/Banner"
+import PageTransition from "gatsby-v2-plugin-page-transitions"
 
 const Container = styled.div`
   padding: 0 calc(var(--spacing) * 2.5);
@@ -90,7 +91,7 @@ const blog = ({ data }) => {
   const blogs = data.allMdx.edges
 
   return (
-    <Layout>
+    <PageTransition>
       <SEO title="Development Journal" />
       <Banner description="Random ramblings" />
       <Container>
@@ -119,7 +120,7 @@ const blog = ({ data }) => {
         </GridContainer>
       </Container>
       <Contact />
-    </Layout>
+    </PageTransition>
   )
 }
 

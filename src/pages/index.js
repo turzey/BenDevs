@@ -1,18 +1,13 @@
 import React from "react"
-import Layout from "../components/Layout"
 import Hero from "../components/Hero/Hero"
 import Banner from "../components/Banner/Banner"
 import About from "../components/About/About"
-import Service from "../components/Service/Service"
-import FeaturedProjects from "../components/FeaturedProjects/FeaturedProjects"
 import Project from "../components/Project/Project"
 import Contact from "../components/Contact"
 import { useStaticQuery, graphql } from "gatsby"
-import { motion } from "framer-motion"
 import SEO from "../components/SEO"
-import { Link } from "react-scroll"
-import Button from "../components/Button/Button"
 import FullWidthImage from "../components/FullWidthImage/FullWidthImage"
+import PageTransition from "gatsby-v2-plugin-page-transitions"
 
 const Index = () => {
   const queryResponse = useStaticQuery(data)
@@ -20,40 +15,42 @@ const Index = () => {
   const project = queryResponse.allContentfulProjects.edges
 
   return (
-    <Layout>
-      <SEO title="Home" />
-      <Hero>
-        <Banner
-          description={queryResponse.site.siteMetadata.description}
-          subline={queryResponse.site.siteMetadata.subline}
-        >
-          <motion.div
+    <>
+      <PageTransition>
+        <SEO title="Home" />
+        <Hero>
+          <Banner
+            description={queryResponse.site.siteMetadata.description}
+            subline={queryResponse.site.siteMetadata.subline}
+          >
+            {/* <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 2.5, duration: 1 }}
-          >
-            <Link to="about" smooth={true} duration={500}>
+          > */}
+            {/* <Link to="about" smooth={true} duration={500}>
               <Button text="Learn More" />
-            </Link>
-          </motion.div>
-        </Banner>
-      </Hero>
-      <FullWidthImage />
-      <About id="about" />
-      {project.map(({ node }, i) => {
-        return (
-          <Project
-            key={i}
-            item={node}
-            className={i % 2 ? "align-left" : "align-right"}
-            prefix={true}
-          />
-        )
-      })}
-      {/* <Service largePadding={true} /> */}
-      {/* <FeaturedProjects id="projects" /> */}
-      <Contact />
-    </Layout>
+            </Link> */}
+            {/* </motion.div> */}
+          </Banner>
+        </Hero>
+        <FullWidthImage />
+        <About id="about" />
+        {project.map(({ node }, i) => {
+          return (
+            <Project
+              key={i}
+              item={node}
+              className={i % 2 ? "align-left" : "align-right"}
+              prefix={true}
+            />
+          )
+        })}
+        {/* <Service largePadding={true} /> */}
+        {/* <FeaturedProjects id="projects" /> */}
+        <Contact />
+      </PageTransition>
+    </>
   )
 }
 

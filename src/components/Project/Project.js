@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
-import Anim from "../Anim"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 
@@ -139,7 +138,7 @@ const Project = ({ item, className, prefix }) => {
   let projectImg = images[0].fluid
 
   return (
-    <Anim>
+    <>
       <Container className={className}>
         <GridContainer>
           <ProjectDetails className={className}>
@@ -154,7 +153,7 @@ const Project = ({ item, className, prefix }) => {
           </ProjectImage>
         </GridContainer>
       </Container>
-    </Anim>
+    </>
   )
 }
 

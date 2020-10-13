@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import SideMenu from "./Navbar/SideMenu"
 import Hamburger from "./Navbar/Hamburger"
 import Footer from "./Footer"
-import styled, { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from "styled-components"
 import CookieConsent from "react-cookie-consent"
 import "typeface-inter"
 import Logo from "../components/Logo/Logo"
@@ -61,6 +61,7 @@ const GlobalStyle = createGlobalStyle`
 
 }  
 body {
+    overflow-x: hidden;
     font-family: var(--sansSerif);
     font-weight: 400;
     margin: 0;

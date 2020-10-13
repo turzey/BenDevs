@@ -1,9 +1,10 @@
 import React from "react"
-import Layout from "../components/Layout"
+// import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import Contact from "../components/Contact"
 import styled from "styled-components"
 import Banner from "../components/Banner/Banner"
+import PageTransition from "gatsby-v2-plugin-page-transitions"
 
 const Container = styled.div`
   padding: 0 calc(var(--spacing) * 2.5);
@@ -75,7 +76,7 @@ const Content = styled.div`
 
 const Privacy = () => {
   return (
-    <Layout>
+    <PageTransition>
       <SEO title="Privacy & Your Data" />
       <Banner description="Privacy & your data" />
       <Container>
@@ -95,7 +96,7 @@ const Privacy = () => {
         </GridContainer>
       </Container>
       <Contact />
-    </Layout>
+    </PageTransition>
   )
 }
 

@@ -1,16 +1,17 @@
 import React from "react"
 import SEO from "../components/SEO"
-import Layout from "../components/Layout"
+// import Layout from "../components/Layout"
 import Contact from "../components/Contact"
 import { graphql } from "gatsby"
 import Banner from "../components/Banner/Banner"
 import Project from "../components/Project/Project"
+import PageTransition from "gatsby-v2-plugin-page-transitions"
 
 const projects = ({ data }) => {
   const project = data.projects.edges
 
   return (
-    <Layout>
+    <PageTransition>
       <SEO />
       <Banner description="Recent Projects" />
       {project.map(({ node }, i) => {
@@ -23,7 +24,7 @@ const projects = ({ data }) => {
         )
       })}
       <Contact />
-    </Layout>
+    </PageTransition>
   )
 }
 

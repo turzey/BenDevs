@@ -1,5 +1,5 @@
 import React from "react"
-import Layout from "../components/Layout"
+// import Layout from "../components/Layout"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import SEO from "../components/SEO"
@@ -76,7 +76,7 @@ const Content = styled.div`
 
 const error = () => {
   return (
-    <Layout>
+    <>
       <SEO title="Error" />
       <Banner description="Page not found" />
 
@@ -95,7 +95,7 @@ const error = () => {
         </GridContainer>
       </Container>
       <Contact />
-    </Layout>
+    </>
   )
 }
 

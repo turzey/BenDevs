@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { motion } from "framer-motion"
 
 const HeroContainer = styled.div``
 
@@ -70,13 +69,7 @@ const Banner = ({ description }) => {
       <Container>
         <GridContainer>
           <TitleArea>
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.25, duration: 0.75 }}
-            >
-              <HeroTitle>{description}</HeroTitle>
-            </motion.div>
+            <HeroTitle>{description}</HeroTitle>
           </TitleArea>
         </GridContainer>
       </Container>

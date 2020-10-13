@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import Anim from "./Anim"
 
 const Container = styled.div`
   padding: calc(var(--spacing) * 2.5) calc(var(--spacing) * 2.5);
@@ -52,7 +51,7 @@ const ContactLink = styled.a`
 
 const Contact = () => {
   return (
-    <Anim>
+    <>
       <Container>
         <GridContainer>
           <TitleArea>All enquiries</TitleArea>
@@ -61,7 +60,7 @@ const Contact = () => {
           </ContactLink>
         </GridContainer>
       </Container>
-    </Anim>
+    </>
   )
 }
 

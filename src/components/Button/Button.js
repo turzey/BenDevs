@@ -1,6 +1,5 @@
 import React from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
-import { MdArrowForward } from "react-icons/md"
 import { IoIosArrowRoundDown } from "react-icons/io"
 import { IconContext } from "react-icons"
 

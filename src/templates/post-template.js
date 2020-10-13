@@ -1,11 +1,12 @@
 import React from "react"
 import styled from "styled-components"
 import { graphql } from "gatsby"
-import Layout from "../components/Layout"
+// import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Button from "../components/Button/Button"
 import Banner from "../components/Banner/Banner"
+import PageTransition from "gatsby-v2-plugin-page-transitions"
 
 const Container = styled.div`
   padding: 0 calc(var(--spacing) * 2.5);
@@ -105,7 +106,7 @@ export default function PageTemplate({ data }) {
   // const img = image.childImageSharp.fluid
 
   return (
-    <Layout>
+    <PageTransition>
       <SEO title={title} description={description} />
       <Banner description={title} />
 
@@ -133,7 +134,7 @@ export default function PageTemplate({ data }) {
           </Content>
         </GridContainer>
       </Container>
-    </Layout>
+    </PageTransition>
   )
 }
 

@@ -1,11 +1,13 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from "../components/Layout"
+// import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import Banner from "../components/Banner/Banner"
 import Image from "gatsby-image"
 import Contact from "../components/Contact"
 import styled from "styled-components"
+import PageTransition from "gatsby-v2-plugin-page-transitions"
+
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 const Container = styled.div`
@@ -131,7 +133,7 @@ const projectTemplate = ({ data }) => {
   const [mainImage, ...projectImages] = images
 
   return (
-    <Layout>
+    <PageTransition>
       <SEO title={name} description={excerpt} />
       <Banner description={name} />
       <Image className="hero" fluid={mainImage.fluid} />
@@ -162,7 +164,7 @@ const projectTemplate = ({ data }) => {
         })}
       </ImageArea>
       <Contact />
-    </Layout>
+    </PageTransition>
   )
 }
 
