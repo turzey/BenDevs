@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-// import Layout from "../components/Layout"
+import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import Banner from "../components/Banner/Banner"
 import Image from "gatsby-image"
@@ -133,38 +133,40 @@ const projectTemplate = ({ data }) => {
   const [mainImage, ...projectImages] = images
 
   return (
-    <PageTransition>
-      <SEO title={name} description={excerpt} />
-      <Banner description={name} />
-      <Image className="hero" fluid={mainImage.fluid} />
-      <Container>
-        <GridContainer>
-          <Content>
-            {/* Render Contentful rich content here */}
-            {documentToReactComponents(json, options)}
-          </Content>
-          <Details>
-            <h2>Built using {technology}</h2>
-            <a
-              href={website}
-              className="btn"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Site
-            </a>
-          </Details>
-        </GridContainer>
-      </Container>
-      <ImageArea>
-        {projectImages.map((item, index) => {
-          return (
-            <Image className="gallery-item" key={index} fluid={item.fluid} />
-          )
-        })}
-      </ImageArea>
-      <Contact />
-    </PageTransition>
+    <Layout>
+      <PageTransition>
+        <SEO title={name} description={excerpt} />
+        <Banner description={name} />
+        <Image className="hero" fluid={mainImage.fluid} />
+        <Container>
+          <GridContainer>
+            <Content>
+              {/* Render Contentful rich content here */}
+              {documentToReactComponents(json, options)}
+            </Content>
+            <Details>
+              <h2>Built using {technology}</h2>
+              <a
+                href={website}
+                className="btn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Site
+              </a>
+            </Details>
+          </GridContainer>
+        </Container>
+        <ImageArea>
+          {projectImages.map((item, index) => {
+            return (
+              <Image className="gallery-item" key={index} fluid={item.fluid} />
+            )
+          })}
+        </ImageArea>
+        <Contact />
+      </PageTransition>
+    </Layout>
   )
 }
 

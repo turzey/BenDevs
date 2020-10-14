@@ -2,64 +2,56 @@ import React from "react"
 import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
 import { Link } from "gatsby"
+import Grid from "../Grid"
 import PropTypes from "prop-types"
 
 const Container = styled.section`
   padding-top: calc(var(--spacing) * 2.5);
-  padding-right: ${props =>
-    props.className === "align-right" ? "0" : `calc(var(--spacing) * 2.5)`};
+  padding-right: calc(var(--spacing) * 2.5);
   padding-bottom: calc(var(--spacing) * 2.5);
-  padding-left: ${props =>
-    props.className === "align-right" ? `calc(var(--spacing) * 2.5)` : "0"};
+  padding-left: calc(var(--spacing) * 2.5);
 
   @media (min-width: 768px) {
-    padding-left: ${props =>
-      props.className === "align-right" ? `calc(var(--spacing) * 4)` : "0"};
+    padding-right: calc(var(--spacing) * 4);
+    padding-left: calc(var(--spacing) * 4);
   }
 
   @media (min-width: 1200px) {
+    padding-right: calc(var(--spacing) * 5);
+    padding-left: calc(var(--spacing) * 5);
     padding-top: calc(var(--spacing) * 8);
-    padding-right: ${props =>
-      props.className === "align-right" ? "0" : `calc(var(--spacing) * 5)`};
     padding-bottom: calc(var(--spacing) * 8);
-    padding-left: ${props =>
-      props.className === "align-right" ? `calc(var(--spacing) * 5)` : "0"};
-  }
-`
-
-const GridContainer = styled.div`
-  width: 100%;
-  display: grid;
-  grid-gap: var(--spacing);
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto auto;
-
-  @media (min-width: 1200px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 15px;
   }
 `
 
 const ProjectDetails = styled.div`
+  border-top: 1px solid #fff;
+  padding-top: var(--spacing);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  grid-row: 1 / 2;
-  grid-column: ${props =>
-    props.className === "align-right" ? "1 / 4" : "2 / 5"};
+  grid-column: 1 / 6;
 
   @media (min-width: 768px) {
     grid-column: ${props =>
-      props.className === "align-right" ? "1 / 3" : "3 / 5"};
+      props.className === "align-right" ? "1 / 4" : "3 / 6"};
   }
 
   @media (min-width: 1200px) {
-    grid-column: 3 / 5;
+    grid-row: 1 / 2;
+    grid-column: ${props =>
+      props.className === "align-right" ? "1 / 3" : "4 / 6"};
+    border-top: 0;
+    padding-top: 0;
+    padding-left: ${props =>
+      props.className === "align-right" ? "0" : "calc(var(--spacing) * 2)"};
+    padding-right: ${props =>
+      props.className === "align-right" ? "calc(var(--spacing) * 2)" : "0"};
   }
 `
 
 const ProjectLink = styled(Link)`
-  font-size: var(--h3);
+  font-size: var(--logo);
   letter-spacing: -0.5px;
   font-weight: 700;
   margin-bottom: calc(var(--spacing) * 2);
@@ -73,22 +65,25 @@ const ProjectLink = styled(Link)`
 `
 
 const ProjectName = styled.h2`
-  font-size: var(--h1);
+  font-size: var(--hero);
   font-weight: 700;
   margin: 0 0 var(--spacing) 0;
   letter-spacing: -1.5px;
 `
 
 const ProjectExcerpt = styled.h3`
-  font-size: var(--h3);
+  font-size: var(--para);
   line-height: 1.3;
   margin: 0 0 calc(var(--spacing) * 2) 0;
   font-weight: 300;
+
+  @media (min-width: 1200px) {
+    font-size: var(--logo);
+  }
 `
 
 const ProjectImage = styled.div`
-  grid-column: 1 / 5;
-  grid-row: 2 / 3;
+  grid-column: 1 / 6;
   position: relative;
 
   &::before {
@@ -120,13 +115,10 @@ const ProjectImage = styled.div`
     bottom: 0;
   }
 
-  @media (min-width: 768px) {
-    grid-column: 1 / 5;
-  }
-
   @media (min-width: 1200px) {
+    grid-row: 1 / 2;
     grid-column: ${props =>
-      props.className === "align-right" ? "3 / 7" : "1 / 5"};
+      props.className === "align-right" ? "3 / 6" : "1 / 4"};
   }
 `
 
@@ -140,7 +132,7 @@ const Project = ({ item, className, prefix }) => {
   return (
     <>
       <Container className={className}>
-        <GridContainer>
+        <Grid>
           <ProjectDetails className={className}>
             <ProjectName>{name}</ProjectName>
             <ProjectExcerpt>{excerpt}</ProjectExcerpt>
@@ -151,7 +143,7 @@ const Project = ({ item, className, prefix }) => {
           <ProjectImage className={className}>
             <BackgroundImage fluid={projectImg} className="project-image" />
           </ProjectImage>
-        </GridContainer>
+        </Grid>
       </Container>
     </>
   )

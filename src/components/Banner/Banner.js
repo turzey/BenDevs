@@ -1,21 +1,8 @@
 import React from "react"
 import styled from "styled-components"
+import Grid from "../Grid"
 
 const HeroContainer = styled.div``
-
-const GridContainer = styled.div`
-  width: 100%;
-  display: grid;
-  grid-gap: var(--spacing);
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto auto;
-
-  @media (min-width: 1200px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto auto;
-    grid-gap: 15px;
-  }
-`
 
 const Container = styled.div`
   background-color: rgba(0, 0, 0, 0.65);
@@ -38,20 +25,15 @@ const Container = styled.div`
 `
 
 const TitleArea = styled.div`
-  grid-column: 1 / 5;
-  grid-row: 1 / 2;
+  grid-column: 1 / 6;
   z-index: 2;
   display: flex;
   align-items: center;
   @media (min-width: 768px) {
-    grid-column: 1 / 4;
-  }
-
-  @media (min-width: 1200px) {
     grid-column: 1 / 5;
   }
 
-  @media (min-width: 1800px) {
+  @media (min-width: 1200px) {
     grid-column: 1 / 4;
   }
 `
@@ -67,11 +49,11 @@ const Banner = ({ description }) => {
   return (
     <HeroContainer>
       <Container>
-        <GridContainer>
+        <Grid>
           <TitleArea>
             <HeroTitle>{description}</HeroTitle>
           </TitleArea>
-        </GridContainer>
+        </Grid>
       </Container>
     </HeroContainer>
   )

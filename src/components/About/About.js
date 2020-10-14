@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import Grid from "../Grid"
 
 const Container = styled.div`
   padding: calc(var(--spacing) * 2.5) calc(var(--spacing) * 2.5);
@@ -14,52 +15,44 @@ const Container = styled.div`
 `
 
 const TitleArea = styled.div`
-  grid-column: 2 / 5;
-  grid-row: 1 / 2;
-  z-index: 2;
+  grid-column: 1 / 6;
   display: flex;
   align-items: center;
 
   @media (min-width: 768px) {
-    grid-column: 3 / 5;
-  }
-
-  @media (min-width: 1200px) {
-    grid-column: 4 / 7;
-  }
-
-  @media (min-width: 1800px) {
-    grid-column: 4 / 7;
-  }
-`
-
-const GridContainer = styled.div`
-  width: 100%;
-  display: grid;
-  grid-gap: var(--spacing);
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto;
-
-  @media (min-width: 1200px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 15px;
+    grid-column: 3 / 6;
   }
 `
 
 const Title = styled.h2`
+  column-count: 2;
   margin-top: 0;
   margin-bottom: 0;
-  font-size: var(--h2);
+  font-size: var(--para);
   letter-spacing: -1px;
   color: rgba(255, 255, 255, 0.8);
-  font-weight: 300;
+  font-weight: 400;
+
+  a {
+    text-underline-position: under;
+    text-decoration-color: rgba(255, 255, 255, 0.35);
+    transition: text-decoration-color 0.75s ease;
+
+    &:hover {
+      text-decoration-color: rgba(255, 255, 255, 1);
+    }
+  }
+
+  @media (min-width: 1200px) {
+    font-size: var(--logo);
+  }
 `
 
 const About = ({ id }) => {
   return (
     <section id={id}>
       <Container>
-        <GridContainer>
+        <Grid>
           <TitleArea>
             <Title>
               Using{" "}
@@ -71,10 +64,14 @@ const About = ({ id }) => {
                 GatsbyJS
               </a>{" "}
               I have built, and continue to maintain, a number of open source
-              projects that are listed within their official starters library
+              projects that are listed within their official starters library.
+              These starter themes offer the perfect platform for aspiring
+              developers, and those looking to start a new business venture. The
+              sites offer an app-like experience in the way they deiliver
+              content, with a focus on speed.
             </Title>
           </TitleArea>
-        </GridContainer>
+        </Grid>
       </Container>
     </section>
   )

@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { Link } from "gatsby"
+// import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { motion } from "framer-motion"
 import menuItems from "../../constants/links"
 
@@ -99,9 +100,7 @@ const SideMenu = props => {
           {menuItems.map((item, index) => {
             return (
               <li key={index}>
-                <AniLink cover bg="var(--background)" to={item.path}>
-                  {item.text}
-                </AniLink>
+                <Link to={item.path}>{item.text}</Link>
               </li>
             )
           })}

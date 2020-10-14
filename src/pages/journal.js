@@ -7,6 +7,7 @@ import styled from "styled-components"
 import Button from "../components/Button/Button"
 import Banner from "../components/Banner/Banner"
 import PageTransition from "gatsby-v2-plugin-page-transitions"
+import Layout from "../components/Layout"
 
 const Container = styled.div`
   padding: 0 calc(var(--spacing) * 2.5);
@@ -91,36 +92,38 @@ const blog = ({ data }) => {
   const blogs = data.allMdx.edges
 
   return (
-    <PageTransition>
-      <SEO title="Development Journal" />
-      <Banner description="Random ramblings" />
-      <Container>
-        <GridContainer>
-          {blogs.map(({ node }) => {
-            if (node.frontmatter.slug) {
-              return (
-                <>
-                  <Content>
-                    <Title key={node.id}>{node.frontmatter.title}</Title>
-                    <p>
-                      <date datetime={node.frontmatter.date}>
-                        {node.frontmatter.date}
-                      </date>
-                    </p>
-                    <Button
-                      text="Read Article"
-                      link={`/journal/${node.frontmatter.slug}`}
-                      anilink={true}
-                    />
-                  </Content>
-                </>
-              )
-            } else return null
-          })}
-        </GridContainer>
-      </Container>
-      <Contact />
-    </PageTransition>
+    <Layout>
+      <PageTransition>
+        <SEO title="Development Journal" />
+        <Banner description="Random ramblings" />
+        <Container>
+          <GridContainer>
+            {blogs.map(({ node }) => {
+              if (node.frontmatter.slug) {
+                return (
+                  <>
+                    <Content>
+                      <Title key={node.id}>{node.frontmatter.title}</Title>
+                      <p>
+                        <date datetime={node.frontmatter.date}>
+                          {node.frontmatter.date}
+                        </date>
+                      </p>
+                      <Button
+                        text="Read Article"
+                        link={`/journal/${node.frontmatter.slug}`}
+                        anilink={true}
+                      />
+                    </Content>
+                  </>
+                )
+              } else return null
+            })}
+          </GridContainer>
+        </Container>
+        <Contact />
+      </PageTransition>
+    </Layout>
   )
 }
 

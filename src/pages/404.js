@@ -5,6 +5,7 @@ import { Link } from "gatsby"
 import SEO from "../components/SEO"
 import Contact from "../components/Contact"
 import Banner from "../components/Banner/Banner"
+import Layout from "../components/Layout"
 
 const Container = styled.div`
   padding: 0 calc(var(--spacing) * 2.5);
@@ -76,7 +77,7 @@ const Content = styled.div`
 
 const error = () => {
   return (
-    <>
+    <Layout>
       <SEO title="Error" />
       <Banner description="Page not found" />
 
@@ -95,7 +96,7 @@ const error = () => {
         </GridContainer>
       </Container>
       <Contact />
-    </>
+    </Layout>
   )
 }
 

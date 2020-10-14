@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { graphql } from "gatsby"
-// import Layout from "../components/Layout"
+import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Button from "../components/Button/Button"
@@ -106,35 +106,37 @@ export default function PageTemplate({ data }) {
   // const img = image.childImageSharp.fluid
 
   return (
-    <PageTransition>
-      <SEO title={title} description={description} />
-      <Banner description={title} />
+    <Layout>
+      <PageTransition>
+        <SEO title={title} description={description} />
+        <Banner description={title} />
 
-      <Container>
-        <GridContainer>
-          <Content>
-            <h2>Written by {author}</h2>
-            <PostDate>
-              Published on - <time datetime={date}>{date}</time>
-            </PostDate>
-            <article>
-              <MDXRenderer>{body}</MDXRenderer>
-            </article>
-          </Content>
-        </GridContainer>
-      </Container>
-      <Container>
-        <GridContainer>
-          <Content>
-            <Button
-              text="Back to Journal Home"
-              link="/journal"
-              anilink={true}
-            />
-          </Content>
-        </GridContainer>
-      </Container>
-    </PageTransition>
+        <Container>
+          <GridContainer>
+            <Content>
+              <h2>Written by {author}</h2>
+              <PostDate>
+                Published on - <time datetime={date}>{date}</time>
+              </PostDate>
+              <article>
+                <MDXRenderer>{body}</MDXRenderer>
+              </article>
+            </Content>
+          </GridContainer>
+        </Container>
+        <Container>
+          <GridContainer>
+            <Content>
+              <Button
+                text="Back to Journal Home"
+                link="/journal"
+                anilink={true}
+              />
+            </Content>
+          </GridContainer>
+        </Container>
+      </PageTransition>
+    </Layout>
   )
 }
 
