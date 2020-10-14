@@ -1,5 +1,5 @@
 import React from "react"
-// import Layout from "../components/Layout"
+import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import Contact from "../components/Contact"
 import styled from "styled-components"
@@ -76,27 +76,29 @@ const Content = styled.div`
 
 const Privacy = () => {
   return (
-    <PageTransition>
-      <SEO title="Privacy & Your Data" />
-      <Banner description="Privacy & your data" />
-      <Container>
-        <GridContainer>
-          <Content>
-            <p>
-              This site uses cookies, but only for the purpose of improving the
-              user experience. This site uses Google Analytics for the purpose
-              of understanding user behaviour and traffic numbers. Any data
-              processed by Google Analytics is anonymised.
-            </p>
-            <p>
-              Your email address will never be sent on to a marketing company
-              and will only be used to reply to correspondence.
-            </p>
-          </Content>
-        </GridContainer>
-      </Container>
-      <Contact />
-    </PageTransition>
+    <Layout>
+      <PageTransition>
+        <SEO title="Privacy & Your Data" />
+        <Banner description="Privacy & your data" />
+        <Container>
+          <GridContainer>
+            <Content>
+              <p>
+                This site uses cookies, but only for the purpose of improving
+                the user experience. This site uses Google Analytics for the
+                purpose of understanding user behaviour and traffic numbers. Any
+                data processed by Google Analytics is anonymised.
+              </p>
+              <p>
+                Your email address will never be sent on to a marketing company
+                and will only be used to reply to correspondence.
+              </p>
+            </Content>
+          </GridContainer>
+        </Container>
+        <Contact />
+      </PageTransition>
+    </Layout>
   )
 }
 

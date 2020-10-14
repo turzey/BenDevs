@@ -27,7 +27,8 @@ const GlobalStyle = createGlobalStyle`
   --paddingLarge: 4.688rem;
   --sansSerif: 'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   --spacing: 1rem;
-  --hero: 1.65rem;
+  /* --hero: 1.65rem; */
+  --hero: 6.5vw;
   --button: 1.15rem;
   --logo: 1.1rem;
 
@@ -39,7 +40,7 @@ const GlobalStyle = createGlobalStyle`
     --para: 1rem;
     --paddingStd: 4.688rem;
     --paddingLarge: 7.813rem;
-    --hero: 2.5rem;
+    --hero: 4.5vw;
     --button: 1.35rem;
     --logo: 1.25rem;
   }
@@ -51,7 +52,7 @@ const GlobalStyle = createGlobalStyle`
     --h2: 1.65rem;
     --paddingStd: 5.625rem;
     --paddingLarge: 9.375rem;
-    --hero: 3.5rem;
+    --hero: 3.5vw;
     --button: 1.6rem;
     --logo: 1.35rem;
   }

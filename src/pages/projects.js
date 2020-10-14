@@ -1,6 +1,6 @@
 import React from "react"
 import SEO from "../components/SEO"
-// import Layout from "../components/Layout"
+import Layout from "../components/Layout"
 import Contact from "../components/Contact"
 import { graphql } from "gatsby"
 import Banner from "../components/Banner/Banner"
@@ -11,20 +11,22 @@ const projects = ({ data }) => {
   const project = data.projects.edges
 
   return (
-    <PageTransition>
-      <SEO />
-      <Banner description="Recent Projects" />
-      {project.map(({ node }, i) => {
-        return (
-          <Project
-            key={i}
-            item={node}
-            className={i % 2 ? "align-left" : "align-right"}
-          />
-        )
-      })}
-      <Contact />
-    </PageTransition>
+    <Layout>
+      <PageTransition>
+        <SEO />
+        <Banner description="Recent Projects" />
+        {project.map(({ node }, i) => {
+          return (
+            <Project
+              key={i}
+              item={node}
+              className={i % 2 ? "align-left" : "align-right"}
+            />
+          )
+        })}
+        <Contact />
+      </PageTransition>
+    </Layout>
   )
 }
 

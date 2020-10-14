@@ -8,6 +8,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import SEO from "../components/SEO"
 import FullWidthImage from "../components/FullWidthImage/FullWidthImage"
 import PageTransition from "gatsby-v2-plugin-page-transitions"
+import Layout from "../components/Layout"
 
 const Index = () => {
   const queryResponse = useStaticQuery(data)
@@ -15,7 +16,7 @@ const Index = () => {
   const project = queryResponse.allContentfulProjects.edges
 
   return (
-    <>
+    <Layout>
       <PageTransition>
         <SEO title="Home" />
         <Hero>
@@ -50,7 +51,7 @@ const Index = () => {
         {/* <FeaturedProjects id="projects" /> */}
         <Contact />
       </PageTransition>
-    </>
+    </Layout>
   )
 }
 
