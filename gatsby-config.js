@@ -39,7 +39,7 @@ module.exports = {
     {
       resolve: `gatsby-v2-plugin-page-transitions`,
       options: {
-        transitionTime: 3500,
+        transitionTime: 2000,
       },
     },
     {
