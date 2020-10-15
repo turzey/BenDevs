@@ -1,7 +1,7 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import Grid from "../components/Grid"
 import socialLinks from "../constants/socials"
 
 const Container = styled.div`
@@ -13,18 +13,6 @@ const Container = styled.div`
 
   @media (min-width: 1200px) {
     padding: calc(var(--spacing) * 7.5) calc(var(--spacing) * 5);
-  }
-`
-
-const GridContainer = styled.div`
-  width: 100%;
-  display: grid;
-  grid-gap: 15px;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto auto;
-
-  @media (min-width: 768px) {
-    grid-template-rows: auto;
   }
 `
 
@@ -43,7 +31,7 @@ const Social = styled.li`
   a {
     color: #777;
     text-decoration: none;
-    transition: color 0.75s;
+    transition: color 0.75s ease;
 
     &:hover {
       color: #fff;
@@ -52,8 +40,8 @@ const Social = styled.li`
 `
 
 const Copyright = styled.div`
-  grid-column: 1 / 5;
-  margin-bottom: 0.25rem;
+  grid-column: 1 / 3;
+  margin-bottom: 0;
   font-weight: 700;
   letter-spacing: -1px;
   color: #777;
@@ -62,38 +50,29 @@ const Copyright = styled.div`
     font-size: var(--para);
     color: #777;
     text-decoration: none;
-    transition: color 0.75s;
+    transition: color 0.75s ease;
 
     &:hover {
       color: #fff;
     }
   }
-
-  @media (min-width: 768px) {
-    grid-column: 1 / 3;
-    margin-bottom: 0;
-  }
 `
 
 const Privacy = styled.div`
-  grid-column: 1 / 5;
+  grid-column: 3 / 6;
   letter-spacing: -1px;
+  text-align: right;
 
   a {
     text-decoration: none;
     color: #777;
-    transition: color 0.75s;
+    transition: color 0.75s ease;
     font-size: var(--para);
     font-weight: 700;
 
     &:hover {
       color: #fff;
     }
-  }
-
-  @media (min-width: 768px) {
-    grid-column: 3 / 6;
-    text-align: right;
   }
 `
 
@@ -113,7 +92,7 @@ const Footer = () => {
   return (
     <>
       <Container>
-        <GridContainer>
+        <Grid>
           <Socials>
             {socialLinks.map(item => (
               <Social>
@@ -134,11 +113,9 @@ const Footer = () => {
             </a>
           </Copyright>
           <Privacy>
-            <AniLink cover bg="var(--background)" to="/privacy">
-              Privacy & Your Data
-            </AniLink>
+            <Link to="/privacy">Privacy & Your Data</Link>
           </Privacy>
-        </GridContainer>
+        </Grid>
       </Container>
     </>
   )

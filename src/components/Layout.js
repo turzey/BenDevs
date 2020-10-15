@@ -52,7 +52,7 @@ const GlobalStyle = createGlobalStyle`
     --h2: 1.65rem;
     --paddingStd: 5.625rem;
     --paddingLarge: 9.375rem;
-    --hero: 3.5vw;
+    --hero: 3.25rem;
     --button: 1.6rem;
     --logo: 1.35rem;
   }
