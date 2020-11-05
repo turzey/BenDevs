@@ -200,7 +200,7 @@ const Layout = ({ children }) => {
         location="bottom"
         buttonText="Accept"
         declineButtonText="Decline"
-        cookieName="morgan-baker-google-analytics"
+        cookieName="beni-dibatia-google-analytics"
       >
         This site uses cookies
       </CookieConsent>
