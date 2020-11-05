@@ -105,7 +105,7 @@ const Footer = () => {
           <Copyright>
             &copy; {new Date().getFullYear()}{" "}
             <a
-              href="https://www.linkedin.com/in/morgan-baker-developer-inverness/"
+              href="https://www.linkedin.com/in/beni-dibatia-0ab7a7133/"
               target="_blank"
               rel="noopener noreferrer"
             >
