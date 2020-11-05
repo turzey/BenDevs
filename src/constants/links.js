@@ -1,7 +1,7 @@
 export default [
   {
     path: "/projects",
-    text: "recent projects",
+    text: " projects",
   },
   {
     path: "/about",
@@ -9,6 +9,6 @@ export default [
   },
   {
     path: "/journal",
-    text: "random ramblings",
+    text: "Blog",
   },
 ]
