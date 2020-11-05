@@ -48,8 +48,8 @@ const Contact = () => {
       <Container>
         <Grid>
           <TitleArea>All enquiries</TitleArea>
-          <ContactLink href="mailto:hello@morganbaker.dev">
-            hello@morganbaker.dev
+          <ContactLink href="mailto:benidibatia@gmail.com">
+           benidibatia@gmail.com 
           </ContactLink>
         </Grid>
       </Container>
