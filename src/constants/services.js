@@ -5,15 +5,15 @@ import { DiJsBadge, DiGithubFull } from "react-icons/di"
 export default [
   {
     logo: <DiJsBadge />,
-    title: "JS Frameworks",
+    title: "Web Development",
     text:
-      "Working with the React framework and utilising the static-site generator Gatsby to develop modern web applications.",
+      "Working with JavaScript, WordPress , the React framework and utilising the static-site generator Gatsby to develop modern web applications.",
   },
   {
     logo: <DiGithubFull />,
     title: "Open Source Contributor",
     text:
-      "Contributing to, and maintaining a number of open--source themes available on the GatsbyJS starter library.",
+      "Contributing to, and maintaining a number of open--source projects.",
   },
   {
     logo: <FaWordpress />,
