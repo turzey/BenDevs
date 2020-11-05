@@ -85,36 +85,23 @@ const About = () => {
           <GridContainer>
             <Content>
               <p>
-                I'm a frontend web developer with 5+years of agency-based
-                employment working in Inverness for projects across Scotland.
-                Working in a professional capacity with WordPress/PHP,
+                I'm a frontend web developer Working with WordPress/PHP,
                 developing bespoke websites that focus on design and fast
                 speeds. On personal projects using the Javascript library React
                 through the GatsbyJS framework.
               </p>
               <p>
-                Professional projects that I have worked on include major timber
-                suppliers and luxury accommodation providers across Scotland. At
-                home, I have developed and maintain several themes that are
-                listed on the Gatsby Starter Library under an open-source
-                licence.
+                Projects that I have worked on include Cleanathon, which is 
+                an application that aims to mitigate the impact of illegal dumping 
+                in cyprus, I am  developing several side projects that are
+                listed on the Project section.
               </p>
               <p>
-                To improve as a developer I am also undertaking a BSc in
-                Computing & IT(Software) through the Open University, having
-                completed 90 credits of a 360 credit degree. Overall, it will
-                give me a more complete understanding of OOP, Python, Java, as
-                well as mathematics. Previously I completed an HND in
-                Interactive Media through the UHI in Elgin which covered
-                elements of design and development.
+                To improve as a developer I am also undertaking online classes
+                .Previously I completed a Higher Diploma degree in Wweb and 
+                Mobile applications development.
               </p>
-              <p>
-                I moved into web development after leaving the Royal Navy in
-                2009 after serving 5 years as an aircraft mechanic where I spent
-                time at RNAS Culdrose and part of the ship's company of HMS
-                Ocean, travelling to the Arctic Circle, Caribbean, and central
-                Africa.
-              </p>
+              
             </Content>
           </GridContainer>
         </Container>
