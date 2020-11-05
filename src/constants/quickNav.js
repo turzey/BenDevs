@@ -4,7 +4,7 @@ import { VscMail, VscHome } from "react-icons/vsc"
 export default [
   {
     icon: <VscMail />,
-    path: "mailto:hello@morganbaker.dev",
+    path: "mailto:benidibatia@gmail.com",
   },
   {
     icon: <VscHome />,
