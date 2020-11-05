@@ -63,12 +63,9 @@ const About = ({ id }) => {
               >
                 GatsbyJS
               </a>{" "}
-              I have built, and continue to maintain, a number of open source
-              projects that are listed within their official starters library.
-              These starter themes offer the perfect platform for aspiring
-              developers, and those looking to start a new business venture. The
-              sites offer an app-like experience in the way they deiliver
-              content, with a focus on speed.
+              ,JavaScript, Boostrap, WordPress, PHP
+              I have built, and continue to maintain, a number of
+              projects.
             </Title>
           </TitleArea>
         </Grid>
