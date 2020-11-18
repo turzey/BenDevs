@@ -1,18 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1"
-	 id="Layer_1" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px"
-	 viewBox="579.275 404.945 32 32" enable-background="new 579.275 404.945 32 32" xml:space="preserve">
-<g>
-	<g transform="translate(0,-952.36218)">
-		<path d="M594.63,1357.519l-14.222,10.667c-0.263,0.199-0.424,0.526-0.422,0.855v19.2c0,0.559,0.508,1.066,1.067,1.066h9.6
-			c0.559,0,1.067-0.508,1.067-1.066v-8.889h7.111v8.889c0,0.559,0.508,1.066,1.066,1.066h9.6c0.559,0,1.067-0.508,1.067-1.066v-19.2
-			c0-0.33-0.16-0.656-0.423-0.855l-14.222-10.667C595.453,1357.224,595.047,1357.251,594.63,1357.519L594.63,1357.519z
-			 M595.275,1359.708l13.155,9.867v17.6h-7.467v-8.889c0-0.559-0.508-1.066-1.066-1.066h-9.245c-0.558,0-1.066,0.508-1.066,1.066
-			v8.889h-7.467v-17.6L595.275,1359.708z"/>
-	</g>
-	<rect x="579.275" y="404.946" fill="none" width="32" height="32"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" width="32" height="32" x="0" y="0" enable-background="new 579.275 404.945 32 32" version="1.1" viewBox="579.275 404.945 32 32" xml:space="preserve"><g><g><path d="M594.63,1357.519l-14.222,10.667c-0.263,0.199-0.424,0.526-0.422,0.855v19.2c0,0.559,0.508,1.066,1.067,1.066h9.6 c0.559,0,1.067-0.508,1.067-1.066v-8.889h7.111v8.889c0,0.559,0.508,1.066,1.066,1.066h9.6c0.559,0,1.067-0.508,1.067-1.066v-19.2 c0-0.33-0.16-0.656-0.423-0.855l-14.222-10.667C595.453,1357.224,595.047,1357.251,594.63,1357.519L594.63,1357.519z M595.275,1359.708l13.155,9.867v17.6h-7.467v-8.889c0-0.559-0.508-1.066-1.066-1.066h-9.245c-0.558,0-1.066,0.508-1.066,1.066 v8.889h-7.467v-17.6L595.275,1359.708z" transform="translate(0,-952.36218)"/></g><rect width="32" height="32" x="579.275" y="404.946" fill="none"/></g></svg>
